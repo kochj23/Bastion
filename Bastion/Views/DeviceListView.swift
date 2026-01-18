@@ -21,11 +21,11 @@ struct DeviceListView: View {
     var sortedDevices: [Device] {
         switch sortBy {
         case .ip:
-            return networkScanner.discoveredDevices.sorted { $0.ip < $1.ip }
+            return networkScanner.discoveredDevices.sorted { $0.ipAddress < $1.ipAddress }
         case .hostname:
             return networkScanner.discoveredDevices.sorted { ($0.hostname ?? "") < ($1.hostname ?? "") }
         case .vulnerability:
-            return networkScanner.discoveredDevices.sorted { ($0.vulnerabilities?.count ?? 0) > ($1.vulnerabilities?.count ?? 0) }
+            return networkScanner.discoveredDevices.sorted { $0.vulnerabilities.count > $1.vulnerabilities.count }
         case .securityScore:
             return networkScanner.discoveredDevices.sorted { $0.securityScore < $1.securityScore }
         }
@@ -101,7 +101,7 @@ struct DeviceRow: View {
             // Device info
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
-                    Text(device.ip)
+                    Text(device.ipAddress)
                         .font(.system(.headline, design: .monospaced))
                         .foregroundColor(.white)
 
@@ -113,7 +113,7 @@ struct DeviceRow: View {
                 }
 
                 HStack(spacing: 12) {
-                    if let os = device.osGuess {
+                    if let os = device.operatingSystem {
                         Label(os, systemImage: "desktopcomputer")
                             .font(.caption)
                             .foregroundColor(.secondary)
@@ -123,11 +123,9 @@ struct DeviceRow: View {
                         .font(.caption)
                         .foregroundColor(.secondary)
 
-                    if let vulns = device.vulnerabilities {
-                        Label("\(vulns.count) vulns", systemImage: "exclamationmark.triangle")
-                            .font(.caption)
-                            .foregroundColor(vulns.isEmpty ? .green : .red)
-                    }
+                    Label("\(device.vulnerabilities.count) vulns", systemImage: "exclamationmark.triangle")
+                        .font(.caption)
+                        .foregroundColor(device.vulnerabilities.isEmpty ? .green : .red)
                 }
             }
 

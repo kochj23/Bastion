@@ -43,39 +43,7 @@ struct AttackResult: Identifiable, Codable {
     }
 }
 
-enum AttackType: String, Codable, CaseIterable {
-    case networkScan = "Network Scan"
-    case portScan = "Port Scan"
-    case serviceFingerprint = "Service Detection"
-    case sshBruteForce = "SSH Brute Force"
-    case defaultCredentials = "Default Credentials Test"
-    case sqlInjection = "SQL Injection"
-    case xss = "Cross-Site Scripting"
-    case directoryTraversal = "Directory Traversal"
-    case smbExploit = "SMB Exploit"
-    case cveExploit = "CVE Exploit"
-    case webVulnScan = "Web Vulnerability Scan"
-    case passwordSpray = "Password Spray"
-    case apiTest = "API Security Test"
-
-    var icon: String {
-        switch self {
-        case .networkScan: return "🔍"
-        case .portScan: return "🎯"
-        case .serviceFingerprint: return "🔎"
-        case .sshBruteForce: return "🔐"
-        case .defaultCredentials: return "🔑"
-        case .sqlInjection: return "💉"
-        case .xss: return "⚠️"
-        case .directoryTraversal: return "📁"
-        case .smbExploit: return "💾"
-        case .cveExploit: return "💣"
-        case .webVulnScan: return "🌐"
-        case .passwordSpray: return "💧"
-        case .apiTest: return "🔗"
-        }
-    }
-}
+// AttackType enum moved to AIAttackOrchestrator.swift to avoid duplication
 
 enum AttackStatus: String, Codable {
     case pending = "Pending"
@@ -97,50 +65,8 @@ enum AttackStatus: String, Codable {
     }
 }
 
-struct AttackPlan: Identifiable {
-    let id: UUID
-    var targetDevice: Device
-    var recommendedAttacks: [AttackRecommendation]
-    var aiAnalysis: String
-    var priorityScore: Int // 0-100
-    var estimatedDuration: TimeInterval
-
-    init(targetDevice: Device) {
-        self.id = UUID()
-        self.targetDevice = targetDevice
-        self.recommendedAttacks = []
-        self.aiAnalysis = ""
-        self.priorityScore = 0
-        self.estimatedDuration = 0
-    }
-}
-
-struct AttackRecommendation: Identifiable {
-    let id: UUID
-    let attackType: AttackType
-    let reason: String
-    let successProbability: Double // 0.0 - 1.0
-    let riskLevel: RiskLevel
-    let estimatedDuration: TimeInterval
-    var payload: String?
-
-    init(attackType: AttackType, reason: String, successProbability: Double) {
-        self.id = UUID()
-        self.attackType = attackType
-        self.reason = reason
-        self.successProbability = successProbability
-        self.riskLevel = successProbability > 0.7 ? .high : (successProbability > 0.4 ? .medium : .low)
-        self.estimatedDuration = 60 // Default 1 minute
-        self.payload = nil
-    }
-}
-
-enum RiskLevel: String {
-    case low = "Low"
-    case medium = "Medium"
-    case high = "High"
-    case critical = "Critical"
-}
+// AttackPlan and AttackRecommendation moved to AIAttackOrchestrator.swift to avoid duplication
+// RiskLevel moved to Device.swift
 
 struct ScanResults: Codable {
     var devices: [Device]

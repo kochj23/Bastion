@@ -17,11 +17,15 @@ class NetworkScanner: ObservableObject {
     @Published var scanProgress: Double = 0
     @Published var currentScanTarget: String = ""
     @Published var scanLog: [String] = []
+    @Published var comprehensiveTestingEnabled = true // Enable comprehensive testing
 
     private let commonPorts = [
         21, 22, 23, 25, 53, 80, 110, 111, 135, 139, 143, 443, 445, 993,
         995, 1723, 3306, 3389, 5432, 5900, 8080, 8443, 8888
     ]
+
+    // Comprehensive tester will be added when project file is fixed
+    // private let comprehensiveTester = ComprehensiveDeviceTester()
 
     // Scan network for devices
     func scanNetwork(cidr: String) async throws {
@@ -47,6 +51,17 @@ class NetworkScanner: ObservableObject {
                 // Port scan
                 let openPorts = await scanPorts(ip: ip, ports: commonPorts)
                 device.openPorts = openPorts
+
+                // 🔥 COMPREHENSIVE TESTING: Test EVERYTHING on this device
+                // TODO: Re-enable after adding ComprehensiveDeviceTester.swift to Xcode project
+                // if comprehensiveTestingEnabled {
+                //     addLog("→ Running comprehensive security tests on \(ip)...")
+                //     let report = await comprehensiveTester.runComprehensiveTests(on: &device)
+                //     addLog("✓ Comprehensive tests complete: \(device.vulnerabilities.count) vulnerabilities found")
+                // }
+
+                // For now, run basic comprehensive checks inline
+                await runBasicComprehensiveChecks(device: &device)
 
                 discoveredDevices.append(device)
             }
@@ -234,7 +249,7 @@ class NetworkScanner: ObservableObject {
     }
 
     // Get service name for common ports
-    private func serviceForPort(_ port: Int) -> String? {
+    nonisolated private func serviceForPort(_ port: Int) -> String? {
         let services: [Int: String] = [
             21: "FTP",
             22: "SSH",
@@ -256,6 +271,139 @@ class NetworkScanner: ObservableObject {
             8443: "HTTPS-Alt"
         ]
         return services[port]
+    }
+
+    /// Run comprehensive security checks on discovered device
+    private func runBasicComprehensiveChecks(device: inout Device) async {
+        addLog("  → Running comprehensive checks on \(device.ipAddress)...")
+
+        // Service fingerprinting for each open port
+        for i in 0..<device.openPorts.count {
+            let port = device.openPorts[i].port
+            if let service = serviceForPort(port) {
+                device.openPorts[i].service = service
+                addLog("    • Port \(port): \(service)")
+
+                // Create service info
+                let serviceInfo = ServiceInfo(name: service, version: nil, port: port)
+                device.services.append(serviceInfo)
+            }
+        }
+
+        // Check for critical vulnerabilities based on open ports
+        await checkCriticalPorts(device: &device)
+
+        // OS detection based on services
+        detectOperatingSystem(device: &device)
+
+        // Calculate security score
+        device.updateSecurityScore()
+
+        addLog("  ✓ Checks complete: \(device.vulnerabilities.count) issues, score: \(device.securityScore)/100")
+    }
+
+    /// Check for critically vulnerable ports
+    private func checkCriticalPorts(device: inout Device) async {
+        // Telnet (23) - Unencrypted, should never be used
+        if device.openPorts.contains(where: { $0.port == 23 }) {
+            let vuln = Vulnerability(
+                title: "Telnet Service Detected",
+                description: "Telnet transmits all data including passwords in cleartext. This is a critical security risk.",
+                severity: .critical,
+                cveId: nil
+            )
+            device.vulnerabilities.append(vuln)
+            addLog("    🚨 CRITICAL: Telnet detected (port 23) - Unencrypted!")
+        }
+
+        // SMB (445) - Check for SMBv1/EternalBlue
+        if device.openPorts.contains(where: { $0.port == 445 }) {
+            let vuln = Vulnerability(
+                title: "SMB Service Exposed",
+                description: "SMB service is accessible. Verify SMBv1 is disabled to prevent EternalBlue exploitation (MS17-010).",
+                severity: .high,
+                cveId: "CVE-2017-0144"
+            )
+            device.vulnerabilities.append(vuln)
+            addLog("    ⚠️  HIGH: SMB exposed (port 445) - Verify SMBv1 disabled")
+        }
+
+        // FTP (21) - Unencrypted file transfer
+        if device.openPorts.contains(where: { $0.port == 21 }) {
+            let vuln = Vulnerability(
+                title: "FTP Service Detected",
+                description: "FTP transmits credentials and data in cleartext. Use SFTP or FTPS instead.",
+                severity: .medium,
+                cveId: nil
+            )
+            device.vulnerabilities.append(vuln)
+            addLog("    ⚠️  MEDIUM: FTP detected (port 21) - Use SFTP instead")
+        }
+
+        // RDP (3389) - Common attack target
+        if device.openPorts.contains(where: { $0.port == 3389 }) {
+            let vuln = Vulnerability(
+                title: "RDP Service Exposed",
+                description: "RDP is exposed to the network. Ensure strong passwords and consider VPN access only. Vulnerable to BlueKeep (CVE-2019-0708).",
+                severity: .high,
+                cveId: "CVE-2019-0708"
+            )
+            device.vulnerabilities.append(vuln)
+            addLog("    ⚠️  HIGH: RDP exposed (port 3389) - BlueKeep risk")
+        }
+
+        // VNC (5900) - Often has weak/no passwords
+        if device.openPorts.contains(where: { $0.port == 5900 }) {
+            let vuln = Vulnerability(
+                title: "VNC Service Detected",
+                description: "VNC is accessible. Verify authentication is enabled and strong.",
+                severity: .medium,
+                cveId: nil
+            )
+            device.vulnerabilities.append(vuln)
+            addLog("    ⚠️  MEDIUM: VNC detected (port 5900) - Check authentication")
+        }
+
+        // Database ports exposed to network
+        let dbPorts = [3306, 5432, 1433, 27017, 6379]
+        for dbPort in dbPorts where device.openPorts.contains(where: { $0.port == dbPort }) {
+            let dbName = serviceForPort(dbPort) ?? "Database"
+            let vuln = Vulnerability(
+                title: "\(dbName) Exposed to Network",
+                description: "\(dbName) is accessible from the network. Databases should only be accessible from application servers, not directly exposed.",
+                severity: .high,
+                cveId: nil
+            )
+            device.vulnerabilities.append(vuln)
+            addLog("    ⚠️  HIGH: \(dbName) exposed (port \(dbPort)) - Restrict access")
+        }
+    }
+
+    /// Detect operating system based on services
+    private func detectOperatingSystem(device: inout Device) {
+        // Windows indicators
+        if device.openPorts.contains(where: { $0.port == 445 || $0.port == 3389 || $0.port == 135 }) {
+            device.operatingSystem = "Windows"
+            device.deviceType = .workstation
+            addLog("    💻 OS: Windows detected")
+        }
+        // Linux/Unix indicators
+        else if device.openPorts.contains(where: { $0.port == 22 }) {
+            device.operatingSystem = "Linux/Unix"
+            device.deviceType = device.openPorts.count > 5 ? .server : .workstation
+            addLog("    💻 OS: Linux/Unix detected")
+        }
+        // Router indicators
+        else if device.openPorts.contains(where: { $0.port == 23 || $0.port == 80 }) &&
+                device.openPorts.count <= 3 {
+            device.operatingSystem = "Network Device"
+            device.deviceType = .router
+            addLog("    💻 Device: Router/Network appliance")
+        }
+        else {
+            device.operatingSystem = "Unknown"
+            addLog("    💻 OS: Unknown")
+        }
     }
 
     private func addLog(_ message: String) {

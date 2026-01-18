@@ -26,7 +26,7 @@ struct BastionApp: App {
                     .environmentObject(aiOrchestrator)
                     .frame(minWidth: 1200, minHeight: 800)
             } else {
-                LegalWarningView(accepted: $legalAccepted, showWarning: $showWarning)
+                LegalWarningView(accepted: $legalAccepted, showWarning: $showLegalWarning)
             }
         }
         .windowStyle(.hiddenTitleBar)

@@ -8,6 +8,23 @@
 //
 
 import Foundation
+import SwiftUI
+
+enum RiskLevel: String, Codable {
+    case low = "Low"
+    case medium = "Medium"
+    case high = "High"
+    case critical = "Critical"
+
+    var color: Color {
+        switch self {
+        case .low: return .green
+        case .medium: return .yellow
+        case .high: return .orange
+        case .critical: return .red
+        }
+    }
+}
 
 struct Device: Identifiable, Codable {
     let id: UUID
@@ -60,6 +77,18 @@ struct Device: Identifiable, Codable {
         vulnerabilities.filter { $0.severity == .low }.count
     }
 
+    var riskLevel: RiskLevel {
+        if criticalVulnCount > 0 {
+            return .critical
+        } else if highVulnCount > 0 {
+            return .high
+        } else if mediumVulnCount > 0 {
+            return .medium
+        } else {
+            return .low
+        }
+    }
+
     mutating func updateSecurityScore() {
         var score = 100
         score -= criticalVulnCount * 20
@@ -99,15 +128,15 @@ enum DeviceType: String, Codable {
 struct OpenPort: Identifiable, Codable {
     let id: UUID
     let port: Int
-    let protocol: PortProtocol
+    let portProtocol: PortProtocol
     var state: PortState
     var service: String?
     var version: String?
 
-    init(port: Int, protocol: PortProtocol = .tcp) {
+    init(port: Int, portProtocol: PortProtocol = .tcp) {
         self.id = UUID()
         self.port = port
-        self.protocol = `protocol`
+        self.portProtocol = portProtocol
         self.state = .open
         self.service = nil
         self.version = nil
@@ -127,7 +156,7 @@ enum PortState: String, Codable {
 
 struct ServiceInfo: Identifiable, Codable {
     let id: UUID
-    let name: String
+    var name: String
     var version: String?
     var banner: String?
     let port: Int

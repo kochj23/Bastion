@@ -12,10 +12,10 @@ import Foundation
 struct CVE: Identifiable, Codable {
     let id: String // CVE-2024-1234
     let description: String
-    let publishedDate: Date
-    let lastModifiedDate: Date
+    var publishedDate: Date
+    var lastModifiedDate: Date
     let cvssScore: Double
-    let cvssVector: String?
+    var cvssVector: String?
     var severity: VulnerabilitySeverity
     var affectedProducts: [String]
     var references: [String]
@@ -53,7 +53,7 @@ struct Vulnerability: Identifiable, Codable {
     let title: String
     let description: String
     let severity: VulnerabilitySeverity
-    let cvssScore: Double?
+    var cvssScore: Double?
     var exploitAvailable: Bool
     var proofOfConcept: String?
     var remediation: String?

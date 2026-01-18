@@ -17,6 +17,8 @@ struct DashboardView: View {
     @State private var networkCIDR = "192.168.1.0/24"
     @State private var isScanning = false
     @State private var showSettings = false
+    @State private var selectedDevice: Device?
+    @State private var showDeviceDetail = false
 
     var body: some View {
         ScrollView {
@@ -34,6 +36,11 @@ struct DashboardView: View {
                 recentActivityCard
             }
             .padding()
+        }
+        .sheet(isPresented: $showDeviceDetail) {
+            if let device = selectedDevice {
+                DeviceDetailView(device: device, isPresented: $showDeviceDetail)
+            }
         }
     }
 
@@ -139,11 +146,19 @@ struct DashboardView: View {
         }
     }
 
-    // Network map card
+    // Network map card - GRID OF DEVICES IN ROWS
     private var networkMapCard: some View {
         VStack(alignment: .leading, spacing: 15) {
-            Text("Network Map")
-                .modernHeader(size: .medium)
+            HStack {
+                Text("Discovered Devices")
+                    .modernHeader(size: .medium)
+
+                Spacer()
+
+                Text("\(networkScanner.discoveredDevices.count) devices")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(ModernColors.accent)
+            }
 
             if networkScanner.discoveredDevices.isEmpty {
                 VStack(spacing: 10) {
@@ -161,11 +176,26 @@ struct DashboardView: View {
                 .frame(maxWidth: .infinity)
                 .padding(40)
             } else {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 15) {
-                        ForEach(networkScanner.discoveredDevices) { device in
-                            DeviceCard(device: device)
-                        }
+                // GRID LAYOUT - 3 columns of devices
+                let columns = [
+                    GridItem(.flexible(), spacing: 15),
+                    GridItem(.flexible(), spacing: 15),
+                    GridItem(.flexible(), spacing: 15)
+                ]
+
+                LazyVGrid(columns: columns, spacing: 15) {
+                    ForEach(networkScanner.discoveredDevices) { device in
+                        DeviceCard(device: device)
+                            .frame(height: 180)
+                            .onTapGesture {
+                                selectedDevice = device
+                                showDeviceDetail = true
+                            }
+                            .shadow(color: device.riskLevel.color.opacity(0.3), radius: 10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                            )
                     }
                 }
             }
@@ -278,66 +308,116 @@ struct StatCard: View {
     }
 }
 
-// Device card component
+// Device card component - Enhanced for grid display
 struct DeviceCard: View {
     let device: Device
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 8) {
+            // Header with device type and online status
             HStack {
                 Image(systemName: device.deviceType.icon)
-                    .font(.system(size: 24))
+                    .font(.system(size: 20))
                     .foregroundColor(deviceColor)
 
                 Spacer()
 
+                // Risk level badge
+                Text(device.riskLevel.rawValue.uppercased())
+                    .font(.system(size: 8, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(
+                        RoundedRectangle(cornerRadius: 4)
+                            .fill(device.riskLevel.color)
+                    )
+
                 Circle()
                     .fill(device.isOnline ? Color.green : Color.red)
-                    .frame(width: 10, height: 10)
+                    .frame(width: 8, height: 8)
             }
 
+            // Device name
             Text(device.displayName)
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: 13, weight: .semibold))
                 .foregroundColor(.white)
                 .lineLimit(1)
 
+            // IP Address
             Text(device.ipAddress)
-                .font(.system(size: 12))
+                .font(.system(size: 11, design: .monospaced))
                 .foregroundColor(ModernColors.textSecondary)
 
+            // OS if detected
+            if let os = device.operatingSystem {
+                HStack(spacing: 4) {
+                    Image(systemName: "desktopcomputer")
+                        .font(.system(size: 9))
+                    Text(os)
+                        .font(.system(size: 9))
+                }
+                .foregroundColor(ModernColors.textTertiary)
+            }
+
             Divider()
+                .background(Color.white.opacity(0.1))
 
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Ports: \(device.openPorts.count)")
-                        .font(.system(size: 10))
-                        .foregroundColor(ModernColors.textSecondary)
+            // Stats row
+            HStack(spacing: 12) {
+                // Ports
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("\(device.openPorts.count)")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundColor(.white)
+                    Text("Ports")
+                        .font(.system(size: 8))
+                        .foregroundColor(ModernColors.textTertiary)
+                }
 
-                    Text("Vulns: \(device.vulnerabilities.count)")
-                        .font(.system(size: 10))
+                Divider()
+                    .frame(height: 30)
+                    .background(Color.white.opacity(0.1))
+
+                // Vulnerabilities
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("\(device.vulnerabilities.count)")
+                        .font(.system(size: 16, weight: .bold))
                         .foregroundColor(device.vulnerabilities.isEmpty ? ModernColors.statusLow : ModernColors.statusCritical)
+                    Text("Vulns")
+                        .font(.system(size: 8))
+                        .foregroundColor(ModernColors.textTertiary)
                 }
 
                 Spacer()
 
-                CircularGauge(
-                    value: Double(device.securityScore),
-                    color: ModernColors.heatColor(percentage: Double(100 - device.securityScore)),
-                    size: 50,
-                    lineWidth: 4,
-                    showValue: true
-                )
+                // Security score
+                ZStack {
+                    Circle()
+                        .stroke(Color.white.opacity(0.1), lineWidth: 3)
+                        .frame(width: 40, height: 40)
+
+                    Circle()
+                        .trim(from: 0, to: CGFloat(device.securityScore) / 100.0)
+                        .stroke(scoreColor, lineWidth: 3)
+                        .frame(width: 40, height: 40)
+                        .rotationEffect(.degrees(-90))
+
+                    Text("\(device.securityScore)")
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundColor(.white)
+                }
             }
         }
-        .frame(width: 200)
-        .padding()
+        .padding(12)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: 12)
                 .fill(Color.white.opacity(0.05))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(deviceColor.opacity(0.3), lineWidth: 1)
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(deviceColor.opacity(0.4), lineWidth: 2)
                 )
+                .shadow(color: deviceColor.opacity(0.2), radius: 8)
         )
     }
 
@@ -350,97 +430,27 @@ struct DeviceCard: View {
             return ModernColors.statusLow
         }
     }
-}
 
-// Settings view
-struct SettingsView: View {
-    @EnvironmentObject var cveDatabase: CVEDatabase
-
-    var body: some View {
-        TabView {
-            AIBackendSettingsView()
-                .tabItem {
-                    Label("AI Backend", systemImage: "cpu")
-                }
-
-            CVEDatabaseSettingsView()
-                .tabItem {
-                    Label("CVE Database", systemImage: "doc.text")
-                }
+    private var scoreColor: Color {
+        if device.securityScore >= 80 {
+            return .green
+        } else if device.securityScore >= 60 {
+            return .yellow
+        } else if device.securityScore >= 40 {
+            return .orange
+        } else {
+            return .red
         }
-        .frame(width: 600, height: 500)
     }
 }
 
-// CVE Database settings
-struct CVEDatabaseSettingsView: View {
-    @ObservedObject var cveDatabase = CVEDatabase.shared
+// SettingsView is defined in SettingsView.swift
 
-    var body: some View {
-        VStack(spacing: 20) {
-            Text("CVE Database")
-                .font(.title)
-
-            if cveDatabase.totalCVEs > 0 {
-                Text("\(cveDatabase.totalCVEs) CVEs loaded")
-                    .foregroundColor(.green)
-
-                if let lastUpdate = cveDatabase.lastUpdate {
-                    Text("Last updated: \(lastUpdate.formatted())")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-            } else {
-                Text("CVE database not downloaded")
-                    .foregroundColor(.orange)
-            }
-
-            if cveDatabase.isDownloading {
-                VStack {
-                    ProgressView(value: cveDatabase.downloadProgress)
-                        .frame(width: 300)
-
-                    Text("Downloading... \(Int(cveDatabase.downloadProgress * 100))%")
-                        .font(.caption)
-                }
-            } else {
-                Button(cveDatabase.totalCVEs > 0 ? "Update Database" : "Download Database (~2GB)") {
-                    Task {
-                        try? await cveDatabase.downloadNVDDatabase()
-                    }
-                }
-            }
-
-            Spacer()
-        }
-        .padding()
-    }
-}
-
-// Placeholder views for other tabs
-struct DeviceListView: View {
-    var body: some View {
-        Text("Device List")
-    }
-}
-
-struct AttackLogView: View {
-    var body: some View {
-        Text("Attack Log")
-    }
-}
-
-struct AIInsightsView: View {
-    var body: some View {
-        Text("AI Insights")
-    }
-}
-
-struct VulnerabilitiesView: View {
-    var body: some View {
-        Text("Vulnerabilities")
-    }
-}
+// Placeholder views are defined in their own files:
+// - DeviceListView.swift
+// - AttackLogView.swift
+// - AIInsightsView.swift
+// - VulnerabilitiesView.swift
 
 #Preview {
     DashboardView()

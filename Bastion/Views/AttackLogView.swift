@@ -96,7 +96,7 @@ struct AttackLogView: View {
         addLog("", type: .info)
     }
 
-    private func addLog(_ message: String, type: LogType) {
+    private func addLog(_ message: String, type: LogEntry.LogType) {
         let entry = LogEntry(
             timestamp: Date(),
             message: message,

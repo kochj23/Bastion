@@ -110,11 +110,11 @@ class AIAttackOrchestrator: ObservableObject {
         }
 
         let context = """
-        TARGET: \(device.ip) (\(device.hostname ?? "unknown"))
-        OS: \(device.osGuess ?? "unknown")
+        TARGET: \(device.ipAddress) (\(device.hostname ?? "unknown"))
+        OS: \(device.operatingSystem ?? "unknown")
 
         SERVICES:
-        \(device.openPorts.map { "\($0.port): \($0.service ?? "unknown") \($0.version ?? "")" }.joined(separator: "\n"))
+        \(device.openPorts.map { "\($0.port): \($0.service ?? "unknown")" }.joined(separator: "\n"))
 
         KNOWN CVEs (\(cves.count)):
         \(cves.prefix(10).map { "- \($0.id): \($0.description.prefix(100))... CVSS: \($0.cvssScore)" }.joined(separator: "\n"))
@@ -181,10 +181,10 @@ class AIAttackOrchestrator: ObservableObject {
         let prompt = """
         Generate a proof-of-concept exploit payload for this vulnerability.
 
-        Target: \(target.ip)
-        OS: \(target.osGuess ?? "Linux")
+        Target: \(target.ipAddress)
+        OS: \(target.operatingSystem ?? "Linux")
         Vulnerability: \(vuln.cveId ?? "Unknown")
-        Service: \(vuln.service) \(vuln.version)
+        Service: \(vuln.affectedService ?? "Unknown") \(vuln.affectedVersion ?? "")
 
         Provide:
         1. Exploit code (bash/python/ruby)
@@ -222,11 +222,11 @@ class AIAttackOrchestrator: ObservableObject {
         }
 
         let prompt = """
-        We successfully compromised device \(compromisedDevice.ip) with \(accessLevel) access.
+        We successfully compromised device \(compromisedDevice.ipAddress) with \(accessLevel) access.
 
         Device info:
-        - OS: \(compromisedDevice.osGuess ?? "unknown")
-        - Services: \(compromisedDevice.openPorts.map { $0.service ?? "unknown" }.joined(separator: ", "))
+        - OS: \(compromisedDevice.operatingSystem ?? "unknown")
+        - Services: \(compromisedDevice.services.map { $0.name }.joined(separator: ", "))
 
         What should we do next? Suggest:
         1. Privilege escalation methods (if not root)
@@ -264,12 +264,12 @@ class AIAttackOrchestrator: ObservableObject {
         var landscape = "DISCOVERED DEVICES: \(devices.count)\n\n"
 
         for (index, device) in devices.enumerated().prefix(20) {
-            let vulnCount = device.vulnerabilities?.count ?? 0
-            let criticalCount = device.vulnerabilities?.filter { $0.severity == .critical }.count ?? 0
+            let vulnCount = device.vulnerabilities.count
+            let criticalCount = device.vulnerabilities.filter { $0.severity == .critical }.count
 
             landscape += """
-            Device \(index + 1): \(device.ip) (\(device.hostname ?? "unknown"))
-            - OS: \(device.osGuess ?? "detecting...")
+            Device \(index + 1): \(device.ipAddress) (\(device.hostname ?? "unknown"))
+            - OS: \(device.operatingSystem ?? "detecting...")
             - Open Ports: \(device.openPorts.count)
             - Services: \(device.openPorts.prefix(5).map { "\($0.service ?? "unknown")" }.joined(separator: ", "))
             - Vulnerabilities: \(vulnCount) total, \(criticalCount) critical
@@ -284,13 +284,13 @@ class AIAttackOrchestrator: ObservableObject {
     private func generateBasicAttackPlan(devices: [Device]) -> AttackPlan {
         // Sort by risk level
         let prioritized = devices.sorted {
-            ($0.vulnerabilities?.count ?? 0) > ($1.vulnerabilities?.count ?? 0)
+            $0.vulnerabilities.count > $1.vulnerabilities.count
         }
 
         let targets = prioritized.prefix(5).map { device in
             PriorityTarget(
                 device: device,
-                reason: "Has \(device.vulnerabilities?.count ?? 0) vulnerabilities",
+                reason: "Has \(device.vulnerabilities.count) vulnerabilities",
                 attackSequence: ["port_scan", "service_detection", "exploit_attempt"],
                 successProbability: 50,
                 timeToCompromise: "Unknown",
@@ -324,7 +324,7 @@ class AIAttackOrchestrator: ObservableObject {
         if device.openPorts.contains(where: { $0.port == 80 || $0.port == 443 }) {
             recommendations.append(AttackRecommendation(
                 name: "Web Vulnerability Scan",
-                type: .webExploit,
+                type: .webVulnScan,
                 successProbability: 30,
                 impact: "Information disclosure or RCE",
                 stealth: "Medium detection",
@@ -359,7 +359,7 @@ class AIAttackOrchestrator: ObservableObject {
         if let targetsArray = json["priorityTargets"] as? [[String: Any]] {
             for targetDict in targetsArray {
                 guard let ip = targetDict["ip"] as? String,
-                      let device = devices.first(where: { $0.ip == ip }) else { continue }
+                      let device = devices.first(where: { $0.ipAddress == ip }) else { continue }
 
                 let target = PriorityTarget(
                     device: device,
@@ -478,14 +478,46 @@ struct AttackRecommendation: Identifiable {
     let reasoning: String
 }
 
-enum AttackType: String, Codable {
-    case credentialAttack = "credential_attack"
-    case cveExploit = "cve_exploit"
-    case webExploit = "web_exploit"
-    case smbExploit = "smb_exploit"
-    case privilegeEscalation = "privilege_escalation"
-    case socialEngineering = "social_engineering"
-    case other = "other"
+enum AttackType: String, Codable, CaseIterable {
+    case networkScan = "Network Scan"
+    case portScan = "Port Scan"
+    case serviceFingerprint = "Service Detection"
+    case sshBruteForce = "SSH Brute Force"
+    case defaultCredentials = "Default Credentials Test"
+    case sqlInjection = "SQL Injection"
+    case xss = "Cross-Site Scripting"
+    case directoryTraversal = "Directory Traversal"
+    case smbExploit = "SMB Exploit"
+    case cveExploit = "CVE Exploit"
+    case webVulnScan = "Web Vulnerability Scan"
+    case passwordSpray = "Password Spray"
+    case apiTest = "API Security Test"
+    case credentialAttack = "Credential Attack"
+    case privilegeEscalation = "Privilege Escalation"
+    case socialEngineering = "Social Engineering"
+    case other = "Other"
+
+    var icon: String {
+        switch self {
+        case .networkScan: return "🔍"
+        case .portScan: return "🎯"
+        case .serviceFingerprint: return "🔎"
+        case .sshBruteForce: return "🔐"
+        case .defaultCredentials: return "🔑"
+        case .sqlInjection: return "💉"
+        case .xss: return "⚠️"
+        case .directoryTraversal: return "📁"
+        case .smbExploit: return "💾"
+        case .cveExploit: return "💣"
+        case .webVulnScan: return "🌐"
+        case .passwordSpray: return "💧"
+        case .apiTest: return "🔗"
+        case .credentialAttack: return "🔐"
+        case .privilegeEscalation: return "⬆️"
+        case .socialEngineering: return "🎭"
+        case .other: return "🔧"
+        }
+    }
 }
 
 struct PostExploitationPlan {

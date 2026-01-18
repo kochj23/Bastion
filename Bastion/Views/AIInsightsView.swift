@@ -82,7 +82,7 @@ struct AIInsightsView: View {
 
                 ForEach(plan.priorityTargets.prefix(5), id: \.device.id) { target in
                     HStack {
-                        Text("\(target.device.ip)")
+                        Text("\(target.device.ipAddress)")
                             .font(.system(.body, design: .monospaced))
                             .foregroundColor(.cyan)
 
