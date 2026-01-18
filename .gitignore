@@ -1,0 +1,44 @@
+# Xcode
+.DS_Store
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+*.xcworkspace
+!default.xcworkspace
+
+# CVE Database (too large for git)
+Bastion/Resources/CVE/*.json
+Bastion/Resources/CVE/*.db
+cve-database/
+
+# Logs
+*.log
+audit-log.txt
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Sensitive
+*.key
+*.pem
+config.json
+credentials.json
+
+# Reports (user-generated)
+Reports/*.pdf
+Reports/*.json
