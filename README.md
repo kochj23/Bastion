@@ -5,7 +5,7 @@
 
 ![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
-![License](https://img.shields.io/badge/license-Commercial-red)
+![License](https://img.shields.io/badge/license-MIT-green)
 ![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)
 
 ---
@@ -251,7 +251,7 @@ Results (12 CVEs):
 
 ---
 
-## 💎 Enterprise Features (What Makes It Worth $2K-5K)
+## 💎 Advanced Security Features
 
 ### 1. **AI-Driven Exploit Selection** (Unique)
 - AI reads CVEs and predicts which will work
@@ -300,22 +300,32 @@ Results (12 CVEs):
 
 ---
 
-## 🚀 I'm Building the FULL Version Now
+## 🚀 Open Source Mission
 
-**Target:** Enterprise-grade, worth $2,000-5,000
+**Bastion is 100% free and open source** under the MIT License.
 
-**Features:**
-- ✅ Every attack module
-- ✅ Full AI integration
-- ✅ Premium glassmorphic UI
-- ✅ Professional PDF reports
-- ✅ Complete CVE database
-- ✅ Attack chaining
-- ✅ ML predictions
-- ✅ Audit logging
-- ✅ Multi-window system
-- ✅ Enterprise documentation
+**Why Open Source?**
+- 🏠 **Home Network Security** - Everyone deserves to know if their network is vulnerable
+- 🔒 **Privacy First** - No cloud, no telemetry, no data collection
+- 🤝 **Community Driven** - Security through transparency
+- 📚 **Educational** - Learn penetration testing techniques
+- 🛡️ **Defensive Security** - Help people protect their networks before attackers exploit them
 
-**Time:** 13-15 hours for complete implementation
+**Current Features:**
+- ✅ AI-powered vulnerability analysis
+- ✅ Comprehensive network discovery
+- ✅ Multiple attack modules (SSH, web, SMB, default credentials)
+- ✅ Full CVE database integration (200,000+ vulnerabilities)
+- ✅ Glassmorphic multi-window UI
+- ✅ Professional PDF report generation
+- ✅ Attack chaining and ML predictions
+- ✅ Complete audit logging
 
-**Starting implementation now...**
+**Contributing:**
+- Report bugs and security issues
+- Contribute new exploit modules
+- Improve AI analysis algorithms
+- Add device fingerprints
+- Enhance documentation
+
+This tool exists to help you secure YOUR network. Use it responsibly.
