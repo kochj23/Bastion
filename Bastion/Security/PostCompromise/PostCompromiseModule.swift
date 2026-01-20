@@ -123,6 +123,12 @@ class PostCompromiseModule: ObservableObject {
         report.summary = generateSummary(report)
         report.recommendations = generateRecommendations(report)
 
+        // Generate AI-powered analysis (NEW!)
+        currentTask = "Generating AI security analysis..."
+        print("\n=== AI Analysis Phase ===")
+        let aiAnalysis = await AIAttackOrchestrator().analyzeCompromiseReport(report)
+        report.summary += "\n\n=== AI SECURITY ANALYSIS ===\n\(aiAnalysis)"
+
         isScanning = false
         self.report = report
 
