@@ -1,0 +1,120 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/DeviceListView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "🌐 Discovered Devices (%lld)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sort",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "IP",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "Name",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulnerabilities",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Score",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "No devices discovered",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Run a network scan to discover devices",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "🎯 Attack",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%@)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 109
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld ports",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 122
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld vulns",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 126
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 136
+        }
+      },
+      {
+        "comment": "",
+        "key": "/ 100",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 140
+        }
+      }
+    ]
+  },
+  "version": 1
+}

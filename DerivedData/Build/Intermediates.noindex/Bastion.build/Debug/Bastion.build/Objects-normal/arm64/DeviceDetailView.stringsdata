@@ -1,0 +1,176 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/DeviceDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Overview",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ports & Services",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulnerabilities",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Attack Options",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "RISK: %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 103
+        }
+      },
+      {
+        "comment": "",
+        "key": "Security Score: %lld/100",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "Device Summary",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "Security Assessment",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 192
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 252
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open Ports & Services",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 273
+        }
+      },
+      {
+        "comment": "",
+        "key": "No open ports detected",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 278
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 297
+        }
+      },
+      {
+        "comment": "",
+        "key": "Version: %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 310
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulnerabilities",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 360
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Vulnerabilities Detected",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 370
+        }
+      },
+      {
+        "comment": "",
+        "key": "This device appears to be secure based on current tests",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 374
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ (%lld)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 397
+        }
+      },
+      {
+        "comment": "",
+        "key": "EXPLOIT AVAILABLE",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 424
+        }
+      },
+      {
+        "comment": "",
+        "key": "REMEDIATION:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 467
+        }
+      },
+      {
+        "comment": "",
+        "key": "Attack Options",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 504
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select attack methods to test this device",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 508
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,176 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/SettingsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "AI Backends",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "CVE Database",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 25
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scanning",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 30
+        }
+      },
+      {
+        "comment": "",
+        "key": "CVE Database",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Last updated: %@ ago",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 60
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld CVEs indexed",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "No CVE database downloaded",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "First-time download will take 10-20 minutes",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "Downloading: %lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "Download CVE Database (~2GB)",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "Update CVE Database",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 81
+        }
+      },
+      {
+        "comment": "",
+        "key": "Network Scanning",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 109
+        }
+      },
+      {
+        "comment": "",
+        "key": "Safety",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 123
+        }
+      },
+      {
+        "comment": "",
+        "key": "Aggressive mode scans all 65,535 ports (slower but thorough)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "Threads: %lld",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "Aggressive Mode",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scan Timeout: %llds",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "These safety features cannot be disabled",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 133
+        }
+      },
+      {
+        "comment": "",
+        "key": "Require Confirmation Before Exploits",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 124
+        }
+      },
+      {
+        "comment": "",
+        "key": "Log All Activities (Audit Trail)",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 127
+        }
+      },
+      {
+        "comment": "",
+        "key": "Local Networks Only",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 130
+        }
+      }
+    ]
+  },
+  "version": 1
+}

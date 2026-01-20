@@ -1,0 +1,328 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/AI/AIBackendManager.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "AI Backend Selection",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 556
+        }
+      },
+      {
+        "comment": "",
+        "key": "Backend Status",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 578
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ollama Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 628
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 647
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 663
+        }
+      },
+      {
+        "comment": "",
+        "key": "Setup Instructions",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 682
+        }
+      },
+      {
+        "comment": "",
+        "key": "Backend",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 557
+        }
+      },
+      {
+        "comment": "",
+        "key": "Refresh Status",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 617
+        }
+      },
+      {
+        "comment": "",
+        "key": "No backend available",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 588
+        }
+      },
+      {
+        "comment": "",
+        "key": "Active: %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 585
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ollama",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 595
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 597
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 68,
+          "startingLine": 597
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Toolkit",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 603
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 605
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 605
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 611
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 613
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 69,
+          "startingLine": 613
+        }
+      },
+      {
+        "comment": "",
+        "key": "No models found. Pull a model: ollama pull llama2",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 639
+        }
+      },
+      {
+        "comment": "",
+        "key": "Model",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 629
+        }
+      },
+      {
+        "comment": "",
+        "key": "Python Path",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 648
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Script Path (optional)",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 654
+        }
+      },
+      {
+        "comment": "",
+        "key": "Server URL",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 664
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM provides OpenAI-compatible API on localhost:8000",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 671
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM by Jason Cox",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 675
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ollama Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 684
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Install: brew install ollama",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 685
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Start: ollama serve",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 686
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Pull model: ollama pull llama2",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 687
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 691
+        }
+      },
+      {
+        "comment": "",
+        "key": "By Jason Cox (GitHub: jasonacox/TinyLLM)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 692
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Clone: git clone https://github.com/jasonacox/TinyLLM",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 695
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Run: docker-compose up -d",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 696
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Access: http://localhost:8000",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 697
+        }
+      },
+      {
+        "comment": "",
+        "key": "Note: Lightweight, OpenAI-compatible API",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 698
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 702
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Install Python: brew install python",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 703
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Install MLX: pip install mlx-lm",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 704
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Path: /opt/homebrew/bin/python3",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 705
+        }
+      }
+    ]
+  },
+  "version": 1
+}

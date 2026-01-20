@@ -1,0 +1,239 @@
+{
+  "" : {
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Bastion-primary.dia",
+    "emit-module-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Bastion-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Bastion-primary-emit-module.dia",
+    "pch" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Bastion-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Bastion-primary.swiftdeps"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/AI/AIAttackOrchestrator.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIAttackOrchestrator~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/AI/AIBackendManager.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIBackendManager~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/AI/AIExploitGenerator.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIExploitGenerator~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/BastionApp.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/BastionApp~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Models/AttackResult.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackResult~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Models/CVE.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVE~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Models/Device.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/Device~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Security/CVEDatabase.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/CVEDatabase~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Security/ExploitModules/DefaultCredsModule.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DefaultCredsModule~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Security/ExploitModules/SSHModule.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SSHModule~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Security/ExploitModules/WebModule.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/WebModule~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Security/NetworkScanner.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/NetworkScanner~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Security/ServiceFingerprinter.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ServiceFingerprinter~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Utilities/ModernDesign.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/ModernDesign~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Utilities/PDFGenerator.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/PDFGenerator~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Utilities/SafetyValidator.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SafetyValidator~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Views/AIInsightsView.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AIInsightsView~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Views/AttackLogView.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/AttackLogView~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Views/DashboardView.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DashboardView~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Views/DeviceDetailView.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceDetailView~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Views/DeviceListView.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/DeviceListView~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Views/SettingsView.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/SettingsView~partial.swiftmodule"
+  },
+  "/Volumes/Data/xcode/Bastion/Bastion/Views/VulnerabilitiesView.swift" : {
+    "const-values" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView.swiftconstvalues",
+    "dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView.d",
+    "diagnostics" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView.dia",
+    "index-unit-output-path" : "/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView.o",
+    "llvm-bc" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView.bc",
+    "object" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView.o",
+    "swift-dependencies" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView.swiftdeps",
+    "swiftmodule" : "/Volumes/Data/xcode/Bastion/DerivedData/Build/Intermediates.noindex/Bastion.build/Debug/Bastion.build/Objects-normal/arm64/VulnerabilitiesView~partial.swiftmodule"
+  }
+}

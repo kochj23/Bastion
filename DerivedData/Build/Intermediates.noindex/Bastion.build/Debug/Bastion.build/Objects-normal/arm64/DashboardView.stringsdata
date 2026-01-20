@@ -1,0 +1,152 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/DashboardView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Network Scan",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Network CIDR (e.g., 192.168.1.0/24)",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stop",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scan Network",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quick Scan",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scanning: %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 102
+        }
+      },
+      {
+        "comment": "",
+        "key": "Discovered Devices",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 153
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld devices",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 158
+        }
+      },
+      {
+        "comment": "",
+        "key": "No devices discovered yet",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start a network scan to discover devices",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recent Activity",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "No activity yet",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 213
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 370
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ports",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 373
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 384
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulns",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 387
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 406
+        }
+      }
+    ]
+  },
+  "version": 1
+}
