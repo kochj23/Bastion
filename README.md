@@ -129,6 +129,98 @@ Expected time to compromise: Under 60 seconds."
 - Proof-of-concept execution
 - Safe exploitation (no system damage)
 
+#### 6. **NEW: Post-Compromise Assessment Module** 🔍
+**Unique Feature: Detect if devices are ALREADY compromised**
+
+After gaining access to a device, Bastion automatically checks if it's been previously hacked:
+
+**Rootkit Detection (200+ signatures):**
+- Userland rootkits (T0rn, Suckit, Linux Rootkit 5, Jynx, etc.)
+- Kernel rootkits (Diamorphine, Reptile, Adore, FU, etc.)
+- Hidden directories and files
+- Trojanized binaries (backdoored SSH, ps, ls, netstat)
+
+**Hidden Process Detection:**
+- Compare ps output with /proc entries (rootkit hiding)
+- Processes using deleted executables
+- Suspicious process names mimicking system processes
+- Stealthy network listeners
+
+**Suspicious User Analysis:**
+- UID 0 accounts that aren't root
+- Hidden usernames (starting with .)
+- Empty passwords
+- Recently created accounts
+- Dangerous group memberships (docker, sudo, wheel)
+- Backdoor shells in /etc/passwd
+
+**Backdoor Detection:**
+- Known backdoor ports (31337, 12345, 54321, etc.)
+- Suspicious high ports (30000-65535 range)
+- Reverse shells (active connections)
+- Web shells (c99.php, r57.php, WSO.php)
+- PHP files with eval/exec/system
+
+**Persistence Mechanism Detection:**
+- Suspicious cron jobs (curl/wget/nc patterns)
+- Malicious systemd services/timers
+- Init script modifications
+- Backdoored .bashrc/.bash_profile
+- SSH authorized_keys with forced commands
+- At jobs
+
+**Binary Integrity Checks:**
+- Trojanized system binaries (/bin/ls, /bin/ps, /usr/sbin/sshd)
+- Suspicious strings in binaries (backdoor/rootkit/hide)
+- Recently modified system files
+- World-writable binaries
+- Unusual SUID/SGID permissions
+
+**Kernel Module Analysis:**
+- Known LKM rootkits (Diamorphine, Reptile, Adore, etc.)
+- Unsigned kernel modules
+- Hidden modules (in /proc/modules but not lsmod)
+- Kernel function hooks (kprobes, ftrace abuse)
+
+**Log Tampering Detection:**
+- Cleared or missing log files
+- Gaps in log timestamps
+- Logs not modified despite active system
+- World-writable log permissions
+
+**Network Sniffer Detection:**
+- Promiscuous mode interfaces
+- Running packet capture tools (tcpdump, wireshark, tshark)
+- Processes with raw sockets
+- Active .pcap file writing
+
+**Comprehensive Report:**
+- Compromise confidence score (None/Possible/Likely/Definite)
+- Detailed findings with evidence
+- AI-generated security insights
+- Prioritized remediation steps
+- Attack timeline estimation
+
+**Example Output:**
+```
+⚠️ COMPROMISE DETECTED (Definitely compromised)
+
+Total Findings: 12
+Critical Issues: 5
+
+🚨 2 rootkit(s) detected (Diamorphine LKM, Trojanized sshd)
+🚪 3 backdoor(s) detected (Port 31337, Reverse shell)
+👻 1 hidden process(es) detected (PID 1337 - not in ps)
+👤 2 suspicious user(s) detected (UID 0 'operator', .hidden)
+🔗 4 persistence mechanism(s) detected (Cron, systemd service)
+
+RECOMMENDATIONS:
+1. Isolate device from network IMMEDIATELY
+2. Do NOT log in to any accounts from this device
+3. Complete re-installation recommended (rootkit detected)
+4. Forensic analysis recommended before re-imaging
+```
+
 ---
 
 ### 📊 Full CVE Database Integration
@@ -315,6 +407,9 @@ Results (12 CVEs):
 - ✅ AI-powered vulnerability analysis
 - ✅ Comprehensive network discovery
 - ✅ Multiple attack modules (SSH, web, SMB, default credentials)
+- ✅ **Post-compromise assessment** - Detects if devices are ALREADY hacked
+- ✅ **Rootkit detection** - 200+ signatures from chkrootkit/rkhunter
+- ✅ **Hidden process detection** - Find rootkit-hidden processes
 - ✅ Full CVE database integration (200,000+ vulnerabilities)
 - ✅ Glassmorphic multi-window UI
 - ✅ Professional PDF report generation
