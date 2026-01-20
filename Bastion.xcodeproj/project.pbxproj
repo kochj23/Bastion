@@ -36,6 +36,7 @@
 		B11C5F5121304C8580EEE3F3 /* DefaultCredsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */; };
 		B5A8197CCDB7A9CB99B5CA82 /* LogTamperingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D916C83E33B9FF21D4420 /* LogTamperingDetector.swift */; };
 		C256426EF01D028909125D0D /* BinaryIntegrityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */; };
+		CC73A3C6B7B6397336931195 /* BinaryHashDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */; };
 		D025FB6FA5C14CEDB24EF0DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9B725C71AD40B5B4860268 /* SettingsView.swift */; };
 		D2CFDB78FE1E482991302080 /* AttackResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C26F007C044729F8289FD /* AttackResult.swift */; };
 		D7A39AD2491D4C35BCD64504 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86DD6EDB4F946AA82D45965 /* Device.swift */; };
@@ -81,6 +82,7 @@
 		EEB1A878557546F2B72EDD48 /* AttackLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AttackLogView.swift; sourceTree = "<group>"; };
 		F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/ModernDesign.swift; sourceTree = "<group>"; };
 		F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistenceDetector.swift; path = PersistenceDetector.swift; sourceTree = "<group>"; };
+		FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryHashDatabase.swift; path = BinaryHashDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				1CE771431044507E3FB7BFD9 /* KernelModuleAnalyzer.swift */,
 				BE5D916C83E33B9FF21D4420 /* LogTamperingDetector.swift */,
 				630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */,
+				FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */,
 			);
 			name = PostCompromise;
 			path = PostCompromise;
@@ -294,6 +297,7 @@
 				B5A8197CCDB7A9CB99B5CA82 /* LogTamperingDetector.swift in Sources */,
 				F0BF56B44F708DA0D1845C13 /* NetworkSnifferDetector.swift in Sources */,
 				163792B6F7F58A0F0BC87C2C /* DeviceDetailView.swift in Sources */,
+				CC73A3C6B7B6397336931195 /* BinaryHashDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

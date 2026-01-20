@@ -444,6 +444,118 @@ class AIAttackOrchestrator: ObservableObject {
         }
         return text.hasPrefix("{") ? text : nil
     }
+
+    // MARK: - POST-COMPROMISE ANALYSIS (NEW!)
+
+    /// Analyze post-compromise assessment report with AI
+    /// Generates natural language insights about detected compromises
+    func analyzeCompromiseReport(_ report: CompromiseReport) async -> String {
+        guard aiBackend.activeBackend != nil else {
+            return generateBasicCompromiseAnalysis(report)
+        }
+
+        print("🧠 AI: Analyzing compromise report...")
+
+        let prompt = """
+        You are an elite security forensics expert analyzing a post-compromise assessment.
+
+        COMPROMISE ASSESSMENT RESULTS:
+        Target: \(report.targetIP)
+        Compromise Status: \(report.compromiseConfidence.rawValue)
+        Total Findings: \(report.totalFindings)
+        Critical Issues: \(report.criticalFindings)
+
+        DETAILED FINDINGS:
+        - Rootkits Detected: \(report.rootkits.count)
+        \(report.rootkits.map { "  • \($0.name) (\($0.type.rawValue))" }.joined(separator: "\n"))
+
+        - Backdoors Detected: \(report.backdoors.count)
+        \(report.backdoors.map { "  • Port \($0.port): \($0.suspicionReason)" }.joined(separator: "\n"))
+
+        - Hidden Processes: \(report.hiddenProcesses.count)
+        \(report.hiddenProcesses.map { "  • PID \($0.pid): \($0.command)" }.joined(separator: "\n"))
+
+        - Suspicious Users: \(report.suspiciousUsers.count)
+        \(report.suspiciousUsers.map { "  • \($0.username): \($0.suspicionReasons.joined(separator: ", "))" }.joined(separator: "\n"))
+
+        - Persistence Mechanisms: \(report.persistenceMechanisms.count)
+        \(report.persistenceMechanisms.map { "  • \($0.mechanism.rawValue) at \($0.location)" }.joined(separator: "\n"))
+
+        - Binary Integrity Issues: \(report.binaryIntegrityIssues.count)
+        \(report.binaryIntegrityIssues.map { "  • \($0.binaryPath): \($0.issue.rawValue)" }.joined(separator: "\n"))
+
+        - Kernel Module Issues: \(report.kernelModuleIssues.count)
+        \(report.kernelModuleIssues.map { "  • \($0.moduleName): \($0.suspicionReasons.joined(separator: ", "))" }.joined(separator: "\n"))
+
+        - Log Tampering: \(report.logTamperingIssues.count)
+        \(report.logTamperingIssues.map { "  • \($0.logFile): \($0.tamperingType.rawValue)" }.joined(separator: "\n"))
+
+        - Network Sniffers: \(report.networkSniffers.count)
+        \(report.networkSniffers.map { "  • \($0.interface): Promiscuous=\($0.isPromiscuous)" }.joined(separator: "\n"))
+
+        Provide a comprehensive security analysis in natural language. Include:
+
+        1. **Attack Timeline**: When was the system likely compromised? Reconstruct the attack sequence.
+        2. **Attacker Profile**: What's the sophistication level? Script kiddie, APT, ransomware gang?
+        3. **Initial Access Vector**: How did they likely get in? (SSH brute force, CVE exploit, etc.)
+        4. **Lateral Movement Risk**: What other systems are at risk?
+        5. **Data Exfiltration Risk**: What data might have been stolen?
+        6. **Immediate Actions**: Top 3 actions to take RIGHT NOW.
+
+        Be direct, technical, and actionable. This is for a security professional.
+        """
+
+        do {
+            let analysis = try await aiBackend.generate(prompt: prompt, systemPrompt: nil, temperature: 0.7)
+            return analysis
+        } catch {
+            print("❌ AI analysis failed: \(error)")
+            return generateBasicCompromiseAnalysis(report)
+        }
+    }
+
+    /// Generate basic compromise analysis without AI (fallback)
+    private func generateBasicCompromiseAnalysis(_ report: CompromiseReport) -> String {
+        var analysis = "COMPROMISE ANALYSIS\n"
+        analysis += "===================\n\n"
+
+        analysis += "Status: \(report.compromiseConfidence.rawValue)\n"
+        analysis += "Total Findings: \(report.totalFindings)\n"
+        analysis += "Critical Issues: \(report.criticalFindings)\n\n"
+
+        if !report.rootkits.isEmpty {
+            analysis += "⚠️ ROOTKITS DETECTED (\(report.rootkits.count)):\n"
+            for rootkit in report.rootkits {
+                analysis += "  • \(rootkit.name) - \(rootkit.type.rawValue)\n"
+            }
+            analysis += "\n"
+        }
+
+        if !report.backdoors.isEmpty {
+            analysis += "⚠️ BACKDOORS DETECTED (\(report.backdoors.count)):\n"
+            for backdoor in report.backdoors {
+                analysis += "  • Port \(backdoor.port): \(backdoor.service)\n"
+            }
+            analysis += "\n"
+        }
+
+        if report.isCompromised {
+            analysis += "\nIMMEDIATE ACTIONS:\n"
+            analysis += "1. ISOLATE this device from the network\n"
+            analysis += "2. Do NOT access sensitive accounts from this system\n"
+            analysis += "3. Change all passwords from a KNOWN CLEAN device\n"
+
+            if !report.rootkits.isEmpty {
+                analysis += "4. Complete system re-installation required (rootkit detected)\n"
+                analysis += "5. Consider forensic analysis before wiping\n"
+            }
+        } else {
+            analysis += "\n✓ No active compromise detected\n"
+            analysis += "Continue regular security monitoring\n"
+        }
+
+        return analysis
+    }
 }
 
 // MARK: - Data Models

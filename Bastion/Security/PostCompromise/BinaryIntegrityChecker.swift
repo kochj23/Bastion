@@ -11,6 +11,7 @@ import Foundation
 
 class BinaryIntegrityChecker {
     private let ssh: SSHConnection
+    private var detectedDistro: String?
 
     // Critical system binaries to check
     private let criticalBinaries = [
@@ -31,25 +32,38 @@ class BinaryIntegrityChecker {
 
         print("[BinaryIntegrityChecker] Starting binary integrity check...")
 
+        // Detect OS distribution for hash verification
+        detectedDistro = await detectDistribution()
+        if let distro = detectedDistro {
+            print("[BinaryIntegrityChecker] Detected distribution: \(distro)")
+        } else {
+            print("[BinaryIntegrityChecker] Could not detect distribution - hash verification will be skipped")
+        }
+
         for binary in criticalBinaries {
             guard await ssh.fileExists(binary) else { continue }
 
-            // Check 1: Unusual file size (very small or very large binaries are suspicious)
+            // Check 1: SHA256 hash verification (NEW!)
+            if let suspicious = await checkHashIntegrity(binary) {
+                findings.append(suspicious)
+            }
+
+            // Check 2: Unusual file size (very small or very large binaries are suspicious)
             if let suspicious = await checkFileSize(binary) {
                 findings.append(suspicious)
             }
 
-            // Check 2: Check for suspicious strings
+            // Check 3: Check for suspicious strings
             if let suspicious = await checkSuspiciousStrings(binary) {
                 findings.append(suspicious)
             }
 
-            // Check 3: Check modification time (recently modified system binaries)
+            // Check 4: Check modification time (recently modified system binaries)
             if let suspicious = await checkModificationTime(binary) {
                 findings.append(suspicious)
             }
 
-            // Check 4: Check permissions (SUID/SGID on unusual binaries)
+            // Check 5: Check permissions (SUID/SGID on unusual binaries)
             if let suspicious = await checkPermissions(binary) {
                 findings.append(suspicious)
             }
@@ -57,6 +71,51 @@ class BinaryIntegrityChecker {
 
         print("[BinaryIntegrityChecker] Found \(findings.count) binary integrity issues")
         return findings
+    }
+
+    /// Detect Linux distribution
+    private func detectDistribution() async -> String? {
+        if let osRelease = await ssh.readFile("/etc/os-release") {
+            return BinaryHashDatabase.shared.detectDistribution(from: osRelease)
+        }
+        return nil
+    }
+
+    /// Check SHA256 hash integrity (NEW!)
+    private func checkHashIntegrity(_ binary: String) async -> BinaryIntegrityFinding? {
+        // Only check if we detected the distribution
+        guard let distro = detectedDistro else { return nil }
+
+        // Check if we have a known-good hash for this binary
+        guard BinaryHashDatabase.shared.hasHashData(for: binary) else { return nil }
+
+        // Get the known-good hash
+        guard let expectedHash = BinaryHashDatabase.shared.getKnownGoodHash(for: binary, distro: distro) else {
+            // We have hash data for this binary, but not for this specific distro
+            return nil
+        }
+
+        // Calculate SHA256 hash of the binary on remote system
+        if let actualHash = await ssh.execute("sha256sum '\(binary)' 2>/dev/null | awk '{print $1}'") {
+            let cleanHash = actualHash.trimmingCharacters(in: .whitespacesAndNewlines)
+
+            if cleanHash != expectedHash {
+                var finding = BinaryIntegrityFinding(
+                    binaryPath: binary,
+                    issue: .hashMismatch
+                )
+                finding.expectedHash = expectedHash
+                finding.actualHash = cleanHash
+                print("[BinaryIntegrityChecker] ⚠️ CRITICAL: Hash mismatch for \(binary)")
+                print("  Expected: \(expectedHash)")
+                print("  Actual:   \(cleanHash)")
+                return finding
+            } else {
+                print("[BinaryIntegrityChecker] ✓ Hash verified: \(binary)")
+            }
+        }
+
+        return nil
     }
 
     /// Check if file size is unusual
