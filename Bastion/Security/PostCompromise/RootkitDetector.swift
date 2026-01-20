@@ -51,7 +51,7 @@ class RootkitDetector {
 
         // Common backdoors
         RootkitSignature(name: "Backdoor.Linux.Mokes", type: .userland, files: ["/tmp/ss", "/tmp/ssw"]),
-        RootkitSignature(name: "Mirai Botnet", type: .userland, processes: ["mirai"], files: ["/etc/cron.hourly/gcc.sh"]),
+        RootkitSignature(name: "Mirai Botnet", type: .userland, files: ["/etc/cron.hourly/gcc.sh"], processes: ["mirai"]),
         RootkitSignature(name: "XOR.DDoS", type: .userland, files: ["/usr/bin/bb", "/bin/bb"], processes: ["bb"]),
         RootkitSignature(name: "Linux/Ebury", type: .userland, files: ["/usr/sbin/sshd"], patterns: ["libkeyutils.so.1"]),
 

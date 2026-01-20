@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C4CFED6C9494BBF8FD56462 /* BastionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */; };
+		5B2F1FF8BC7D4D559CF7EBDA /* CVEDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */; };
+		9051EC73369E4E1ABF5C37F2 /* ServiceFingerprinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */; };
+		8706D1A6F0B741618D8979BA /* NetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CC3B2138A4630A42702E6 /* NetworkScanner.swift */; };
+		5D22114C12B040BE9B02E4AA /* SSHModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8CC0425B004BA59F1DE821 /* SSHModule.swift */; };
+		A0015261BE3D465CA9A8CC72 /* WebModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F05A5E936A3477BB99A1DF7 /* WebModule.swift */; };
+		B11C5F5121304C8580EEE3F3 /* DefaultCredsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */; };
+		06896A127B8048ADA4A93D56 /* CVE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D24F18E26E42348C1C1E09 /* CVE.swift */; };
+		D2CFDB78FE1E482991302080 /* AttackResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C26F007C044729F8289FD /* AttackResult.swift */; };
+		D7A39AD2491D4C35BCD64504 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86DD6EDB4F946AA82D45965 /* Device.swift */; };
+		19E023386DA34E589E756D38 /* ModernDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */; };
+		4A47CF7FF36E4A91A5A17E3F /* SafetyValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */; };
+		E1080B2C446F4A80A65AACDD /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */; };
+		812B224D4FDA4D6D8283F030 /* AIAttackOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */; };
+		0A318FF92C81448FBFC6B670 /* AIBackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901229992A924BF683680BB4 /* AIBackendManager.swift */; };
+		8B3B8383998D467082F8D2FF /* AIExploitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */; };
+		0523D366476E4593A3EFCF07 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */; };
+		D025FB6FA5C14CEDB24EF0DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9B725C71AD40B5B4860268 /* SettingsView.swift */; };
+		B0DE7BEA162A49AEB4202196 /* VulnerabilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */; };
+		E2823F5513BA48B399DBF253 /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */; };
+		A45D3F39AAAD4D8AB7F07FF4 /* AttackLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1A878557546F2B72EDD48 /* AttackLogView.swift */; };
+		12ACD81E85774F6097AA50AF /* AIInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */; };
+		EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233D3D5E49C140E1B821E4E0 /* ComprehensiveDeviceTester.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BastionApp.swift; sourceTree = "<group>"; };
+		8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/CVEDatabase.swift; sourceTree = "<group>"; };
+		EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ServiceFingerprinter.swift; sourceTree = "<group>"; };
+		877CC3B2138A4630A42702E6 /* NetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/NetworkScanner.swift; sourceTree = "<group>"; };
+		BB8CC0425B004BA59F1DE821 /* SSHModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/SSHModule.swift; sourceTree = "<group>"; };
+		5F05A5E936A3477BB99A1DF7 /* WebModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/WebModule.swift; sourceTree = "<group>"; };
+		DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/DefaultCredsModule.swift; sourceTree = "<group>"; };
+		08D24F18E26E42348C1C1E09 /* CVE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/CVE.swift; sourceTree = "<group>"; };
+		5D8C26F007C044729F8289FD /* AttackResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/AttackResult.swift; sourceTree = "<group>"; };
+		D86DD6EDB4F946AA82D45965 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Device.swift; sourceTree = "<group>"; };
+		F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/ModernDesign.swift; sourceTree = "<group>"; };
+		181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/SafetyValidator.swift; sourceTree = "<group>"; };
+		D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/PDFGenerator.swift; sourceTree = "<group>"; };
+		A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIAttackOrchestrator.swift; sourceTree = "<group>"; };
+		901229992A924BF683680BB4 /* AIBackendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIBackendManager.swift; sourceTree = "<group>"; };
+		3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIExploitGenerator.swift; sourceTree = "<group>"; };
+		01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/DashboardView.swift; sourceTree = "<group>"; };
+		6C9B725C71AD40B5B4860268 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/VulnerabilitiesView.swift; sourceTree = "<group>"; };
+		B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/DeviceListView.swift; sourceTree = "<group>"; };
+		EEB1A878557546F2B72EDD48 /* AttackLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AttackLogView.swift; sourceTree = "<group>"; };
+		C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AIInsightsView.swift; sourceTree = "<group>"; };
+		62432CD1B9D14F20A18CFA04 /* Bastion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bastion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		233D3D5E49C140E1B821E4E0 /* ComprehensiveDeviceTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensiveDeviceTester.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3546F9888B8438997FE195C /* Frameworks */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXFrameworksBuildPhase;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildActionMask = 2147483647;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,files = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD5029B2781C4D1CBE0101E3 = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXGroup;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,children = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	D8F5E75E948D4B62A4F58689 /* Bastion */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	773C080F7EF04DC2965F5595 /* Products */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,sourceTree = "<group>";
+		};
+		D8F5E75E948D4B62A4F58689 /* Bastion */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXGroup;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,children = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	877CC3B2138A4630A42702E6 /* NetworkScanner.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	BB8CC0425B004BA59F1DE821 /* SSHModule.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	5F05A5E936A3477BB99A1DF7 /* WebModule.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	08D24F18E26E42348C1C1E09 /* CVE.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	5D8C26F007C044729F8289FD /* AttackResult.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	D86DD6EDB4F946AA82D45965 /* Device.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	901229992A924BF683680BB4 /* AIBackendManager.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	6C9B725C71AD40B5B4860268 /* SettingsView.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	EEB1A878557546F2B72EDD48 /* AttackLogView.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,path = Bastion;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,sourceTree = "<group>";
+		};
+		773C080F7EF04DC2965F5595 /* Products */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXGroup;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,children = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	62432CD1B9D14F20A18CFA04 /* Bastion.app */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,name = Products;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74E3CFFC69B443ECB5CF18B1 /* Bastion */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXNativeTarget;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildConfigurationList = 566C15E8AB3A4B0DB3492C28 /* Build configuration list for PBXNativeTarget "Bastion" */;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildPhases = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	3CD7D8CE32D94A2A8D02D982 /* Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	A3546F9888B8438997FE195C /* Frameworks */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	0A1E498AC2E74BC2AFB24CD9 /* Resources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildRules = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,dependencies = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,name = Bastion;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,productName = Bastion;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,productReference = 62432CD1B9D14F20A18CFA04 /* Bastion.app */;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74929BDE0FD241A29273AE74 /* Project object */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXProject;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,attributes = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	BuildIndependentTargetsInParallel = 1;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	LastSwiftUpdateCheck = 1500;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	LastUpgradeCheck = 1500;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,};
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildConfigurationList = 566C15E8AB3A4B0DB3492C28 /* Build configuration list for PBXProject "Bastion" */;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,compatibilityVersion = "Xcode 14.0";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,developmentRegion = en;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,hasScannedForEncodings = 0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,knownRegions = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	en,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,mainGroup = FD5029B2781C4D1CBE0101E3;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,productRefGroup = 773C080F7EF04DC2965F5595 /* Products */;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,projectDirPath = "";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,projectRoot = "";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,targets = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	74E3CFFC69B443ECB5CF18B1 /* Bastion */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A1E498AC2E74BC2AFB24CD9 /* Resources */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXResourcesBuildPhase;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildActionMask = 2147483647;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,files = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CD7D8CE32D94A2A8D02D982 /* Sources */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = PBXSourcesBuildPhase;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildActionMask = 2147483647;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,files = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	1C4CFED6C9494BBF8FD56462 /* BastionApp.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	5B2F1FF8BC7D4D559CF7EBDA /* CVEDatabase.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	9051EC73369E4E1ABF5C37F2 /* ServiceFingerprinter.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	8706D1A6F0B741618D8979BA /* NetworkScanner.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	5D22114C12B040BE9B02E4AA /* SSHModule.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	A0015261BE3D465CA9A8CC72 /* WebModule.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	B11C5F5121304C8580EEE3F3 /* DefaultCredsModule.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	06896A127B8048ADA4A93D56 /* CVE.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	D2CFDB78FE1E482991302080 /* AttackResult.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	D7A39AD2491D4C35BCD64504 /* Device.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	19E023386DA34E589E756D38 /* ModernDesign.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	4A47CF7FF36E4A91A5A17E3F /* SafetyValidator.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	E1080B2C446F4A80A65AACDD /* PDFGenerator.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	812B224D4FDA4D6D8283F030 /* AIAttackOrchestrator.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	0A318FF92C81448FBFC6B670 /* AIBackendManager.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	8B3B8383998D467082F8D2FF /* AIExploitGenerator.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	0523D366476E4593A3EFCF07 /* DashboardView.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	D025FB6FA5C14CEDB24EF0DE /* SettingsView.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	B0DE7BEA162A49AEB4202196 /* VulnerabilitiesView.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	E2823F5513BA48B399DBF253 /* DeviceListView.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	A45D3F39AAAD4D8AB7F07FF4 /* AttackLogView.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	12ACD81E85774F6097AA50AF /* AIInsightsView.swift in Sources */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F07FC1F751C74AF18A41C307 /* Debug */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = XCBuildConfiguration;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildSettings = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	CODE_SIGN_STYLE = Automatic;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	COMBINE_HIDPI_IMAGES = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	CURRENT_PROJECT_VERSION = 1;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	DEVELOPMENT_TEAM = "";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	ENABLE_HARDENED_RUNTIME = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	GENERATE_INFOPLIST_FILE = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	INFOPLIST_KEY_NSMainStoryboardFile = Main;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	LD_RUNPATH_SEARCH_PATHS = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,		"$(inherited)",
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,		"@executable_path/../Frameworks",
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	MACOSX_DEPLOYMENT_TARGET = 13.0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	MARKETING_VERSION = 1.0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	PRODUCT_NAME = "$(TARGET_NAME)";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	SWIFT_EMIT_LOC_STRINGS = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	SWIFT_VERSION = 5.0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,};
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,name = Debug;
+		};
+		F6FDBF633FDF4C1AA88DC3A8 /* Release */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = XCBuildConfiguration;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildSettings = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	CODE_SIGN_STYLE = Automatic;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	COMBINE_HIDPI_IMAGES = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	CURRENT_PROJECT_VERSION = 1;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	DEVELOPMENT_TEAM = "";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	ENABLE_HARDENED_RUNTIME = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	GENERATE_INFOPLIST_FILE = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	INFOPLIST_KEY_NSMainStoryboardFile = Main;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	LD_RUNPATH_SEARCH_PATHS = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,		"$(inherited)",
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,		"@executable_path/../Frameworks",
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	MACOSX_DEPLOYMENT_TARGET = 13.0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	MARKETING_VERSION = 1.0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	PRODUCT_NAME = "$(TARGET_NAME)";
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	SWIFT_EMIT_LOC_STRINGS = YES;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	SWIFT_VERSION = 5.0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,};
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		566C15E8AB3A4B0DB3492C28 /* Build configuration list */ = {
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,isa = XCConfigurationList;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,buildConfigurations = (
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	F07FC1F751C74AF18A41C307 /* Debug */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,	F6FDBF633FDF4C1AA88DC3A8 /* Release */,
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,);
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,defaultConfigurationIsVisible = 0;
+			
+				EB61594E765A46529D09D651 /* ComprehensiveDeviceTester.swift in Sources */,defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74929BDE0FD241A29273AE74 /* Project object */;
+}
