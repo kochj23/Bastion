@@ -1,0 +1,136 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/AIInsightsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "🤖 AI Security Insights",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI: %@",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "🎯 AI Attack Strategy",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "Priority Targets:",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "🔗 Attack Chains:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 105
+        }
+      },
+      {
+        "comment": "",
+        "key": "• %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "💬 Ask AI About Security",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ask: 'What's the most critical vulnerability?' or 'How do I fix CVE-2021-41617?'",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 148
+        }
+      },
+      {
+        "comment": "",
+        "key": "Asking...",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ask AI",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "🎯 AI Exploit Recommendations",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 168
+        }
+      },
+      {
+        "comment": "",
+        "key": "Success: %lld%%",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 185
+        }
+      },
+      {
+        "comment": "",
+        "key": "•",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 189
+        }
+      },
+      {
+        "comment": "",
+        "key": "Impact: %@",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 192
+        }
+      }
+    ]
+  },
+  "version": 1
+}

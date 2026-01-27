@@ -1,0 +1,208 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/DeviceDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Overview",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 48
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ports & Services",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulnerabilities",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Attack Options",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "RISK: %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 123
+        }
+      },
+      {
+        "comment": "",
+        "key": "Security Score: %lld/100",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 133
+        }
+      },
+      {
+        "comment": "",
+        "key": "Device Summary",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 189
+        }
+      },
+      {
+        "comment": "",
+        "key": "Security Assessment",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 212
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 272
+        }
+      },
+      {
+        "comment": "",
+        "key": "Open Ports & Services",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 293
+        }
+      },
+      {
+        "comment": "",
+        "key": "No open ports detected",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 298
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 317
+        }
+      },
+      {
+        "comment": "",
+        "key": "Version: %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 330
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulnerabilities",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 380
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Vulnerabilities Detected",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 390
+        }
+      },
+      {
+        "comment": "",
+        "key": "This device appears to be secure based on current tests",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 394
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ (%lld)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 417
+        }
+      },
+      {
+        "comment": "",
+        "key": "EXPLOIT AVAILABLE",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 444
+        }
+      },
+      {
+        "comment": "",
+        "key": "REMEDIATION:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 487
+        }
+      },
+      {
+        "comment": "",
+        "key": "Attack Options",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 524
+        }
+      },
+      {
+        "comment": "",
+        "key": "Select attack methods to test this device",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 528
+        }
+      },
+      {
+        "comment": "",
+        "key": "Test Results",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 895
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI Attack Recommendations",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 926
+        }
+      },
+      {
+        "comment": "",
+        "key": "Execute",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 980
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 989
+        }
+      }
+    ]
+  },
+  "version": 1
+}

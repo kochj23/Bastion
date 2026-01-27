@@ -17,8 +17,11 @@ struct DashboardView: View {
     @State private var networkCIDR = "192.168.1.0/24"
     @State private var isScanning = false
     @State private var showSettings = false
+    @State private var showCVESettings = false
     @State private var selectedDevice: Device?
     @State private var showDeviceDetail = false
+    @State private var showExportMenu = false
+    @State private var exportStatus: String = ""
 
     var body: some View {
         ScrollView {
@@ -41,6 +44,16 @@ struct DashboardView: View {
             if let device = selectedDevice {
                 DeviceDetailView(device: device, isPresented: $showDeviceDetail)
             }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView(initialTab: 0)
+                .environmentObject(networkScanner)
+                .environmentObject(cveDatabase)
+        }
+        .sheet(isPresented: $showCVESettings) {
+            SettingsView(initialTab: 1)
+                .environmentObject(networkScanner)
+                .environmentObject(cveDatabase)
         }
     }
 
@@ -89,6 +102,29 @@ struct DashboardView: View {
                     Image(systemName: "gearshape.fill")
                 }
                 .buttonStyle(ModernButtonStyle(color: ModernColors.textSecondary, style: .glass))
+
+                // Export menu
+                Menu {
+                    Button("Export PDF Report") {
+                        exportPDFReport()
+                    }
+
+                    Button("Generate Remediation Scripts") {
+                        generateRemediationScripts()
+                    }
+
+                    Button("Export MITRE ATT&CK JSON") {
+                        exportMITREATTACK()
+                    }
+
+                    Button("Export Scan Data (JSON)") {
+                        exportScanData()
+                    }
+                } label: {
+                    Image(systemName: "square.and.arrow.up.fill")
+                }
+                .buttonStyle(ModernButtonStyle(color: ModernColors.accentGreen, style: .glass))
+                .disabled(networkScanner.discoveredDevices.isEmpty)
             }
 
             if networkScanner.isScanning {
@@ -137,12 +173,18 @@ struct DashboardView: View {
                 color: ModernColors.statusHigh
             )
 
-            StatCard(
-                title: "CVE Database",
-                value: cveDatabase.totalCVEs > 0 ? "\(cveDatabase.totalCVEs / 1000)k" : "Not Downloaded",
-                icon: "doc.text.fill",
-                color: ModernColors.accent
-            )
+            Button {
+                showCVESettings = true
+            } label: {
+                StatCard(
+                    title: "CVE Database",
+                    value: cveDatabase.totalCVEs > 0 ? "\(cveDatabase.totalCVEs / 1000)k CVEs" : "Tap to Download",
+                    icon: cveDatabase.totalCVEs > 0 ? "checkmark.circle.fill" : "arrow.down.circle.fill",
+                    color: cveDatabase.totalCVEs > 0 ? ModernColors.statusLow : ModernColors.statusHigh
+                )
+            }
+            .buttonStyle(.plain)
+            .help(cveDatabase.totalCVEs > 0 ? "CVE database loaded" : "Click to download CVE database (~2GB, 10-20 min)")
         }
     }
 
@@ -236,6 +278,14 @@ struct DashboardView: View {
         networkScanner.discoveredDevices.reduce(0) { $0 + $1.highVulnCount }
     }
 
+    private var totalMediumVulns: Int {
+        networkScanner.discoveredDevices.reduce(0) { $0 + $1.mediumVulnCount }
+    }
+
+    private var totalLowVulns: Int {
+        networkScanner.discoveredDevices.reduce(0) { $0 + $1.lowVulnCount }
+    }
+
     // Actions
     private func startScan() {
         Task {
@@ -277,6 +327,180 @@ struct DashboardView: View {
                     }
                 }
             }
+        }
+    }
+
+    // MARK: - Export Functions
+
+    private func exportPDFReport() {
+        exportStatus = "Generating PDF report..."
+
+        Task {
+            do {
+                // Build scan results
+                var results = ScanResults()
+                results.scanDate = Date()
+                results.networkCIDR = networkCIDR
+                results.devices = networkScanner.discoveredDevices
+                results.criticalCount = totalCriticalVulns
+                results.highCount = totalHighVulns
+                results.mediumCount = totalMediumVulns
+                results.lowCount = totalLowVulns
+                results.totalVulnerabilities = totalCriticalVulns + totalHighVulns + totalMediumVulns + totalLowVulns
+
+                // Get AI summary
+                let aiSummary = await generateAISummary()
+
+                // Generate PDF
+                let pdfPath = try await PDFGenerator.shared.generateReport(results: results, aiSummary: aiSummary)
+
+                // Open PDF
+                NSWorkspace.shared.open(pdfPath)
+
+                await MainActor.run {
+                    exportStatus = "✓ PDF exported: \(pdfPath.lastPathComponent)"
+                }
+
+                print("✓ PDF report generated: \(pdfPath.path)")
+            } catch {
+                await MainActor.run {
+                    exportStatus = "❌ PDF generation failed: \(error.localizedDescription)"
+                }
+            }
+        }
+    }
+
+    private func generateRemediationScripts() {
+        exportStatus = "Generating remediation scripts..."
+
+        Task {
+            do {
+                let generator = RemediationScriptGenerator()
+                var scripts: [RemediationScript] = []
+
+                // Generate script for each device with vulnerabilities
+                for device in networkScanner.discoveredDevices where !device.vulnerabilities.isEmpty {
+                    let script = await generator.generateScript(for: device)
+                    scripts.append(script)
+                }
+
+                // Export all scripts as ZIP
+                let zipPath = try await generator.exportAllScripts(scripts: scripts)
+
+                // Move to Desktop
+                let desktop = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask)[0]
+                let finalPath = desktop.appendingPathComponent("Bastion_Remediation_Scripts.zip")
+
+                if FileManager.default.fileExists(atPath: finalPath.path) {
+                    try FileManager.default.removeItem(at: finalPath)
+                }
+
+                try FileManager.default.moveItem(at: zipPath, to: finalPath)
+
+                // Open Finder
+                NSWorkspace.shared.activateFileViewerSelecting([finalPath])
+
+                await MainActor.run {
+                    exportStatus = "✓ Remediation scripts exported to Desktop"
+                }
+
+                print("✓ Remediation scripts: \(finalPath.path)")
+            } catch {
+                await MainActor.run {
+                    exportStatus = "❌ Script generation failed: \(error.localizedDescription)"
+                }
+            }
+        }
+    }
+
+    private func exportMITREATTACK() {
+        exportStatus = "Generating MITRE ATT&CK report..."
+
+        Task {
+            let mapper = MITREATTACKMapper()
+            let attackResults: [AttackResult] = []
+
+            let report = mapper.mapToATTACK(devices: networkScanner.discoveredDevices, attackResults: attackResults)
+            let navigatorJSON = mapper.exportNavigatorJSON(report: report)
+
+            let desktop = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask)[0]
+            let jsonPath = desktop.appendingPathComponent("Bastion_MITRE_ATTACK.json")
+
+            do {
+                try navigatorJSON.write(to: jsonPath, atomically: true, encoding: .utf8)
+                NSWorkspace.shared.activateFileViewerSelecting([jsonPath])
+
+                await MainActor.run {
+                    exportStatus = "✓ MITRE ATT&CK JSON exported to Desktop"
+                }
+
+                print("✓ MITRE ATT&CK exported: \(jsonPath.path)")
+            } catch {
+                await MainActor.run {
+                    exportStatus = "❌ Export failed: \(error.localizedDescription)"
+                }
+            }
+        }
+    }
+
+    private func exportScanData() {
+        exportStatus = "Exporting scan data..."
+
+        Task {
+            do {
+                let encoder = JSONEncoder()
+                encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+
+                let scanData = networkScanner.discoveredDevices
+                let jsonData = try encoder.encode(scanData)
+
+                let desktop = FileManager.default.urls(for: .desktopDirectory, in: .userDomainMask)[0]
+                let jsonPath = desktop.appendingPathComponent("Bastion_Scan_Data.json")
+
+                try jsonData.write(to: jsonPath)
+                NSWorkspace.shared.activateFileViewerSelecting([jsonPath])
+
+                await MainActor.run {
+                    exportStatus = "✓ Scan data exported to Desktop"
+                }
+
+                print("✓ Scan data exported: \(jsonPath.path)")
+            } catch {
+                await MainActor.run {
+                    exportStatus = "❌ Export failed: \(error.localizedDescription)"
+                }
+            }
+        }
+    }
+
+    private func generateAISummary() async -> String {
+        guard aiOrchestrator != nil else {
+            return "Network scan completed. \(networkScanner.discoveredDevices.count) devices discovered."
+        }
+
+        let prompt = """
+        Provide an executive summary of this network security assessment.
+
+        NETWORK: \(networkCIDR)
+        DEVICES: \(networkScanner.discoveredDevices.count)
+        VULNERABILITIES:
+        - Critical: \(totalCriticalVulns)
+        - High: \(totalHighVulns)
+        - Medium: \(totalMediumVulns)
+        - Low: \(totalLowVulns)
+
+        Provide a 2-3 paragraph executive summary.
+        """
+
+        do {
+            return try await AIBackendManager.shared.generate(
+                prompt: prompt,
+                systemPrompt: "You are a CISO writing an executive summary.",
+                temperature: 0.5,
+                maxTokens: 300
+            )
+        } catch {
+            return "Network assessment complete."
         }
     }
 }

@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0523D366476E4593A3EFCF07 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */; };
+		06896A127B8048ADA4A93D56 /* CVE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D24F18E26E42348C1C1E09 /* CVE.swift */; };
+		0A318FF92C81448FBFC6B670 /* AIBackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901229992A924BF683680BB4 /* AIBackendManager.swift */; };
+		10BCF210E337F1693478897C /* KernelModuleAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE771431044507E3FB7BFD9 /* KernelModuleAnalyzer.swift */; };
+		12ACD81E85774F6097AA50AF /* AIInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */; };
+		163792B6F7F58A0F0BC87C2C /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1927C3991BBDCD8D4A50E8 /* DeviceDetailView.swift */; };
+		16F3812B315A86B30D228D6C /* BackdoorDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A9AC0CDF6213A46528D0E /* BackdoorDetector.swift */; };
+		19E023386DA34E589E756D38 /* ModernDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */; };
+		1C4CFED6C9494BBF8FD56462 /* BastionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */; };
+		3FDF31D07B6839698747F519 /* PostCompromiseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803D0BE43EFDD2CC28DEC68 /* PostCompromiseModule.swift */; };
+		4A47CF7FF36E4A91A5A17E3F /* SafetyValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */; };
+		4E2358FB3D7B38600C45C63E /* RootkitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DFB28D442E917D1B32C1C7 /* RootkitDetector.swift */; };
+		5B2F1FF8BC7D4D559CF7EBDA /* CVEDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */; };
+		5D22114C12B040BE9B02E4AA /* SSHModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8CC0425B004BA59F1DE821 /* SSHModule.swift */; };
+		5FFE826F049B94D4FEEFD367 /* HiddenProcessDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC76D5D53B079E1CFEA38A /* HiddenProcessDetector.swift */; };
+		74A3652A0B75397946557BF9 /* SSHConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C0E7466AE086F8BBC69DE /* SSHConnection.swift */; };
+		7690CA0ECF1532DECFEB0040 /* PersistenceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */; };
+		812B224D4FDA4D6D8283F030 /* AIAttackOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */; };
+		8706D1A6F0B741618D8979BA /* NetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CC3B2138A4630A42702E6 /* NetworkScanner.swift */; };
+		8B3B8383998D467082F8D2FF /* AIExploitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */; };
+		9051EC73369E4E1ABF5C37F2 /* ServiceFingerprinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */; };
+		9316641FF348DBFDD3BDC37C /* SuspiciousUserDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33DDA1DE71C829FBB9E0932 /* SuspiciousUserDetector.swift */; };
+		A0015261BE3D465CA9A8CC72 /* WebModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F05A5E936A3477BB99A1DF7 /* WebModule.swift */; };
+		A220A75B7F6B82BF1448898D /* CompromiseReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B4A6151E2258E2D0132FC3 /* CompromiseReport.swift */; };
+		A45D3F39AAAD4D8AB7F07FF4 /* AttackLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1A878557546F2B72EDD48 /* AttackLogView.swift */; };
+		B0DE7BEA162A49AEB4202196 /* VulnerabilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */; };
+		B11C5F5121304C8580EEE3F3 /* DefaultCredsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */; };
+		B5A8197CCDB7A9CB99B5CA82 /* LogTamperingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D916C83E33B9FF21D4420 /* LogTamperingDetector.swift */; };
+		C256426EF01D028909125D0D /* BinaryIntegrityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */; };
+		CC73A3C6B7B6397336931195 /* BinaryHashDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */; };
+		D025FB6FA5C14CEDB24EF0DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9B725C71AD40B5B4860268 /* SettingsView.swift */; };
+		D2CFDB78FE1E482991302080 /* AttackResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C26F007C044729F8289FD /* AttackResult.swift */; };
+		D7A39AD2491D4C35BCD64504 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86DD6EDB4F946AA82D45965 /* Device.swift */; };
+		E1080B2C446F4A80A65AACDD /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */; };
+		E2823F5513BA48B399DBF253 /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */; };
+		F0BF56B44F708DA0D1845C13 /* NetworkSnifferDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/DashboardView.swift; sourceTree = "<group>"; };
+		08D24F18E26E42348C1C1E09 /* CVE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/CVE.swift; sourceTree = "<group>"; };
+		181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/SafetyValidator.swift; sourceTree = "<group>"; };
+		1CE771431044507E3FB7BFD9 /* KernelModuleAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KernelModuleAnalyzer.swift; path = KernelModuleAnalyzer.swift; sourceTree = "<group>"; };
+		3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIExploitGenerator.swift; sourceTree = "<group>"; };
+		5D8C26F007C044729F8289FD /* AttackResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/AttackResult.swift; sourceTree = "<group>"; };
+		5F05A5E936A3477BB99A1DF7 /* WebModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/WebModule.swift; sourceTree = "<group>"; };
+		62432CD1B9D14F20A18CFA04 /* Bastion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bastion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkSnifferDetector.swift; path = NetworkSnifferDetector.swift; sourceTree = "<group>"; };
+		68DFB28D442E917D1B32C1C7 /* RootkitDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RootkitDetector.swift; path = RootkitDetector.swift; sourceTree = "<group>"; };
+		6B1927C3991BBDCD8D4A50E8 /* DeviceDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceDetailView.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
+		6C9B725C71AD40B5B4860268 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/VulnerabilitiesView.swift; sourceTree = "<group>"; };
+		7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryIntegrityChecker.swift; path = BinaryIntegrityChecker.swift; sourceTree = "<group>"; };
+		8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BastionApp.swift; sourceTree = "<group>"; };
+		80B4A6151E2258E2D0132FC3 /* CompromiseReport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompromiseReport.swift; path = CompromiseReport.swift; sourceTree = "<group>"; };
+		877CC3B2138A4630A42702E6 /* NetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/NetworkScanner.swift; sourceTree = "<group>"; };
+		8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/CVEDatabase.swift; sourceTree = "<group>"; };
+		901229992A924BF683680BB4 /* AIBackendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIBackendManager.swift; sourceTree = "<group>"; };
+		983C0E7466AE086F8BBC69DE /* SSHConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSHConnection.swift; path = SSHConnection.swift; sourceTree = "<group>"; };
+		9F9A9AC0CDF6213A46528D0E /* BackdoorDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BackdoorDetector.swift; path = BackdoorDetector.swift; sourceTree = "<group>"; };
+		A1FC76D5D53B079E1CFEA38A /* HiddenProcessDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HiddenProcessDetector.swift; path = HiddenProcessDetector.swift; sourceTree = "<group>"; };
+		A33DDA1DE71C829FBB9E0932 /* SuspiciousUserDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuspiciousUserDetector.swift; path = SuspiciousUserDetector.swift; sourceTree = "<group>"; };
+		A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIAttackOrchestrator.swift; sourceTree = "<group>"; };
+		B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/DeviceListView.swift; sourceTree = "<group>"; };
+		BB8CC0425B004BA59F1DE821 /* SSHModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/SSHModule.swift; sourceTree = "<group>"; };
+		BE5D916C83E33B9FF21D4420 /* LogTamperingDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogTamperingDetector.swift; path = LogTamperingDetector.swift; sourceTree = "<group>"; };
+		C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AIInsightsView.swift; sourceTree = "<group>"; };
+		C803D0BE43EFDD2CC28DEC68 /* PostCompromiseModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PostCompromiseModule.swift; path = PostCompromiseModule.swift; sourceTree = "<group>"; };
+		D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/PDFGenerator.swift; sourceTree = "<group>"; };
+		D86DD6EDB4F946AA82D45965 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Device.swift; sourceTree = "<group>"; };
+		DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/DefaultCredsModule.swift; sourceTree = "<group>"; };
+		EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ServiceFingerprinter.swift; sourceTree = "<group>"; };
+		EEB1A878557546F2B72EDD48 /* AttackLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AttackLogView.swift; sourceTree = "<group>"; };
+		F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/ModernDesign.swift; sourceTree = "<group>"; };
+		F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistenceDetector.swift; path = PersistenceDetector.swift; sourceTree = "<group>"; };
+		FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryHashDatabase.swift; path = BinaryHashDatabase.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3546F9888B8438997FE195C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BFFA7361C1EF478872E731F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80B4A6151E2258E2D0132FC3 /* CompromiseReport.swift */,
+			);
+			name = Models;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		773C080F7EF04DC2965F5595 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62432CD1B9D14F20A18CFA04 /* Bastion.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87713C8E397AA8A9390365AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B1927C3991BBDCD8D4A50E8 /* DeviceDetailView.swift */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B52A85FC1A4467E8C481D52D /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				CEB0CE6E1FDD4D7ACEE77251 /* PostCompromise */,
+			);
+			name = Security;
+			path = Security;
+			sourceTree = "<group>";
+		};
+		CEB0CE6E1FDD4D7ACEE77251 /* PostCompromise */ = {
+			isa = PBXGroup;
+			children = (
+				C803D0BE43EFDD2CC28DEC68 /* PostCompromiseModule.swift */,
+				68DFB28D442E917D1B32C1C7 /* RootkitDetector.swift */,
+				A33DDA1DE71C829FBB9E0932 /* SuspiciousUserDetector.swift */,
+				9F9A9AC0CDF6213A46528D0E /* BackdoorDetector.swift */,
+				A1FC76D5D53B079E1CFEA38A /* HiddenProcessDetector.swift */,
+				7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */,
+				F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */,
+				1CE771431044507E3FB7BFD9 /* KernelModuleAnalyzer.swift */,
+				BE5D916C83E33B9FF21D4420 /* LogTamperingDetector.swift */,
+				630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */,
+				FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */,
+			);
+			name = PostCompromise;
+			path = PostCompromise;
+			sourceTree = "<group>";
+		};
+		D1AE5139A2915BF0D48C0D4E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				983C0E7466AE086F8BBC69DE /* SSHConnection.swift */,
+			);
+			name = Utilities;
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D8F5E75E948D4B62A4F58689 /* Bastion */ = {
+			isa = PBXGroup;
+			children = (
+				8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */,
+				8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */,
+				EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */,
+				877CC3B2138A4630A42702E6 /* NetworkScanner.swift */,
+				BB8CC0425B004BA59F1DE821 /* SSHModule.swift */,
+				5F05A5E936A3477BB99A1DF7 /* WebModule.swift */,
+				DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */,
+				08D24F18E26E42348C1C1E09 /* CVE.swift */,
+				5D8C26F007C044729F8289FD /* AttackResult.swift */,
+				D86DD6EDB4F946AA82D45965 /* Device.swift */,
+				F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */,
+				181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */,
+				D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */,
+				A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */,
+				901229992A924BF683680BB4 /* AIBackendManager.swift */,
+				3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */,
+				01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */,
+				6C9B725C71AD40B5B4860268 /* SettingsView.swift */,
+				719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */,
+				B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */,
+				EEB1A878557546F2B72EDD48 /* AttackLogView.swift */,
+				C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */,
+				3BFFA7361C1EF478872E731F /* Models */,
+				D1AE5139A2915BF0D48C0D4E /* Utilities */,
+				B52A85FC1A4467E8C481D52D /* Security */,
+				87713C8E397AA8A9390365AE /* Views */,
+			);
+			path = Bastion;
+			sourceTree = "<group>";
+		};
+		FD5029B2781C4D1CBE0101E3 = {
+			isa = PBXGroup;
+			children = (
+				D8F5E75E948D4B62A4F58689 /* Bastion */,
+				773C080F7EF04DC2965F5595 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74E3CFFC69B443ECB5CF18B1 /* Bastion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 566C15E8AB3A4B0DB3492C28 /* Build configuration list for PBXProject "Bastion" */;
+			buildPhases = (
+				3CD7D8CE32D94A2A8D02D982 /* Sources */,
+				A3546F9888B8438997FE195C /* Frameworks */,
+				0A1E498AC2E74BC2AFB24CD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bastion;
+			productName = Bastion;
+			productReference = 62432CD1B9D14F20A18CFA04 /* Bastion.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74929BDE0FD241A29273AE74 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 566C15E8AB3A4B0DB3492C28 /* Build configuration list for PBXProject "Bastion" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FD5029B2781C4D1CBE0101E3;
+			productRefGroup = 773C080F7EF04DC2965F5595 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74E3CFFC69B443ECB5CF18B1 /* Bastion */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A1E498AC2E74BC2AFB24CD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CD7D8CE32D94A2A8D02D982 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C4CFED6C9494BBF8FD56462 /* BastionApp.swift in Sources */,
+				5B2F1FF8BC7D4D559CF7EBDA /* CVEDatabase.swift in Sources */,
+				9051EC73369E4E1ABF5C37F2 /* ServiceFingerprinter.swift in Sources */,
+				8706D1A6F0B741618D8979BA /* NetworkScanner.swift in Sources */,
+				5D22114C12B040BE9B02E4AA /* SSHModule.swift in Sources */,
+				A0015261BE3D465CA9A8CC72 /* WebModule.swift in Sources */,
+				B11C5F5121304C8580EEE3F3 /* DefaultCredsModule.swift in Sources */,
+				06896A127B8048ADA4A93D56 /* CVE.swift in Sources */,
+				D2CFDB78FE1E482991302080 /* AttackResult.swift in Sources */,
+				D7A39AD2491D4C35BCD64504 /* Device.swift in Sources */,
+				19E023386DA34E589E756D38 /* ModernDesign.swift in Sources */,
+				4A47CF7FF36E4A91A5A17E3F /* SafetyValidator.swift in Sources */,
+				E1080B2C446F4A80A65AACDD /* PDFGenerator.swift in Sources */,
+				812B224D4FDA4D6D8283F030 /* AIAttackOrchestrator.swift in Sources */,
+				0A318FF92C81448FBFC6B670 /* AIBackendManager.swift in Sources */,
+				8B3B8383998D467082F8D2FF /* AIExploitGenerator.swift in Sources */,
+				0523D366476E4593A3EFCF07 /* DashboardView.swift in Sources */,
+				D025FB6FA5C14CEDB24EF0DE /* SettingsView.swift in Sources */,
+				B0DE7BEA162A49AEB4202196 /* VulnerabilitiesView.swift in Sources */,
+				E2823F5513BA48B399DBF253 /* DeviceListView.swift in Sources */,
+				A45D3F39AAAD4D8AB7F07FF4 /* AttackLogView.swift in Sources */,
+				12ACD81E85774F6097AA50AF /* AIInsightsView.swift in Sources */,
+				A220A75B7F6B82BF1448898D /* CompromiseReport.swift in Sources */,
+				74A3652A0B75397946557BF9 /* SSHConnection.swift in Sources */,
+				3FDF31D07B6839698747F519 /* PostCompromiseModule.swift in Sources */,
+				4E2358FB3D7B38600C45C63E /* RootkitDetector.swift in Sources */,
+				9316641FF348DBFDD3BDC37C /* SuspiciousUserDetector.swift in Sources */,
+				16F3812B315A86B30D228D6C /* BackdoorDetector.swift in Sources */,
+				5FFE826F049B94D4FEEFD367 /* HiddenProcessDetector.swift in Sources */,
+				C256426EF01D028909125D0D /* BinaryIntegrityChecker.swift in Sources */,
+				7690CA0ECF1532DECFEB0040 /* PersistenceDetector.swift in Sources */,
+				10BCF210E337F1693478897C /* KernelModuleAnalyzer.swift in Sources */,
+				B5A8197CCDB7A9CB99B5CA82 /* LogTamperingDetector.swift in Sources */,
+				F0BF56B44F708DA0D1845C13 /* NetworkSnifferDetector.swift in Sources */,
+				163792B6F7F58A0F0BC87C2C /* DeviceDetailView.swift in Sources */,
+				CC73A3C6B7B6397336931195 /* BinaryHashDatabase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F07FC1F751C74AF18A41C307 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F6FDBF633FDF4C1AA88DC3A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		566C15E8AB3A4B0DB3492C28 /* Build configuration list for PBXProject "Bastion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F07FC1F751C74AF18A41C307 /* Debug */,
+				F6FDBF633FDF4C1AA88DC3A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74929BDE0FD241A29273AE74 /* Project object */;
+}

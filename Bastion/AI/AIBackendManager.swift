@@ -2,13 +2,20 @@
 //  AIBackendManager.swift
 //  Universal AI Backend Manager
 //
-//  Drop-in component for Ollama + MLX + TinyLLM support
+//  Drop-in component for Ollama + MLX + TinyLLM + TinyChat + OpenWebUI support
 //  Author: Jordan Koch
 //  Date: 2025-01-17
+//  Updated: 2026-01-20 - Added TinyChat and OpenWebUI support
 //
 //  THIRD-PARTY INTEGRATIONS:
 //  - TinyLLM by Jason Cox (https://github.com/jasonacox/TinyLLM)
 //    Lightweight LLM server with OpenAI-compatible API
+//
+//  - TinyChat by Jason Cox (https://github.com/jasonacox/tinychat)
+//    Fast chatbot interface with streaming, markdown & math rendering
+//
+//  - OpenWebUI Community Project (https://github.com/open-webui/open-webui)
+//    Self-hosted AI platform operating entirely offline
 //
 //  HOW TO USE:
 //  1. Copy this file into your project
@@ -27,6 +34,8 @@ enum AIBackend: String, Codable, CaseIterable {
     case ollama = "Ollama"
     case mlx = "MLX Toolkit"
     case tinyLLM = "TinyLLM"
+    case tinyChat = "TinyChat"
+    case openWebUI = "OpenWebUI"
     case auto = "Auto (Prefer Ollama)"
 
     var icon: String {
@@ -34,6 +43,8 @@ enum AIBackend: String, Codable, CaseIterable {
         case .ollama: return "network"
         case .mlx: return "cpu"
         case .tinyLLM: return "cube"
+        case .tinyChat: return "bubble.left.and.bubble.right.fill"
+        case .openWebUI: return "globe"
         case .auto: return "sparkles"
         }
     }
@@ -46,8 +57,25 @@ enum AIBackend: String, Codable, CaseIterable {
             return "Python MLX Toolkit (runs models locally via Python)"
         case .tinyLLM:
             return "TinyLLM lightweight server (localhost:8000)"
+        case .tinyChat:
+            return "TinyChat by Jason Cox - Fast chatbot interface (localhost:8000)"
+        case .openWebUI:
+            return "OpenWebUI - Self-hosted AI platform (localhost:8080)"
         case .auto:
             return "Automatically choose best available backend"
+        }
+    }
+
+    var attribution: String? {
+        switch self {
+        case .tinyLLM:
+            return "TinyLLM by Jason Cox (https://github.com/jasonacox/TinyLLM)"
+        case .tinyChat:
+            return "TinyChat by Jason Cox (https://github.com/jasonacox/tinychat)"
+        case .openWebUI:
+            return "OpenWebUI Community Project (https://github.com/open-webui/open-webui)"
+        default:
+            return nil
         }
     }
 }
@@ -65,19 +93,27 @@ class AIBackendManager: ObservableObject {
     @Published var isOllamaAvailable = false
     @Published var isMLXAvailable = false
     @Published var isTinyLLMAvailable = false
+    @Published var isTinyChatAvailable = false
+    @Published var isOpenWebUIAvailable = false
     @Published var isProcessing = false
     @Published var lastError: String? = nil
 
     // Ollama-specific
     @Published var ollamaModels: [String] = []
-    @Published var selectedOllamaModel: String = "llama2"
+    @Published var selectedOllamaModel: String = "mistral:latest"
 
     // MLX-specific
     @Published var pythonPath: String = "/opt/homebrew/bin/python3"
     @Published var mlxScriptPath: String = ""
 
-    // TinyLLM-specific
+    // TinyLLM-specific (Jason Cox)
     @Published var tinyLLMServerURL: String = "http://localhost:8000"
+
+    // TinyChat-specific (Jason Cox)
+    @Published var tinyChatServerURL: String = "http://localhost:8000"
+
+    // OpenWebUI-specific
+    @Published var openWebUIServerURL: String = "http://localhost:8080"
 
     // MARK: - Private Properties
 
@@ -90,6 +126,8 @@ class AIBackendManager: ObservableObject {
         static let pythonPath = "AIBackendManager_PythonPath"
         static let mlxScriptPath = "AIBackendManager_MLXScriptPath"
         static let tinyLLMServerURL = "AIBackendManager_TinyLLMServerURL"
+        static let tinyChatServerURL = "AIBackendManager_TinyChatServerURL"
+        static let openWebUIServerURL = "AIBackendManager_OpenWebUIServerURL"
     }
 
     // MARK: - Initialization
@@ -109,10 +147,12 @@ class AIBackendManager: ObservableObject {
             selectedBackend = backend
         }
 
-        selectedOllamaModel = userDefaults.string(forKey: Keys.ollamaModel) ?? "llama2"
+        selectedOllamaModel = userDefaults.string(forKey: Keys.ollamaModel) ?? "mistral:latest"
         pythonPath = userDefaults.string(forKey: Keys.pythonPath) ?? "/opt/homebrew/bin/python3"
         mlxScriptPath = userDefaults.string(forKey: Keys.mlxScriptPath) ?? ""
         tinyLLMServerURL = userDefaults.string(forKey: Keys.tinyLLMServerURL) ?? "http://localhost:8000"
+        tinyChatServerURL = userDefaults.string(forKey: Keys.tinyChatServerURL) ?? "http://localhost:8000"
+        openWebUIServerURL = userDefaults.string(forKey: Keys.openWebUIServerURL) ?? "http://localhost:8080"
     }
 
     func saveSettings() {
@@ -121,6 +161,8 @@ class AIBackendManager: ObservableObject {
         userDefaults.set(pythonPath, forKey: Keys.pythonPath)
         userDefaults.set(mlxScriptPath, forKey: Keys.mlxScriptPath)
         userDefaults.set(tinyLLMServerURL, forKey: Keys.tinyLLMServerURL)
+        userDefaults.set(tinyChatServerURL, forKey: Keys.tinyChatServerURL)
+        userDefaults.set(openWebUIServerURL, forKey: Keys.openWebUIServerURL)
     }
 
     // MARK: - Backend Availability Checking
@@ -129,12 +171,16 @@ class AIBackendManager: ObservableObject {
         async let ollamaCheck = checkOllamaAvailability()
         async let mlxCheck = checkMLXAvailability()
         async let tinyLLMCheck = checkTinyLLMAvailability()
+        async let tinyChatCheck = checkTinyChatAvailability()
+        async let openWebUICheck = checkOpenWebUIAvailability()
 
-        let (ollama, mlx, tinyLLM) = await (ollamaCheck, mlxCheck, tinyLLMCheck)
+        let (ollama, mlx, tinyLLM, tinyChat, openWebUI) = await (ollamaCheck, mlxCheck, tinyLLMCheck, tinyChatCheck, openWebUICheck)
 
         isOllamaAvailable = ollama
         isMLXAvailable = mlx
         isTinyLLMAvailable = tinyLLM
+        isTinyChatAvailable = tinyChat
+        isOpenWebUIAvailable = openWebUI
 
         // Determine active backend
         determineActiveBackend()
@@ -148,12 +194,20 @@ class AIBackendManager: ObservableObject {
             activeBackend = isMLXAvailable ? .mlx : nil
         case .tinyLLM:
             activeBackend = isTinyLLMAvailable ? .tinyLLM : nil
+        case .tinyChat:
+            activeBackend = isTinyChatAvailable ? .tinyChat : nil
+        case .openWebUI:
+            activeBackend = isOpenWebUIAvailable ? .openWebUI : nil
         case .auto:
-            // Prefer Ollama, fallback to TinyLLM, then MLX
+            // Prefer Ollama, fallback to TinyChat/TinyLLM/OpenWebUI, then MLX
             if isOllamaAvailable {
                 activeBackend = .ollama
+            } else if isTinyChatAvailable {
+                activeBackend = .tinyChat
             } else if isTinyLLMAvailable {
                 activeBackend = .tinyLLM
+            } else if isOpenWebUIAvailable {
+                activeBackend = .openWebUI
             } else if isMLXAvailable {
                 activeBackend = .mlx
             } else {
@@ -175,6 +229,46 @@ class AIBackendManager: ObservableObject {
         }
     }
 
+    private func checkTinyChatAvailability() async -> Bool {
+        guard let url = URL(string: "\(tinyChatServerURL)/") else {
+            return false
+        }
+
+        do {
+            let (_, response) = try await URLSession.shared.data(from: url)
+            return (response as? HTTPURLResponse)?.statusCode == 200
+        } catch {
+            return false
+        }
+    }
+
+    private func checkOpenWebUIAvailability() async -> Bool {
+        // Try port 8080 first, then 3000
+        let urls = [
+            URL(string: "\(openWebUIServerURL)/"),
+            URL(string: "http://localhost:3000/")
+        ].compactMap { $0 }
+
+        for url in urls {
+            do {
+                let (_, response) = try await URLSession.shared.data(from: url)
+                if (response as? HTTPURLResponse)?.statusCode == 200 {
+                    // Update URL if we found it on alternate port
+                    if url.absoluteString.contains(":3000") {
+                        await MainActor.run {
+                            openWebUIServerURL = "http://localhost:3000"
+                        }
+                    }
+                    return true
+                }
+            } catch {
+                continue
+            }
+        }
+
+        return false
+    }
+
     private func checkOllamaAvailability() async -> Bool {
         guard let url = URL(string: "\(ollamaBaseURL)/api/tags") else {
             return false
@@ -189,6 +283,13 @@ class AIBackendManager: ObservableObject {
                 let modelNames = models.compactMap { $0["name"] as? String }
                 await MainActor.run {
                     self.ollamaModels = modelNames
+
+                    // Auto-select first available model if current selection doesn't exist
+                    if !modelNames.isEmpty && !modelNames.contains(self.selectedOllamaModel) {
+                        self.selectedOllamaModel = modelNames[0]
+                        self.saveSettings()
+                        print("⚠️ Ollama model '\(self.selectedOllamaModel)' not found, auto-selected '\(modelNames[0])'")
+                    }
                 }
             }
 
@@ -249,6 +350,20 @@ class AIBackendManager: ObservableObject {
             )
         case .tinyLLM:
             return try await generateWithTinyLLM(
+                prompt: prompt,
+                systemPrompt: systemPrompt,
+                temperature: temperature,
+                maxTokens: maxTokens
+            )
+        case .tinyChat:
+            return try await generateWithTinyChat(
+                prompt: prompt,
+                systemPrompt: systemPrompt,
+                temperature: temperature,
+                maxTokens: maxTokens
+            )
+        case .openWebUI:
+            return try await generateWithOpenWebUI(
                 prompt: prompt,
                 systemPrompt: systemPrompt,
                 temperature: temperature,
@@ -434,6 +549,111 @@ class AIBackendManager: ObservableObject {
         return response.choices.first?.message.content ?? ""
     }
 
+    // MARK: - TinyChat Implementation
+    //
+    // TinyChat by Jason Cox: https://github.com/jasonacox/tinychat
+    // Fast chatbot interface with OpenAI-compatible API
+    // Supports real-time streaming and markdown rendering
+
+    private func generateWithTinyChat(
+        prompt: String,
+        systemPrompt: String?,
+        temperature: Float,
+        maxTokens: Int
+    ) async throws -> String {
+        guard let url = URL(string: "\(tinyChatServerURL)/api/chat/stream") else {
+            throw AIBackendError.invalidConfiguration
+        }
+
+        // Build messages array for OpenAI-compatible API
+        var messages: [[String: String]] = []
+        if let systemPrompt = systemPrompt {
+            messages.append(["role": "system", "content": systemPrompt])
+        }
+        messages.append(["role": "user", "content": prompt])
+
+        let requestBody: [String: Any] = [
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": maxTokens,
+            "stream": false
+        ]
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+        // TinyChat returns OpenAI-compatible response
+        struct TinyChatResponse: Codable {
+            struct Choice: Codable {
+                struct Message: Codable {
+                    let content: String
+                }
+                let message: Message
+            }
+            let choices: [Choice]
+        }
+
+        let decoder = JSONDecoder()
+        let response = try decoder.decode(TinyChatResponse.self, from: data)
+        return response.choices.first?.message.content ?? ""
+    }
+
+    // MARK: - OpenWebUI Implementation
+    //
+    // OpenWebUI Community Project: https://github.com/open-webui/open-webui
+    // Self-hosted AI platform with OpenAI-compatible API
+
+    private func generateWithOpenWebUI(
+        prompt: String,
+        systemPrompt: String?,
+        temperature: Float,
+        maxTokens: Int
+    ) async throws -> String {
+        guard let url = URL(string: "\(openWebUIServerURL)/api/chat/completions") else {
+            throw AIBackendError.invalidConfiguration
+        }
+
+        // Build messages array for OpenAI-compatible API
+        var messages: [[String: String]] = []
+        if let systemPrompt = systemPrompt {
+            messages.append(["role": "system", "content": systemPrompt])
+        }
+        messages.append(["role": "user", "content": prompt])
+
+        let requestBody: [String: Any] = [
+            "messages": messages,
+            "max_tokens": maxTokens,
+            "temperature": temperature,
+            "stream": false
+        ]
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+        // OpenWebUI returns OpenAI-compatible response
+        struct OpenWebUIResponse: Codable {
+            struct Choice: Codable {
+                struct Message: Codable {
+                    let content: String
+                }
+                let message: Message
+            }
+            let choices: [Choice]
+        }
+
+        let decoder = JSONDecoder()
+        let response = try decoder.decode(OpenWebUIResponse.self, from: data)
+        return response.choices.first?.message.content ?? ""
+    }
+
     // MARK: - Embeddings (for semantic search)
 
     func generateEmbeddings(text: String) async throws -> [Float] {
@@ -448,6 +668,10 @@ class AIBackendManager: ObservableObject {
             return try await generateEmbeddingsWithMLX(text: text)
         case .tinyLLM:
             return try await generateEmbeddingsWithTinyLLM(text: text)
+        case .tinyChat:
+            return try await generateEmbeddingsWithTinyChat(text: text)
+        case .openWebUI:
+            return try await generateEmbeddingsWithOpenWebUI(text: text)
         case .auto:
             throw AIBackendError.invalidState
         }
@@ -515,6 +739,68 @@ class AIBackendManager: ObservableObject {
         let response = try decoder.decode(TinyLLMEmbeddingResponse.self, from: data)
         return response.data.first?.embedding ?? []
     }
+
+    // TinyChat embeddings via OpenAI-compatible API
+    // TinyChat by Jason Cox: https://github.com/jasonacox/tinychat
+    private func generateEmbeddingsWithTinyChat(text: String) async throws -> [Float] {
+        guard let url = URL(string: "\(tinyChatServerURL)/v1/embeddings") else {
+            throw AIBackendError.invalidConfiguration
+        }
+
+        let requestBody: [String: Any] = [
+            "input": text,
+            "model": "text-embedding-ada-002"
+        ]
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+        struct TinyChatEmbeddingResponse: Codable {
+            struct Data: Codable {
+                let embedding: [Float]
+            }
+            let data: [Data]
+        }
+
+        let decoder = JSONDecoder()
+        let response = try decoder.decode(TinyChatEmbeddingResponse.self, from: data)
+        return response.data.first?.embedding ?? []
+    }
+
+    // OpenWebUI embeddings via OpenAI-compatible API
+    // OpenWebUI: https://github.com/open-webui/open-webui
+    private func generateEmbeddingsWithOpenWebUI(text: String) async throws -> [Float] {
+        guard let url = URL(string: "\(openWebUIServerURL)/api/embeddings") else {
+            throw AIBackendError.invalidConfiguration
+        }
+
+        let requestBody: [String: Any] = [
+            "input": text,
+            "model": "text-embedding-ada-002"
+        ]
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try JSONSerialization.data(withJSONObject: requestBody)
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+
+        struct OpenWebUIEmbeddingResponse: Codable {
+            struct Data: Codable {
+                let embedding: [Float]
+            }
+            let data: [Data]
+        }
+
+        let decoder = JSONDecoder()
+        let response = try decoder.decode(OpenWebUIEmbeddingResponse.self, from: data)
+        return response.data.first?.embedding ?? []
+    }
 }
 
 // MARK: - Errors
@@ -552,8 +838,9 @@ struct AIBackendSettingsView: View {
     @State private var isChecking = false
 
     var body: some View {
-        Form {
-            Section(header: Text("AI Backend Selection")) {
+        ScrollView {
+            Form {
+                Section(header: Text("AI Backend Selection")) {
                 Picker("Backend", selection: $manager.selectedBackend) {
                     ForEach(AIBackend.allCases, id: \.self) { backend in
                         HStack {
@@ -612,6 +899,22 @@ struct AIBackendSettingsView: View {
                     Spacer()
                     Text(manager.isTinyLLMAvailable ? "Available" : "Unavailable")
                         .foregroundColor(manager.isTinyLLMAvailable ? .green : .secondary)
+                }
+
+                HStack {
+                    Image(systemName: "bubble.left.and.bubble.right.fill")
+                    Text("TinyChat")
+                    Spacer()
+                    Text(manager.isTinyChatAvailable ? "Available" : "Unavailable")
+                        .foregroundColor(manager.isTinyChatAvailable ? .green : .secondary)
+                }
+
+                HStack {
+                    Image(systemName: "globe")
+                    Text("OpenWebUI")
+                    Spacer()
+                    Text(manager.isOpenWebUIAvailable ? "Available" : "Unavailable")
+                        .foregroundColor(manager.isOpenWebUIAvailable ? .green : .secondary)
                 }
 
                 Button("Refresh Status") {
@@ -679,6 +982,54 @@ struct AIBackendSettingsView: View {
                 }
             }
 
+            if manager.isTinyChatAvailable || manager.selectedBackend == .tinyChat {
+                Section(header: Text("TinyChat Configuration")) {
+                    TextField("Server URL", text: $manager.tinyChatServerURL)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: manager.tinyChatServerURL) { _ in
+                            manager.saveSettings()
+                        }
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("TinyChat: Fast chatbot interface with OpenAI-compatible API")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Link("TinyChat by Jason Cox", destination: URL(string: "https://github.com/jasonacox/tinychat")!)
+                            .font(.caption)
+                            .foregroundColor(.blue)
+
+                        Text("Default: http://localhost:8000")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+
+            if manager.isOpenWebUIAvailable || manager.selectedBackend == .openWebUI {
+                Section(header: Text("OpenWebUI Configuration")) {
+                    TextField("Server URL", text: $manager.openWebUIServerURL)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: manager.openWebUIServerURL) { _ in
+                            manager.saveSettings()
+                        }
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("OpenWebUI: Self-hosted AI platform with OpenAI-compatible API")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+
+                        Link("OpenWebUI Project", destination: URL(string: "https://github.com/open-webui/open-webui")!)
+                            .font(.caption)
+                            .foregroundColor(.blue)
+
+                        Text("Default: http://localhost:8080 or http://localhost:3000")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+
             Section(header: Text("Setup Instructions")) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Ollama Setup:").bold()
@@ -699,6 +1050,28 @@ struct AIBackendSettingsView: View {
 
                     Divider().padding(.vertical, 4)
 
+                    Text("TinyChat Setup:").bold()
+                    Text("By Jason Cox (GitHub: jasonacox/tinychat)")
+                        .font(.caption)
+                        .foregroundColor(.blue)
+                    Text("1. Docker: docker run -d -p 8000:8000 jasonacox/tinychat:latest")
+                    Text("2. Configure backend LLM (Ollama, OpenAI, etc.)")
+                    Text("3. Access: http://localhost:8000")
+                    Text("Note: Fast chatbot interface with markdown & math rendering")
+
+                    Divider().padding(.vertical, 4)
+
+                    Text("OpenWebUI Setup:").bold()
+                    Text("Community Project (GitHub: open-webui/open-webui)")
+                        .font(.caption)
+                        .foregroundColor(.blue)
+                    Text("1. Docker: docker run -d -p 3000:8080 ghcr.io/open-webui/open-webui:main")
+                    Text("2. Or pip: pip install open-webui && open-webui serve")
+                    Text("3. Access: http://localhost:8080 or http://localhost:3000")
+                    Text("Note: Self-hosted AI platform with advanced features")
+
+                    Divider().padding(.vertical, 4)
+
                     Text("MLX Setup:").bold()
                     Text("1. Install Python: brew install python")
                     Text("2. Install MLX: pip install mlx-lm")
@@ -708,7 +1081,8 @@ struct AIBackendSettingsView: View {
                 .foregroundColor(.secondary)
             }
         }
-        .frame(minWidth: 600, minHeight: 600)
+        }
+        .frame(minWidth: 800, minHeight: 900)
         .padding()
     }
 }

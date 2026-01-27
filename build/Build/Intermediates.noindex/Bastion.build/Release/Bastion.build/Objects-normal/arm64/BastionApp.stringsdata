@@ -1,0 +1,264 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/BastionApp.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Scan",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Attack",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 56
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "Windows",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 90
+        }
+      },
+      {
+        "comment": "",
+        "key": "New Scan",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stop Scan",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quick Scan",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "🎯 Run AI Attack Plan",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "🔥 SATAN MODE (Full Assault)",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "🛑 EMERGENCY STOP",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "Backend: %@",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 86
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI Backend Settings...",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 79
+        }
+      },
+      {
+        "comment": "",
+        "key": "Dashboard",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 91
+        }
+      },
+      {
+        "comment": "",
+        "key": "Device List",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 94
+        }
+      },
+      {
+        "comment": "",
+        "key": "Attack Log",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 97
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI Insights",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 100
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulnerabilities",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 103
+        }
+      },
+      {
+        "comment": "",
+        "key": "⚠️ LEGAL NOTICE",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "WHITE HAT SECURITY TOOL",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 136
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bastion is a WHITE HAT security testing tool for YOUR OWN network.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "UNAUTHORIZED NETWORK SCANNING IS ILLEGAL",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "Maximum penalties: $250,000 fine + 20 years imprisonment (USA)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 166
+        }
+      },
+      {
+        "comment": "",
+        "key": "DO NOT use on networks you don't own/control.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 182
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bastion enforces local IP scanning only (192.168.x.x, 10.x.x.x, 172.16-31.x.x).\nAll activities are logged for audit purposes.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "By using Bastion, you confirm:",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 152
+        }
+      },
+      {
+        "comment": "",
+        "key": "  • Computer Fraud and Abuse Act (CFAA) - USA\n  • Computer Misuse Act - UK\n  • Similar laws in your jurisdiction",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 160
+        }
+      },
+      {
+        "comment": "",
+        "key": "This tool is designed for:",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quit",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 200
+        }
+      },
+      {
+        "comment": "",
+        "key": "I Understand and Accept",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 205
+        }
+      },
+      {
+        "comment": "",
+        "key": "✓",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 221
+        }
+      },
+      {
+        "comment": "",
+        "key": "BASTION",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 281
+        }
+      },
+      {
+        "comment": "",
+        "key": "AI-Powered Security Testing",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 287
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,552 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/AI/AIBackendManager.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "AI Backend Selection",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 843
+        }
+      },
+      {
+        "comment": "",
+        "key": "Backend Status",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 865
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ollama Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 931
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 950
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 966
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyChat Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 986
+        }
+      },
+      {
+        "comment": "",
+        "key": "OpenWebUI Configuration",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 1010
+        }
+      },
+      {
+        "comment": "",
+        "key": "Setup Instructions",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 1033
+        }
+      },
+      {
+        "comment": "",
+        "key": "Backend",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 844
+        }
+      },
+      {
+        "comment": "",
+        "key": "Refresh Status",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 920
+        }
+      },
+      {
+        "comment": "",
+        "key": "No backend available",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 875
+        }
+      },
+      {
+        "comment": "",
+        "key": "Active: %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 872
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ollama",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 882
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 54,
+          "startingLine": 884
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 68,
+          "startingLine": 884
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Toolkit",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 890
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 892
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 65,
+          "startingLine": 892
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 898
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 900
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 69,
+          "startingLine": 900
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyChat",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 906
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 56,
+          "startingLine": 908
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 70,
+          "startingLine": 908
+        }
+      },
+      {
+        "comment": "",
+        "key": "OpenWebUI",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 914
+        }
+      },
+      {
+        "comment": "",
+        "key": "Available",
+        "location": {
+          "startingColumn": 57,
+          "startingLine": 916
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unavailable",
+        "location": {
+          "startingColumn": 71,
+          "startingLine": 916
+        }
+      },
+      {
+        "comment": "",
+        "key": "No models found. Pull a model: ollama pull llama2",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 942
+        }
+      },
+      {
+        "comment": "",
+        "key": "Model",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 932
+        }
+      },
+      {
+        "comment": "",
+        "key": "Python Path",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 951
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Script Path (optional)",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 957
+        }
+      },
+      {
+        "comment": "",
+        "key": "Server URL",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 967
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM provides OpenAI-compatible API on localhost:8000",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 974
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM by Jason Cox",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 978
+        }
+      },
+      {
+        "comment": "",
+        "key": "Server URL",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 987
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyChat: Fast chatbot interface with OpenAI-compatible API",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 994
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default: http://localhost:8000",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1002
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyChat by Jason Cox",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 998
+        }
+      },
+      {
+        "comment": "",
+        "key": "Server URL",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 1011
+        }
+      },
+      {
+        "comment": "",
+        "key": "OpenWebUI: Self-hosted AI platform with OpenAI-compatible API",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1018
+        }
+      },
+      {
+        "comment": "",
+        "key": "Default: http://localhost:8080 or http://localhost:3000",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1026
+        }
+      },
+      {
+        "comment": "",
+        "key": "OpenWebUI Project",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 1022
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ollama Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1035
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Install: brew install ollama",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1036
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Start: ollama serve",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1037
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Pull model: ollama pull llama2",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1038
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyLLM Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1042
+        }
+      },
+      {
+        "comment": "",
+        "key": "By Jason Cox (GitHub: jasonacox/TinyLLM)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1043
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Clone: git clone https://github.com/jasonacox/TinyLLM",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1046
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Run: docker-compose up -d",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1047
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Access: http://localhost:8000",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1048
+        }
+      },
+      {
+        "comment": "",
+        "key": "Note: Lightweight, OpenAI-compatible API",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1049
+        }
+      },
+      {
+        "comment": "",
+        "key": "TinyChat Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1053
+        }
+      },
+      {
+        "comment": "",
+        "key": "By Jason Cox (GitHub: jasonacox/tinychat)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1054
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Docker: docker run -d -p 8000:8000 jasonacox/tinychat:latest",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1057
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Configure backend LLM (Ollama, OpenAI, etc.)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1058
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Access: http://localhost:8000",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1059
+        }
+      },
+      {
+        "comment": "",
+        "key": "Note: Fast chatbot interface with markdown & math rendering",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1060
+        }
+      },
+      {
+        "comment": "",
+        "key": "OpenWebUI Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1064
+        }
+      },
+      {
+        "comment": "",
+        "key": "Community Project (GitHub: open-webui/open-webui)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1065
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Docker: docker run -d -p 3000:8080 ghcr.io/open-webui/open-webui:main",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1068
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Or pip: pip install open-webui && open-webui serve",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1069
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Access: http://localhost:8080 or http://localhost:3000",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1070
+        }
+      },
+      {
+        "comment": "",
+        "key": "Note: Self-hosted AI platform with advanced features",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1071
+        }
+      },
+      {
+        "comment": "",
+        "key": "MLX Setup:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1075
+        }
+      },
+      {
+        "comment": "",
+        "key": "1. Install Python: brew install python",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1076
+        }
+      },
+      {
+        "comment": "",
+        "key": "2. Install MLX: pip install mlx-lm",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1077
+        }
+      },
+      {
+        "comment": "",
+        "key": "3. Path: /opt/homebrew/bin/python3",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 1078
+        }
+      }
+    ]
+  },
+  "version": 1
+}

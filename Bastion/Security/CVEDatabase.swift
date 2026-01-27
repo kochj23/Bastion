@@ -54,12 +54,25 @@ class CVEDatabase: ObservableObject {
 
     // Download CVE data for specific year
     private func downloadYear(_ year: Int) async throws {
+        addLog("Downloading CVE data for year \(year)...")
+
         let urlString = "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-\(year).json.gz"
         guard let url = URL(string: urlString) else {
             throw CVEDatabaseError.invalidURL
         }
 
-        let (data, _) = try await URLSession.shared.data(from: url)
+        // Download with progress tracking
+        let (data, response) = try await URLSession.shared.data(from: url)
+
+        if let httpResponse = response as? HTTPURLResponse {
+            addLog("  HTTP \(httpResponse.statusCode) - Downloaded \(data.count / 1024 / 1024)MB")
+
+            if httpResponse.statusCode != 200 {
+                addLog("  ⚠️ Warning: HTTP \(httpResponse.statusCode) - NVD API 1.1 may be deprecated")
+                addLog("  Consider using alternative CVE sources")
+                throw CVEDatabaseError.downloadFailed("HTTP \(httpResponse.statusCode)")
+            }
+        }
 
         // Decompress gzip
         let decompressed = try decompress(data)
@@ -255,9 +268,9 @@ class CVEDatabase: ObservableObject {
 
     // Decompress gzip data
     private func decompress(_ data: Data) throws -> Data {
-        // Simple gzip decompression
-        // In production, use proper gzip library
-        return data // Placeholder - would implement actual decompression
+        // Use zlib for gzip decompression
+        let decompressed = try (data as NSData).decompressed(using: .zlib) as Data
+        return decompressed
     }
 
     // Metadata management
@@ -294,7 +307,7 @@ struct CVEMetadata: Codable {
 
 enum CVEDatabaseError: LocalizedError {
     case invalidURL
-    case downloadFailed
+    case downloadFailed(String)
     case parseError
     case decompressError
 
@@ -302,7 +315,7 @@ enum CVEDatabaseError: LocalizedError {
         switch self {
         case .invalidURL:
             return "Invalid CVE database URL"
-        case .downloadFailed:
+        case .downloadFailed(let message):
             return "Failed to download CVE database"
         case .parseError:
             return "Failed to parse CVE data"

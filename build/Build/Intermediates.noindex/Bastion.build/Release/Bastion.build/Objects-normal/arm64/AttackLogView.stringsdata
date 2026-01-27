@@ -1,0 +1,40 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/AttackLogView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "📝 Live Attack Log",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auto-scroll",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 32
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 37
+        }
+      }
+    ]
+  },
+  "version": 1
+}

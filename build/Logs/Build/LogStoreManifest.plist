@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>12</integer>
+	<key>logs</key>
+	<dict>
+		<key>1064A322-29B0-4D53-8141-CA6E84072FC1</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>1064A322-29B0-4D53-8141-CA6E84072FC1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Bastion project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Bastion</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Cleaning project Bastion with scheme Bastion and configuration Release</string>
+			<key>timeStartedRecording</key>
+			<real>791167507.68381095</real>
+			<key>timeStoppedRecording</key>
+			<real>791167508.020504</real>
+			<key>title</key>
+			<string>Cleaning project Bastion with scheme Bastion and configuration Release</string>
+			<key>uniqueIdentifier</key>
+			<string>1064A322-29B0-4D53-8141-CA6E84072FC1</string>
+		</dict>
+		<key>2C0DC4F8-4222-4779-A7E7-40CA6EC84A68</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2C0DC4F8-4222-4779-A7E7-40CA6EC84A68.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Bastion project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Bastion</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Cleaning project Bastion with scheme Bastion and configuration Release</string>
+			<key>timeStartedRecording</key>
+			<real>791167452.57606399</real>
+			<key>timeStoppedRecording</key>
+			<real>791167452.91287398</real>
+			<key>title</key>
+			<string>Cleaning project Bastion with scheme Bastion and configuration Release</string>
+			<key>uniqueIdentifier</key>
+			<string>2C0DC4F8-4222-4779-A7E7-40CA6EC84A68</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

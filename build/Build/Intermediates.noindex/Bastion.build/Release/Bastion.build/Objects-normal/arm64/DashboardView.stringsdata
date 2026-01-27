@@ -1,0 +1,200 @@
+{
+  "source": "/Volumes/Data/xcode/Bastion/Bastion/Views/DashboardView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Network Scan",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Network CIDR (e.g., 192.168.1.0/24)",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "Stop",
+        "location": {
+          "startingColumn": 52,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scan Network",
+        "location": {
+          "startingColumn": 61,
+          "startingLine": 80
+        }
+      },
+      {
+        "comment": "",
+        "key": "Quick Scan",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 93
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export PDF Report",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "Generate Remediation Scripts",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 112
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export MITRE ATT&CK JSON",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export Scan Data (JSON)",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 120
+        }
+      },
+      {
+        "comment": "",
+        "key": "Scanning: %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 132
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%%",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 138
+        }
+      },
+      {
+        "comment": "",
+        "key": "CVE database loaded",
+        "location": {
+          "startingColumn": 47,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "Click to download CVE database (~2GB, 10-20 min)",
+        "location": {
+          "startingColumn": 71,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "Discovered Devices",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 195
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld devices",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 200
+        }
+      },
+      {
+        "comment": "",
+        "key": "No devices discovered yet",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 211
+        }
+      },
+      {
+        "comment": "",
+        "key": "Start a network scan to discover devices",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 214
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recent Activity",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 251
+        }
+      },
+      {
+        "comment": "",
+        "key": "No activity yet",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 255
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 594
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ports",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 597
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 608
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vulns",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 611
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 630
+        }
+      }
+    ]
+  },
+  "version": 1
+}

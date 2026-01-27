@@ -12,25 +12,33 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var networkScanner: NetworkScanner
     @EnvironmentObject var cveDatabase: CVEDatabase
+    @State private var selectedTab: Int
+
+    init(initialTab: Int = 0) {
+        _selectedTab = State(initialValue: initialTab)
+    }
 
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             AIBackendSettingsView()
                 .tabItem {
                     Label("AI Backends", systemImage: "brain")
                 }
+                .tag(0)
 
             CVESettingsView(cveDatabase: cveDatabase)
                 .tabItem {
                     Label("CVE Database", systemImage: "doc.text.magnifyingglass")
                 }
+                .tag(1)
 
             ScanSettingsView()
                 .tabItem {
                     Label("Scanning", systemImage: "network")
                 }
+                .tag(2)
         }
-        .frame(width: 700, height: 600)
+        .frame(width: 800, height: 900)
     }
 }
 
