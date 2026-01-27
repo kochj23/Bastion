@@ -219,19 +219,33 @@ struct AIInsightsView: View {
     }
 
     private func askAI() {
+        guard AIBackendManager.shared.activeBackend != nil else {
+            answer = "❌ AI backend not available. Please configure Ollama, MLX, or TinyLLM in Settings."
+            return
+        }
+
         isAsking = true
         let currentQuestion = question
         question = ""
 
         Task {
-            // Simulate AI response
-            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            do {
+                let response = try await AIBackendManager.shared.generate(
+                    prompt: currentQuestion,
+                    systemPrompt: "You are a cybersecurity expert helping analyze network security. Provide clear, actionable advice.",
+                    temperature: 0.7,
+                    maxTokens: 500
+                )
 
-            let response = "AI analysis would appear here based on your question: '\(currentQuestion)'"
-
-            await MainActor.run {
-                answer = response
-                isAsking = false
+                await MainActor.run {
+                    answer = response
+                    isAsking = false
+                }
+            } catch {
+                await MainActor.run {
+                    answer = "❌ AI Error: \(error.localizedDescription)"
+                    isAsking = false
+                }
             }
         }
     }
