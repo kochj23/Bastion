@@ -13,7 +13,7 @@ class SecurityUnified: ObservableObject {
 
     @Published var isRunning = false
     @Published var lastError: String?
-    @Published var attackLogs: [AttackLog] = []
+    @Published var attackLogs: [SecurityAttackLog] = []
 
     private init() {}
 
@@ -21,13 +21,13 @@ class SecurityUnified: ObservableObject {
 
     func orchestrateAttack(
         target: String,
-        attackType: AttackType,
-        intensity: AttackIntensity
-    ) async throws -> AttackResult {
+        attackType: SecurityAttackType,
+        intensity: SecurityAttackIntensity
+    ) async throws -> SecurityAttackResult {
         isRunning = true
         defer { isRunning = false }
 
-        let result = AttackResult(
+        let result = SecurityAttackResult(
             target: target,
             attackType: attackType,
             success: false,
@@ -35,7 +35,7 @@ class SecurityUnified: ObservableObject {
             timestamp: Date()
         )
 
-        attackLogs.append(AttackLog(
+        attackLogs.append(SecurityAttackLog(
             timestamp: Date(),
             target: target,
             action: "Orchestrate \(attackType.rawValue)",
@@ -47,7 +47,7 @@ class SecurityUnified: ObservableObject {
 
     // MARK: - Exploit Generation
 
-    func generateExploit(vulnerability: Vulnerability) async throws -> Exploit {
+    func generateExploit(vulnerability: SecurityVulnerability) async throws -> Exploit {
         return Exploit(
             id: UUID(),
             vulnerability: vulnerability,
@@ -57,19 +57,19 @@ class SecurityUnified: ObservableObject {
         )
     }
 
-    // MARK: - Vulnerability Analysis
+    // MARK: - SecurityVulnerability Analysis
 
-    func analyzeVulnerabilities(target: String, scanDepth: ScanDepth) async throws -> [Vulnerability] {
+    func analyzeVulnerabilities(target: String, scanDepth: ScanDepth) async throws -> [SecurityVulnerability] {
         // Simulated vulnerability scanning
         return [
-            Vulnerability(
+            SecurityVulnerability(
                 id: "CVE-2024-0001",
                 type: .sqlInjection,
                 severity: .high,
                 description: "SQL injection vulnerability detected",
                 remediation: "Use parameterized queries"
             ),
-            Vulnerability(
+            SecurityVulnerability(
                 id: "CVE-2024-0002",
                 type: .xss,
                 severity: .medium,
@@ -81,11 +81,11 @@ class SecurityUnified: ObservableObject {
 
     // MARK: - Port Scanning
 
-    func scanPorts(target: String, portRange: ClosedRange<Int>) async throws -> [OpenPort] {
+    func scanPorts(target: String, portRange: ClosedRange<Int>) async throws -> [SecurityOpenPort] {
         return [
-            OpenPort(port: 80, service: "HTTP", state: .open),
-            OpenPort(port: 443, service: "HTTPS", state: .open),
-            OpenPort(port: 22, service: "SSH", state: .filtered)
+            SecurityOpenPort(port: 80, service: "HTTP", state: .open),
+            SecurityOpenPort(port: 443, service: "HTTPS", state: .open),
+            SecurityOpenPort(port: 22, service: "SSH", state: .filtered)
         ]
     }
 
@@ -103,7 +103,7 @@ class SecurityUnified: ObservableObject {
 
 // MARK: - Models
 
-enum AttackType: String, CaseIterable {
+enum SecurityAttackType: String, CaseIterable {
     case portScan = "Port Scan"
     case sqlInjection = "SQL Injection"
     case xss = "Cross-Site Scripting"
@@ -113,22 +113,22 @@ enum AttackType: String, CaseIterable {
     case phishing = "Phishing"
 }
 
-enum AttackIntensity {
+enum SecurityAttackIntensity {
     case low
     case medium
     case high
     case maximum
 }
 
-struct AttackResult {
+struct SecurityAttackResult {
     let target: String
-    let attackType: AttackType
+    let attackType: SecurityAttackType
     let success: Bool
     let findings: [String]
     let timestamp: Date
 }
 
-struct AttackLog: Identifiable {
+struct SecurityAttackLog: Identifiable {
     let id = UUID()
     let timestamp: Date
     let target: String
@@ -136,15 +136,15 @@ struct AttackLog: Identifiable {
     let result: String
 }
 
-struct Vulnerability: Identifiable {
+struct SecurityVulnerability: Identifiable {
     let id: String
-    let type: VulnerabilityType
+    let type: SecuritySecurityVulnerabilityType
     let severity: Severity
     let description: String
     let remediation: String
 }
 
-enum VulnerabilityType {
+enum SecuritySecurityVulnerabilityType {
     case sqlInjection
     case xss
     case csrf
@@ -163,7 +163,7 @@ enum Severity {
 
 struct Exploit: Identifiable {
     let id: UUID
-    let vulnerability: Vulnerability
+    let vulnerability: SecurityVulnerability
     let exploitCode: String
     let severity: Severity
     let timestamp: Date
@@ -175,14 +175,14 @@ enum ScanDepth {
     case comprehensive
 }
 
-struct OpenPort: Identifiable {
+struct SecurityOpenPort: Identifiable {
     let id = UUID()
     let port: Int
     let service: String
-    let state: PortState
+    let state: SecurityPortState
 }
 
-enum PortState {
+enum SecurityPortState {
     case open
     case closed
     case filtered
