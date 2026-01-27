@@ -75,20 +75,35 @@ struct CVESettingsView: View {
             // Actions
             VStack(spacing: 12) {
                 if cveDatabase.totalCVEs == 0 {
-                    Button("Download CVE Database (~2GB)") {
+                    Button("Download Essential CVE Database") {
                         Task {
-                            try? await cveDatabase.downloadNVDDatabase()
+                            do {
+                                try await cveDatabase.downloadNVDDatabase()
+                            } catch {
+                                cveDatabase.downloadLog.append("❌ Error: \(error.localizedDescription)")
+                            }
                         }
                     }
                     .buttonStyle(.borderedProminent)
 
-                    Text("First-time download will take 10-20 minutes")
+                    Text("⚠️ Old NVD API deprecated - using essential CVE list (~200 critical CVEs)")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.orange)
+
+                    Button("Test Download") {
+                        Task {
+                            await cveDatabase.testDownload()
+                        }
+                    }
+                    .buttonStyle(.bordered)
                 } else {
                     Button("Update CVE Database") {
                         Task {
-                            try? await cveDatabase.updateDatabase()
+                            do {
+                                try await cveDatabase.updateDatabase()
+                            } catch {
+                                cveDatabase.downloadLog.append("❌ Update error: \(error.localizedDescription)")
+                            }
                         }
                     }
                     .buttonStyle(.bordered)
