@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		0523D366476E4593A3EFCF07 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */; };
 		06896A127B8048ADA4A93D56 /* CVE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D24F18E26E42348C1C1E09 /* CVE.swift */; };
+		0922305856604805995B43AE /* RemediationScriptGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF814C4342946E6BB135A1A /* RemediationScriptGenerator.swift */; };
+		0A01007AFAA4486AAF1BF45E /* TimelineReconstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8E73849B84C6FB6B61E56 /* TimelineReconstructor.swift */; };
 		0A318FF92C81448FBFC6B670 /* AIBackendManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901229992A924BF683680BB4 /* AIBackendManager.swift */; };
+		10A7160E746445BCA2AD2ACC /* VulnerabilityChainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79CD99DA674A76A7BA9C7C /* VulnerabilityChainer.swift */; };
 		10BCF210E337F1693478897C /* KernelModuleAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE771431044507E3FB7BFD9 /* KernelModuleAnalyzer.swift */; };
 		12ACD81E85774F6097AA50AF /* AIInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */; };
 		163792B6F7F58A0F0BC87C2C /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1927C3991BBDCD8D4A50E8 /* DeviceDetailView.swift */; };
 		16F3812B315A86B30D228D6C /* BackdoorDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9A9AC0CDF6213A46528D0E /* BackdoorDetector.swift */; };
 		19E023386DA34E589E756D38 /* ModernDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */; };
 		1C4CFED6C9494BBF8FD56462 /* BastionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */; };
+		28006CDCAC3743BBB6007DEA /* LateralMovementMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF9D3DCAE424184CE80D6 /* LateralMovementMapper.swift */; };
+		2BE2C275C7984B2E9FA430B5 /* AnomalyDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA7C97C6F404347B3FE4D12 /* AnomalyDetector.swift */; };
+		32ABA3BE84D340C6A3A86F80 /* MITREATTACKMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F344127C1A4441A3B2A30402 /* MITREATTACKMapper.swift */; };
 		3FDF31D07B6839698747F519 /* PostCompromiseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803D0BE43EFDD2CC28DEC68 /* PostCompromiseModule.swift */; };
 		4A47CF7FF36E4A91A5A17E3F /* SafetyValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */; };
 		4E2358FB3D7B38600C45C63E /* RootkitDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DFB28D442E917D1B32C1C7 /* RootkitDetector.swift */; };
@@ -24,18 +30,27 @@
 		5FFE826F049B94D4FEEFD367 /* HiddenProcessDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC76D5D53B079E1CFEA38A /* HiddenProcessDetector.swift */; };
 		74A3652A0B75397946557BF9 /* SSHConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C0E7466AE086F8BBC69DE /* SSHConnection.swift */; };
 		7690CA0ECF1532DECFEB0040 /* PersistenceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */; };
+		78273A25EE3613144D44612E /* UnifiedAICapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F7B82B161552394211BF8 /* UnifiedAICapabilities.swift */; };
 		812B224D4FDA4D6D8283F030 /* AIAttackOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */; };
 		8706D1A6F0B741618D8979BA /* NetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CC3B2138A4630A42702E6 /* NetworkScanner.swift */; };
 		8B3B8383998D467082F8D2FF /* AIExploitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */; };
+		8C9F6AEB566BBD86827CE76E /* SecurityUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5C5B42B1F69EB7D1C7231 /* SecurityUnified.swift */; };
 		9051EC73369E4E1ABF5C37F2 /* ServiceFingerprinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */; };
 		9316641FF348DBFDD3BDC37C /* SuspiciousUserDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33DDA1DE71C829FBB9E0932 /* SuspiciousUserDetector.swift */; };
+		9D11E807D9687DDF940C54DC /* VoiceUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = B065073DBA7309ED373E0BF3 /* VoiceUnified.swift */; };
+		9E14E4039EE04F1CBB4E0B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74A0688A97A4007A20F950D /* Assets.xcassets */; };
 		A0015261BE3D465CA9A8CC72 /* WebModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F05A5E936A3477BB99A1DF7 /* WebModule.swift */; };
 		A220A75B7F6B82BF1448898D /* CompromiseReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B4A6151E2258E2D0132FC3 /* CompromiseReport.swift */; };
 		A45D3F39AAAD4D8AB7F07FF4 /* AttackLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1A878557546F2B72EDD48 /* AttackLogView.swift */; };
+		A96A1DF9CD9347AA8152EFF4 /* SMBModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A91473969843319946BB97 /* SMBModule.swift */; };
 		B0DE7BEA162A49AEB4202196 /* VulnerabilitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */; };
 		B11C5F5121304C8580EEE3F3 /* DefaultCredsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */; };
 		B5A8197CCDB7A9CB99B5CA82 /* LogTamperingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D916C83E33B9FF21D4420 /* LogTamperingDetector.swift */; };
+		BA47F2E81AF3A11BFFC696C6 /* AnalysisUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE449A4AAC6B12E9E0159B3C /* AnalysisUnified.swift */; };
+		BAF67EE7CFA84EAEBB55C8B5 /* DNSModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A0D006BC4F9281EBA302 /* DNSModule.swift */; };
+		BE3AF406684D07798BE90B52 /* ImageGenerationUnified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AFBF90110AE89E1A9DE562 /* ImageGenerationUnified.swift */; };
 		C256426EF01D028909125D0D /* BinaryIntegrityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */; };
+		CBD2AA1FD0324ADF9214842E /* LDAPModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B211A969A045B5B4814199 /* LDAPModule.swift */; };
 		CC73A3C6B7B6397336931195 /* BinaryHashDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */; };
 		D025FB6FA5C14CEDB24EF0DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9B725C71AD40B5B4860268 /* SettingsView.swift */; };
 		D2CFDB78FE1E482991302080 /* AttackResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C26F007C044729F8289FD /* AttackResult.swift */; };
@@ -43,44 +58,61 @@
 		E1080B2C446F4A80A65AACDD /* PDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */; };
 		E2823F5513BA48B399DBF253 /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */; };
 		F0BF56B44F708DA0D1845C13 /* NetworkSnifferDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */; };
+		F969D46198AB4715B09108AE /* ContinuousMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC8188FCC14202AC852250 /* ContinuousMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/DashboardView.swift; sourceTree = "<group>"; };
 		08D24F18E26E42348C1C1E09 /* CVE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/CVE.swift; sourceTree = "<group>"; };
+		0D79CD99DA674A76A7BA9C7C /* VulnerabilityChainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/VulnerabilityChainer.swift; sourceTree = "<group>"; };
 		181CBBF46AE74D3EB4CE38E3 /* SafetyValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/SafetyValidator.swift; sourceTree = "<group>"; };
+		19A91473969843319946BB97 /* SMBModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/ExploitModules/SMBModule.swift; sourceTree = "<group>"; };
 		1CE771431044507E3FB7BFD9 /* KernelModuleAnalyzer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KernelModuleAnalyzer.swift; path = KernelModuleAnalyzer.swift; sourceTree = "<group>"; };
+		28AFBF90110AE89E1A9DE562 /* ImageGenerationUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageGenerationUnified.swift; path = AICapabilities/ImageGenerationUnified.swift; sourceTree = "<group>"; };
+		2FA5C5B42B1F69EB7D1C7231 /* SecurityUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SecurityUnified.swift; path = AICapabilities/SecurityUnified.swift; sourceTree = "<group>"; };
+		378BF9D3DCAE424184CE80D6 /* LateralMovementMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/LateralMovementMapper.swift; sourceTree = "<group>"; };
 		3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIExploitGenerator.swift; sourceTree = "<group>"; };
 		5D8C26F007C044729F8289FD /* AttackResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/AttackResult.swift; sourceTree = "<group>"; };
 		5F05A5E936A3477BB99A1DF7 /* WebModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/WebModule.swift; sourceTree = "<group>"; };
 		62432CD1B9D14F20A18CFA04 /* Bastion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bastion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkSnifferDetector.swift; path = NetworkSnifferDetector.swift; sourceTree = "<group>"; };
 		68DFB28D442E917D1B32C1C7 /* RootkitDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RootkitDetector.swift; path = RootkitDetector.swift; sourceTree = "<group>"; };
+		6AD8E73849B84C6FB6B61E56 /* TimelineReconstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/TimelineReconstructor.swift; sourceTree = "<group>"; };
 		6B1927C3991BBDCD8D4A50E8 /* DeviceDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceDetailView.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
 		6C9B725C71AD40B5B4860268 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
 		719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/VulnerabilitiesView.swift; sourceTree = "<group>"; };
+		73CC8188FCC14202AC852250 /* ContinuousMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/ContinuousMonitor.swift; sourceTree = "<group>"; };
 		7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryIntegrityChecker.swift; path = BinaryIntegrityChecker.swift; sourceTree = "<group>"; };
 		8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BastionApp.swift; sourceTree = "<group>"; };
 		80B4A6151E2258E2D0132FC3 /* CompromiseReport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CompromiseReport.swift; path = CompromiseReport.swift; sourceTree = "<group>"; };
 		877CC3B2138A4630A42702E6 /* NetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/NetworkScanner.swift; sourceTree = "<group>"; };
 		8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/CVEDatabase.swift; sourceTree = "<group>"; };
+		8EA7C97C6F404347B3FE4D12 /* AnomalyDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/AnomalyDetector.swift; sourceTree = "<group>"; };
 		901229992A924BF683680BB4 /* AIBackendManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIBackendManager.swift; sourceTree = "<group>"; };
 		983C0E7466AE086F8BBC69DE /* SSHConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SSHConnection.swift; path = SSHConnection.swift; sourceTree = "<group>"; };
 		9F9A9AC0CDF6213A46528D0E /* BackdoorDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BackdoorDetector.swift; path = BackdoorDetector.swift; sourceTree = "<group>"; };
 		A1FC76D5D53B079E1CFEA38A /* HiddenProcessDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HiddenProcessDetector.swift; path = HiddenProcessDetector.swift; sourceTree = "<group>"; };
 		A33DDA1DE71C829FBB9E0932 /* SuspiciousUserDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuspiciousUserDetector.swift; path = SuspiciousUserDetector.swift; sourceTree = "<group>"; };
+		A4B2A0D006BC4F9281EBA302 /* DNSModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/ExploitModules/DNSModule.swift; sourceTree = "<group>"; };
 		A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIAttackOrchestrator.swift; sourceTree = "<group>"; };
+		B065073DBA7309ED373E0BF3 /* VoiceUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VoiceUnified.swift; path = AICapabilities/VoiceUnified.swift; sourceTree = "<group>"; };
+		B4B211A969A045B5B4814199 /* LDAPModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/ExploitModules/LDAPModule.swift; sourceTree = "<group>"; };
 		B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/DeviceListView.swift; sourceTree = "<group>"; };
 		BB8CC0425B004BA59F1DE821 /* SSHModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/SSHModule.swift; sourceTree = "<group>"; };
 		BE5D916C83E33B9FF21D4420 /* LogTamperingDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogTamperingDetector.swift; path = LogTamperingDetector.swift; sourceTree = "<group>"; };
 		C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AIInsightsView.swift; sourceTree = "<group>"; };
 		C803D0BE43EFDD2CC28DEC68 /* PostCompromiseModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PostCompromiseModule.swift; path = PostCompromiseModule.swift; sourceTree = "<group>"; };
+		CE449A4AAC6B12E9E0159B3C /* AnalysisUnified.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisUnified.swift; path = AICapabilities/AnalysisUnified.swift; sourceTree = "<group>"; };
 		D4C2639756204B598FDD5CB9 /* PDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/PDFGenerator.swift; sourceTree = "<group>"; };
 		D86DD6EDB4F946AA82D45965 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/Device.swift; sourceTree = "<group>"; };
 		DE45085C33BC467CB7C72446 /* DefaultCredsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/DefaultCredsModule.swift; sourceTree = "<group>"; };
+		DFF814C4342946E6BB135A1A /* RemediationScriptGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/RemediationScriptGenerator.swift; sourceTree = "<group>"; };
+		E74A0688A97A4007A20F950D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bastion/Assets.xcassets; sourceTree = "<group>"; };
+		E75F7B82B161552394211BF8 /* UnifiedAICapabilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnifiedAICapabilities.swift; path = AICapabilities/UnifiedAICapabilities.swift; sourceTree = "<group>"; };
 		EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ServiceFingerprinter.swift; sourceTree = "<group>"; };
 		EEB1A878557546F2B72EDD48 /* AttackLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AttackLogView.swift; sourceTree = "<group>"; };
 		F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/ModernDesign.swift; sourceTree = "<group>"; };
+		F344127C1A4441A3B2A30402 /* MITREATTACKMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/MITREATTACKMapper.swift; sourceTree = "<group>"; };
 		F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistenceDetector.swift; path = PersistenceDetector.swift; sourceTree = "<group>"; };
 		FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryHashDatabase.swift; path = BinaryHashDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +128,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1421D96E600FB1A9A2862E07 /* AICapabilities */ = {
+			isa = PBXGroup;
+			children = (
+				E75F7B82B161552394211BF8 /* UnifiedAICapabilities.swift */,
+				28AFBF90110AE89E1A9DE562 /* ImageGenerationUnified.swift */,
+				B065073DBA7309ED373E0BF3 /* VoiceUnified.swift */,
+				CE449A4AAC6B12E9E0159B3C /* AnalysisUnified.swift */,
+				2FA5C5B42B1F69EB7D1C7231 /* SecurityUnified.swift */,
+			);
+			name = AICapabilities;
+			sourceTree = "<group>";
+		};
 		3BFFA7361C1EF478872E731F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +232,7 @@
 				D1AE5139A2915BF0D48C0D4E /* Utilities */,
 				B52A85FC1A4467E8C481D52D /* Security */,
 				87713C8E397AA8A9390365AE /* Views */,
+				1421D96E600FB1A9A2862E07 /* AICapabilities */,
 			);
 			path = Bastion;
 			sourceTree = "<group>";
@@ -252,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E14E4039EE04F1CBB4E0B07 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +344,21 @@
 				F0BF56B44F708DA0D1845C13 /* NetworkSnifferDetector.swift in Sources */,
 				163792B6F7F58A0F0BC87C2C /* DeviceDetailView.swift in Sources */,
 				CC73A3C6B7B6397336931195 /* BinaryHashDatabase.swift in Sources */,
+				A96A1DF9CD9347AA8152EFF4 /* SMBModule.swift in Sources */,
+				BAF67EE7CFA84EAEBB55C8B5 /* DNSModule.swift in Sources */,
+				CBD2AA1FD0324ADF9214842E /* LDAPModule.swift in Sources */,
+				28006CDCAC3743BBB6007DEA /* LateralMovementMapper.swift in Sources */,
+				10A7160E746445BCA2AD2ACC /* VulnerabilityChainer.swift in Sources */,
+				32ABA3BE84D340C6A3A86F80 /* MITREATTACKMapper.swift in Sources */,
+				0922305856604805995B43AE /* RemediationScriptGenerator.swift in Sources */,
+				F969D46198AB4715B09108AE /* ContinuousMonitor.swift in Sources */,
+				2BE2C275C7984B2E9FA430B5 /* AnomalyDetector.swift in Sources */,
+				0A01007AFAA4486AAF1BF45E /* TimelineReconstructor.swift in Sources */,
+				78273A25EE3613144D44612E /* UnifiedAICapabilities.swift in Sources */,
+				BE3AF406684D07798BE90B52 /* ImageGenerationUnified.swift in Sources */,
+				9D11E807D9687DDF940C54DC /* VoiceUnified.swift in Sources */,
+				BA47F2E81AF3A11BFFC696C6 /* AnalysisUnified.swift in Sources */,
+				8C9F6AEB566BBD86827CE76E /* SecurityUnified.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
