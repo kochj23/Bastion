@@ -59,7 +59,38 @@
 		E2823F5513BA48B399DBF253 /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */; };
 		F0BF56B44F708DA0D1845C13 /* NetworkSnifferDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */; };
 		F969D46198AB4715B09108AE /* ContinuousMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC8188FCC14202AC852250 /* ContinuousMonitor.swift */; };
+		WIDGET001001001001001 /* WidgetDataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET002002002002002 /* WidgetDataSync.swift */; };
+		WIDGET101101101101101 /* BastionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET102102102102102 /* BastionWidget.swift */; };
+		WIDGET103103103103103 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET104104104104104 /* WidgetData.swift */; };
+		WIDGET105105105105105 /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET106106106106106 /* SharedDataManager.swift */; };
+		WIDGET107107107107107 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET108108108108108 /* WidgetKit.framework */; };
+		WIDGET109109109109109 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET110110110110110 /* SwiftUI.framework */; };
+		WIDGET111111111111111 /* Bastion WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = WIDGET112112112112112 /* Bastion WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		WIDGET113113113113113 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74929BDE0FD241A29273AE74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = WIDGET114114114114114;
+			remoteInfo = "Bastion WidgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		WIDGET115115115115115 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				WIDGET111111111111111 /* Bastion WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		01323BE6DFF84A818A8BA6B5 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/DashboardView.swift; sourceTree = "<group>"; };
@@ -115,6 +146,16 @@
 		F344127C1A4441A3B2A30402 /* MITREATTACKMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/MITREATTACKMapper.swift; sourceTree = "<group>"; };
 		F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistenceDetector.swift; path = PersistenceDetector.swift; sourceTree = "<group>"; };
 		FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryHashDatabase.swift; path = BinaryHashDatabase.swift; sourceTree = "<group>"; };
+		WIDGET002002002002002 /* WidgetDataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataSync.swift; sourceTree = "<group>"; };
+		WIDGET102102102102102 /* BastionWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BastionWidget.swift; sourceTree = "<group>"; };
+		WIDGET104104104104104 /* WidgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetData.swift; sourceTree = "<group>"; };
+		WIDGET106106106106106 /* SharedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataManager.swift; sourceTree = "<group>"; };
+		WIDGET108108108108108 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		WIDGET110110110110110 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		WIDGET112112112112112 /* Bastion WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bastion WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		WIDGET116116116116116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		WIDGET117117117117117 /* Bastion_Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion_Widget.entitlements; sourceTree = "<group>"; };
+		WIDGET118118118118118 /* Bastion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +163,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		WIDGET119119119119119 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				WIDGET107107107107107 /* WidgetKit.framework in Frameworks */,
+				WIDGET109109109109109 /* SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				62432CD1B9D14F20A18CFA04 /* Bastion.app */,
+				WIDGET112112112112112 /* Bastion WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				983C0E7466AE086F8BBC69DE /* SSHConnection.swift */,
+				WIDGET002002002002002 /* WidgetDataSync.swift */,
 			);
 			name = Utilities;
 			path = Utilities;
@@ -206,6 +258,7 @@
 		D8F5E75E948D4B62A4F58689 /* Bastion */ = {
 			isa = PBXGroup;
 			children = (
+				WIDGET118118118118118 /* Bastion.entitlements */,
 				8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */,
 				8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */,
 				EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */,
@@ -241,8 +294,31 @@
 			isa = PBXGroup;
 			children = (
 				D8F5E75E948D4B62A4F58689 /* Bastion */,
+				WIDGET120120120120120 /* Bastion Widget */,
 				773C080F7EF04DC2965F5595 /* Products */,
+				WIDGET121121121121121 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		WIDGET120120120120120 /* Bastion Widget */ = {
+			isa = PBXGroup;
+			children = (
+				WIDGET102102102102102 /* BastionWidget.swift */,
+				WIDGET104104104104104 /* WidgetData.swift */,
+				WIDGET106106106106106 /* SharedDataManager.swift */,
+				WIDGET116116116116116 /* Info.plist */,
+				WIDGET117117117117117 /* Bastion_Widget.entitlements */,
+			);
+			path = "Bastion Widget";
+			sourceTree = "<group>";
+		};
+		WIDGET121121121121121 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				WIDGET108108108108108 /* WidgetKit.framework */,
+				WIDGET110110110110110 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,10 +331,12 @@
 				3CD7D8CE32D94A2A8D02D982 /* Sources */,
 				A3546F9888B8438997FE195C /* Frameworks */,
 				0A1E498AC2E74BC2AFB24CD9 /* Resources */,
+				WIDGET115115115115115 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				WIDGET122122122122122 /* PBXTargetDependency */,
 			);
 			name = Bastion;
 			packageProductDependencies = (
@@ -270,6 +348,23 @@
 			productName = Bastion;
 			productReference = 62432CD1B9D14F20A18CFA04 /* Bastion.app */;
 			productType = "com.apple.product-type.application";
+		};
+		WIDGET114114114114114 /* Bastion WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = WIDGET123123123123123 /* Build configuration list for PBXNativeTarget "Bastion WidgetExtension" */;
+			buildPhases = (
+				WIDGET124124124124124 /* Sources */,
+				WIDGET119119119119119 /* Frameworks */,
+				WIDGET125125125125125 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bastion WidgetExtension";
+			productName = "Bastion WidgetExtension";
+			productReference = WIDGET112112112112112 /* Bastion WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -298,6 +393,7 @@
 			projectRoot = "";
 			targets = (
 				74E3CFFC69B443ECB5CF18B1 /* Bastion */,
+				WIDGET114114114114114 /* Bastion WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -308,6 +404,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E14E4039EE04F1CBB4E0B07 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		WIDGET125125125125125 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,20 +472,41 @@
 				9D11E807D9687DDF940C54DC /* VoiceUnified.swift in Sources */,
 				BA47F2E81AF3A11BFFC696C6 /* AnalysisUnified.swift in Sources */,
 				8C9F6AEB566BBD86827CE76E /* SecurityUnified.swift in Sources */,
+				WIDGET001001001001001 /* WidgetDataSync.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		WIDGET124124124124124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				WIDGET101101101101101 /* BastionWidget.swift in Sources */,
+				WIDGET103103103103103 /* WidgetData.swift in Sources */,
+				WIDGET105105105105105 /* SharedDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		WIDGET122122122122122 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = WIDGET114114114114114 /* Bastion WidgetExtension */;
+			targetProxy = WIDGET113113113113113 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F07FC1F751C74AF18A41C307 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bastion/Bastion.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
@@ -392,7 +516,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -405,10 +529,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Bastion/Bastion.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
@@ -418,10 +544,68 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		WIDGET126126126126126 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Bastion Widget/Bastion_Widget.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Bastion Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bastion Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Jordan Koch";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		WIDGET127127127127127 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "Bastion Widget/Bastion_Widget.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Bastion Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bastion Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Jordan Koch";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -435,6 +619,15 @@
 			buildConfigurations = (
 				F07FC1F751C74AF18A41C307 /* Debug */,
 				F6FDBF633FDF4C1AA88DC3A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		WIDGET123123123123123 /* Build configuration list for PBXNativeTarget "Bastion WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				WIDGET126126126126126 /* Debug */,
+				WIDGET127127127127127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
