@@ -9,6 +9,7 @@
 
 import Foundation
 import Network
+import WidgetKit
 
 @MainActor
 class NetworkScanner: ObservableObject {
@@ -70,6 +71,13 @@ class NetworkScanner: ObservableObject {
         scanProgress = 1.0
         isScanning = false
         addLog("Scan complete. Found \(discoveredDevices.count) devices.")
+
+        // Sync to widget
+        WidgetDataSync.shared.syncToWidget(
+            devices: discoveredDevices,
+            networkCIDR: cidr,
+            isScanning: false
+        )
     }
 
     // Quick network scan (top 100 most common ports)
@@ -89,6 +97,13 @@ class NetworkScanner: ObservableObject {
 
         isScanning = false
         addLog("Quick scan complete")
+
+        // Sync to widget
+        WidgetDataSync.shared.syncToWidget(
+            devices: discoveredDevices,
+            networkCIDR: cidr,
+            isScanning: false
+        )
     }
 
     // Check if host is alive (ICMP-like via TCP connection attempt)
