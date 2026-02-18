@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Jordan Koch
+Copyright (c) 2026 Jordan Koch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-LEGAL NOTICE - AUTHORIZED USE ONLY:
-
-This penetration testing tool is for AUTHORIZED network security testing only.
-Unauthorized network scanning and exploitation is ILLEGAL in most jurisdictions.
-
-By using this software, you confirm that you own or have explicit written
-permission to test the target network. Unauthorized use may violate computer
-crime laws including the Computer Fraud and Abuse Act (USA) and similar laws
-worldwide.
-
-The author assumes NO LIABILITY for misuse of this tool.
