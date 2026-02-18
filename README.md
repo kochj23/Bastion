@@ -11,9 +11,35 @@
 
 ---
 
-## ✨ Latest Update: January 26, 2026
+## Latest Update: February 4, 2026
 
-### 🎉 Major Enhancements:
+### macOS WidgetKit Widget (NEW)
+
+Bastion now includes a **macOS WidgetKit widget** for monitoring your network security status at a glance.
+
+**Widget Features:**
+- **Security Score** - Overall network security score (0-100)
+- **Vulnerability Counts** - Critical, High, Medium, Low breakdown
+- **Devices at Risk** - Number of devices with vulnerabilities
+- **Last Scan Time** - When the network was last scanned
+- **Three Sizes** - Small, Medium, and Large widget options
+
+**Widget Sizes:**
+- **Small** - Security score circle with critical count
+- **Medium** - Score + vulnerability breakdown + device count
+- **Large** - Full dashboard with all metrics and network info
+
+**Technical Details:**
+- App Group: `group.com.jkoch.bastion`
+- Auto-syncs after each network scan
+- Updates every 15 minutes
+- Uses shared UserDefaults for data exchange
+
+---
+
+## Previous Update: January 26, 2026
+
+### Major Enhancements:
 
 #### ☁️ Cloud AI Integration (5 Providers)
 - **OpenAI API** - GPT-4o for advanced capabilities
@@ -85,6 +111,25 @@ Violations are:
 - Reported if required by law
 
 **Read full terms:** [ETHICAL_AI_TERMS_OF_SERVICE.md](./ETHICAL_AI_TERMS_OF_SERVICE.md)
+
+---
+
+## Responsible Use
+
+Bastion is designed exclusively for **authorized security testing**, penetration testing engagements, CTF competitions, and educational purposes. Always obtain proper written authorization before scanning or testing systems you do not own. Unauthorized access to computer systems is illegal.
+
+This tool should be used in accordance with:
+- Your organization's security testing policies
+- Applicable local, state, and federal laws
+- The target organization's written authorization
+
+---
+
+## Download
+
+Download the latest release: [Bastion v1.2.0](https://github.com/kochj23/Bastion/releases/latest)
+
+Or build from source (see below).
 
 ---
 
@@ -165,6 +210,20 @@ See [ETHICAL_AI_TERMS_OF_SERVICE.md](./ETHICAL_AI_TERMS_OF_SERVICE.md) for compl
 - **988** - Suicide Prevention Lifeline
 - **741741** - Crisis Text Line (text HOME)
 - **1-800-799-7233** - Domestic Violence Hotline
+
+---
+
+## How Bastion Compares
+
+| Feature | Bastion | Metasploit | Burp Suite |
+|---------|---------|------------|------------|
+| AI-Powered Exploit Selection | Yes (Ollama, MLX, 10 backends) | No | No |
+| Native macOS App | Yes (SwiftUI) | No (CLI/Java) | No (Java) |
+| Local AI (No Cloud Required) | Yes | N/A | N/A |
+| Network Reconnaissance | Yes | Yes | Limited |
+| Automated Exploitation | Yes | Yes | Yes |
+| Free & Open Source | Yes (MIT) | Community Edition | No |
+| Apple Silicon Native | Yes | No | No |
 
 ---
 
