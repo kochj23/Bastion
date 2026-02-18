@@ -11,6 +11,9 @@
 
 ---
 
+![Bastion](Screenshots/main-window.png)
+
+
 ## Latest Update: February 4, 2026
 
 ### macOS WidgetKit Widget (NEW)
