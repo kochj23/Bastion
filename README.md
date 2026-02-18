@@ -1,5 +1,7 @@
 # Bastion
 
+![Build](https://github.com/kochj23/Bastion/actions/workflows/build.yml/badge.svg)
+
 **AI-Powered Application with Cloud Integration & Ethical Safeguards**
 
 ![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
