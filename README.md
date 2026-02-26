@@ -51,7 +51,7 @@ Bastion now includes a **macOS WidgetKit widget** for monitoring your network se
 - **Google Cloud AI** - Vertex AI, Vision, Speech
 - **Microsoft Azure** - Cognitive Services
 - **AWS AI Services** - Bedrock, Rekognition, Polly
-- **IBM Watson** - NLU, Speech, Discovery
+- **IBM Watson** - NLU (Natural Language Understanding), Speech, Discovery
 
 #### 🚀 Enhanced Features
 - **AI Backend Status Menu** - Visual indicators (🟢/🔴/⚪)
@@ -68,7 +68,7 @@ Bastion now includes a **macOS WidgetKit widget** for monitoring your network se
 - **Automatic blocking** of illegal/harmful content
 - **Crisis resource referrals**
 - **Usage logging** (hashed, not plaintext)
-- **Legal compliance** (CSAM reporting, etc.)
+- **Legal compliance** (CSAM (Child Sexual Abuse Material) reporting, etc.)
 - **Terms of Service** enforcement
 
 **⛔️ Cannot Be Used For:**
@@ -89,7 +89,7 @@ Bastion now includes a **macOS WidgetKit widget** for monitoring your network se
 
 ### AI Backend Support:
 - Ollama (local, free)
-- MLX (Apple Silicon optimized)
+- MLX (Machine Learning eXtensions) (Apple Silicon optimized)
 - TinyLLM/TinyChat (lightweight)
 - OpenWebUI (self-hosted)
 - OpenAI (cloud, paid)
@@ -121,7 +121,7 @@ Violations are:
 
 ## Responsible Use
 
-Bastion is designed exclusively for **authorized security testing**, penetration testing engagements, CTF competitions, and educational purposes. Always obtain proper written authorization before scanning or testing systems you do not own. Unauthorized access to computer systems is illegal.
+Bastion is designed exclusively for **authorized security testing**, penetration testing engagements, CTF (Capture The Flag) competitions, and educational purposes. Always obtain proper written authorization before scanning or testing systems you do not own. Unauthorized access to computer systems is illegal.
 
 This tool should be used in accordance with:
 - Your organization's security testing policies
@@ -141,7 +141,7 @@ Or build from source (see below).
 ## 📦 Installation
 
 ```bash
-# Install from DMG
+# Install from DMG (Disk Image)
 open Bastion-latest.dmg
 
 # Or from source
@@ -223,7 +223,7 @@ See [ETHICAL_AI_TERMS_OF_SERVICE.md](./ETHICAL_AI_TERMS_OF_SERVICE.md) for compl
 | Feature | Bastion | Metasploit | Burp Suite |
 |---------|---------|------------|------------|
 | AI-Powered Exploit Selection | Yes (Ollama, MLX, 10 backends) | No | No |
-| Native macOS App | Yes (SwiftUI) | No (CLI/Java) | No (Java) |
+| Native macOS App | Yes (SwiftUI) | No (CLI (Command Line Interface)/Java) | No (Java) |
 | Local AI (No Cloud Required) | Yes | N/A | N/A |
 | Network Reconnaissance | Yes | Yes | Limited |
 | Automated Exploitation | Yes | Yes | Yes |
@@ -252,7 +252,7 @@ MIT License - See LICENSE file
 |-----|-------------|
 | [NMAPScanner](https://github.com/kochj23/NMAPScanner) | Network security scanner with AI threat detection |
 | [URL-Analysis](https://github.com/kochj23/URL-Analysis) | Network traffic analysis and URL monitoring |
-| [rtsp-rotator](https://github.com/kochj23/rtsp-rotator) | RTSP camera stream rotation and monitoring |
+| [rtsp-rotator](https://github.com/kochj23/rtsp-rotator) | RTSP (Real Time Streaming Protocol) camera stream rotation and monitoring |
 | [TopGUI](https://github.com/kochj23/TopGUI) | macOS system monitor with real-time metrics |
 | [MLXCode](https://github.com/kochj23/MLXCode) | Local AI coding assistant for Apple Silicon |
 
