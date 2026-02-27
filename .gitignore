@@ -53,3 +53,5 @@ config.plist
 
 # Archives
 *.xcarchive
+.bfg-report/
+fix_paths.rb

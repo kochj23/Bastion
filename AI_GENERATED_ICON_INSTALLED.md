@@ -111,7 +111,7 @@ Bastion/Assets.xcassets/
 - New icon visible
 
 ### **3. In Finder:**
-- Navigate to: `/Users/kochj/Library/Developer/Xcode/DerivedData/Bastion-.../Build/Products/Debug/`
+- Navigate to: `~/Library/Developer/Xcode/DerivedData/Bastion-.../Build/Products/Debug/`
 - Find Bastion.app
 - Right-click → Get Info
 - Icon preview at top
