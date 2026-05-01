@@ -1,9 +1,10 @@
 # Bastion
 
 ![Build](https://github.com/kochj23/Bastion/actions/workflows/build.yml/badge.svg)
-![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
+![Tests](https://img.shields.io/badge/tests-140%20passed-brightgreen)
+![Platform](https://img.shields.io/badge/platform-macOS%2014.0%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
-![License](https://img.shields.io/badge/license-MIT-green)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 ![Status](https://img.shields.io/badge/status-Production-success)
 
 **AI-powered network penetration testing for macOS.** Bastion combines native
@@ -17,6 +18,65 @@ Written by Jordan Koch ([@kochj23](https://github.com/kochj23)).
 ---
 
 ## Architecture
+
+```mermaid
+graph TB
+    subgraph App["Bastion.app"]
+        subgraph UI["SwiftUI Views"]
+            Dashboard
+            DeviceList["Device List"]
+            AttackLog["Attack Log"]
+            AIInsights["AI Insights"]
+            Vulns["Vulnerabilities"]
+        end
+
+        subgraph AI["AI Backend Manager (10 backends)"]
+            Ollama["Ollama :11434"]
+            MLX["MLX Apple Silicon"]
+            TinyLLM["TinyLLM :8000"]
+            OpenWebUI["OpenWebUI :8080"]
+            Cloud["OpenAI / Google / Azure / AWS / IBM"]
+        end
+
+        subgraph Scanner["Network Scanner (Darwin BSD / NWConnection)"]
+            CIDR["CIDR Parser"] --> PortScan["Port Scanner"]
+            PortScan --> ServiceFP["Service Fingerprinter"]
+        end
+
+        subgraph Security["Security Engine"]
+            CVEDb["CVE Database NIST NVD"]
+            Orchestrator["AI Attack Orchestrator"]
+            ExploitGen["AI Exploit Generator"]
+            Chainer["Vulnerability Chainer"]
+            LateralMap["Lateral Movement Mapper"]
+            MITRE["MITRE ATT&CK Mapper"]
+            PostComp["Post-Compromise 10-phase"]
+            Anomaly["Anomaly Detector CoreML"]
+            Monitor["Continuous Monitor"]
+            Remediation["Remediation Scripts"]
+            PDFReport["PDF Report Generator"]
+        end
+
+        subgraph Exploits["Exploit Modules"]
+            SSH & SMB & DNS_M["DNS"] & LDAP & Web & Creds["Default Creds"]
+        end
+
+        Guard["Ethical AI Guardian"]
+        Widget["WidgetKit Extension"]
+    end
+
+    UI --> Scanner
+    AI --> Orchestrator
+    AI --> ExploitGen
+    Scanner --> Security
+    Security --> Exploits
+    Security --> Guard
+    Security --> Widget
+```
+
+<!-- Legacy ASCII diagram preserved for non-Mermaid renderers -->
+<details>
+<summary>ASCII architecture diagram</summary>
 
 ```
 +-------------------------------------------------------------------+
@@ -76,6 +136,7 @@ Written by Jordan Koch ([@kochj23](https://github.com/kochj23)).
 |  +-------------------------------+  +---------------------------+  |
 +-------------------------------------------------------------------+
 ```
+</details>
 
 ---
 
@@ -447,6 +508,36 @@ Bastion Widget/
 
 Download the latest release:
 [Bastion on GitHub Releases](https://github.com/kochj23/Bastion/releases/latest)
+
+---
+
+## Test Suite
+
+Bastion includes a comprehensive XCTest suite covering models, security logic,
+MITRE ATT&CK mapping, vulnerability chaining, and safety enforcement.
+
+**140 tests, 0 failures** across 10 test classes:
+
+| Test Class | Tests | Coverage Area |
+|---|---|---|
+| `DeviceModelTests` | 22 | Device, OpenPort, ServiceInfo, risk levels, security score |
+| `CVEModelTests` | 17 | CVE severity mapping, Codable round-trips, VulnerabilitySeverity |
+| `AttackResultTests` | 12 | AttackResult, AttackStatus, AttackType, ScanResults |
+| `SafetyValidatorTests` | 14 | RFC 1918 enforcement, public IP blocking, rate limiting |
+| `CompromiseReportTests` | 22 | Post-compromise findings, assessment logic, all finding types |
+| `MITREATTACKMapperTests` | 16 | ATT&CK technique/tactic mapping, Navigator JSON export |
+| `VulnerabilityChainerTests` | 8 | Chain probability calculation, chain types |
+| `LateralMovementTests` | 8 | Trust relationships, movement paths, multi-hop filtering |
+| `AIBackendTests` | 16 | Backend enum, error types, AttackPlan, PostExploitationPlan |
+| `NetworkErrorTests` | 5 | NetworkError, CVEDatabaseError, CVEMetadata |
+
+### Running Tests
+
+```bash
+xcodebuild test -project Bastion.xcodeproj -scheme Bastion \
+  -configuration Debug -destination 'platform=macOS' \
+  -only-testing BastionTests
+```
 
 ---
 
