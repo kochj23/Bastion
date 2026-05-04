@@ -35,8 +35,13 @@ class SafetyValidator {
         }
     }
 
-    // Check if IP is in private range
+    // Check if IP is in private/local range (IPv4 and IPv6)
     func isLocalIP(_ ip: String) -> Bool {
+        // IPv6 check
+        if ip.contains(":") {
+            return isLocalIPv6(ip)
+        }
+
         let octets = ip.split(separator: ".").compactMap { Int($0) }
         guard octets.count == 4 else { return false }
 
@@ -55,8 +60,39 @@ class SafetyValidator {
             return true
         }
 
-        // Localhost
+        // Localhost 127.0.0.0/8
         if octets[0] == 127 {
+            return true
+        }
+
+        // Link-local 169.254.0.0/16 (APIPA)
+        if octets[0] == 169 && octets[1] == 254 {
+            return true
+        }
+
+        return false
+    }
+
+    /// Check if an IPv6 address is in a private/local range
+    private func isLocalIPv6(_ ip: String) -> Bool {
+        let lowered = ip.lowercased()
+
+        // Loopback ::1
+        if lowered == "::1" { return true }
+
+        // Link-local fe80::/10
+        if lowered.hasPrefix("fe80:") || lowered.hasPrefix("fe8") || lowered.hasPrefix("fe9") ||
+           lowered.hasPrefix("fea") || lowered.hasPrefix("feb") {
+            return true
+        }
+
+        // Unique local addresses (ULA) fd00::/8 — first two chars "fd"
+        if lowered.hasPrefix("fd") {
+            return true
+        }
+
+        // fc00::/7 covers both fc and fd prefixes
+        if lowered.hasPrefix("fc") {
             return true
         }
 

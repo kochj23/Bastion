@@ -28,7 +28,7 @@ class NetworkScanner: ObservableObject {
     // Comprehensive tester will be added when project file is fixed
     // private let comprehensiveTester = ComprehensiveDeviceTester()
 
-    // Scan network for devices
+    // Scan network for devices using concurrent task group (max 25 in-flight)
     func scanNetwork(cidr: String) async throws {
         isScanning = true
         discoveredDevices = []
@@ -37,35 +37,48 @@ class NetworkScanner: ObservableObject {
 
         let ipAddresses = try parseCIDR(cidr)
         let totalHosts = ipAddresses.count
+        let maxConcurrency = 25
 
-        for (index, ip) in ipAddresses.enumerated() {
-            currentScanTarget = ip
-            scanProgress = Double(index) / Double(totalHosts)
+        // Use a task group with concurrency limiting via a semaphore-like pattern
+        var scannedCount = 0
+        var results: [Device] = []
 
-            if await isHostAlive(ip) {
-                addLog("Found device: \(ip)")
-                var device = Device(ipAddress: ip)
+        await withTaskGroup(of: Device?.self) { group in
+            var inflight = 0
+            var ipIterator = ipAddresses.makeIterator()
 
-                // Reverse DNS lookup
-                device.hostname = await resolveHostname(ip)
-
-                // Port scan
-                let openPorts = await scanPorts(ip: ip, ports: commonPorts)
-                device.openPorts = openPorts
-
-                // 🔥 COMPREHENSIVE TESTING: Test EVERYTHING on this device
-                // TODO: Re-enable after adding ComprehensiveDeviceTester.swift to Xcode project
-                // if comprehensiveTestingEnabled {
-                //     addLog("→ Running comprehensive security tests on \(ip)...")
-                //     let report = await comprehensiveTester.runComprehensiveTests(on: &device)
-                //     addLog("✓ Comprehensive tests complete: \(device.vulnerabilities.count) vulnerabilities found")
-                // }
-
-                // For now, run basic comprehensive checks inline
-                await runBasicComprehensiveChecks(device: &device)
-
-                discoveredDevices.append(device)
+            // Seed the group with up to maxConcurrency tasks
+            while inflight < maxConcurrency, let ip = ipIterator.next() {
+                group.addTask { [self] in
+                    await self.scanSingleHost(ip)
+                }
+                inflight += 1
             }
+
+            // As each task completes, add the next IP
+            for await result in group {
+                scannedCount += 1
+                scanProgress = Double(scannedCount) / Double(totalHosts)
+
+                if let device = result {
+                    results.append(device)
+                    addLog("Found device: \(device.ipAddress)")
+                }
+
+                // Enqueue next IP if available
+                if let ip = ipIterator.next() {
+                    group.addTask { [self] in
+                        await self.scanSingleHost(ip)
+                    }
+                }
+            }
+        }
+
+        // Run comprehensive checks sequentially (they mutate device)
+        for device in results {
+            var mutableDevice = device
+            await runBasicComprehensiveChecks(device: &mutableDevice)
+            discoveredDevices.append(mutableDevice)
         }
 
         scanProgress = 1.0
@@ -78,6 +91,16 @@ class NetworkScanner: ObservableObject {
             networkCIDR: cidr,
             isScanning: false
         )
+    }
+
+    /// Scan a single host: check alive, resolve hostname, scan ports
+    private func scanSingleHost(_ ip: String) async -> Device? {
+        guard await isHostAlive(ip) else { return nil }
+
+        var device = Device(ipAddress: ip)
+        device.hostname = await resolveHostname(ip)
+        device.openPorts = await scanPorts(ip: ip, ports: commonPorts)
+        return device
     }
 
     // Quick network scan (top 100 most common ports)
@@ -106,12 +129,12 @@ class NetworkScanner: ObservableObject {
         )
     }
 
-    // Check if host is alive (ICMP-like via TCP connection attempt)
+    // Check if host is alive via TCP port probes, then ICMP ping fallback
     private func isHostAlive(_ ip: String) async -> Bool {
         // Try connecting to common ports to detect if host is up
         let testPorts = [80, 443, 22, 445]
 
-        return await withTaskGroup(of: Bool.self) { group in
+        let portAlive = await withTaskGroup(of: Bool.self) { group in
             for port in testPorts {
                 group.addTask {
                     await self.isPortOpen(ip: ip, port: port)
@@ -124,6 +147,30 @@ class NetworkScanner: ObservableObject {
                 }
             }
             return false
+        }
+
+        if portAlive { return true }
+
+        // ICMP ping fallback when no ports responded
+        return await icmpPing(ip)
+    }
+
+    /// ICMP ping fallback using /sbin/ping
+    private nonisolated func icmpPing(_ ip: String) async -> Bool {
+        return await withCheckedContinuation { continuation in
+            let process = Process()
+            process.executableURL = URL(fileURLWithPath: "/sbin/ping")
+            process.arguments = ["-c", "1", "-W", "1", ip]
+            process.standardOutput = FileHandle.nullDevice
+            process.standardError = FileHandle.nullDevice
+
+            do {
+                try process.run()
+                process.waitUntilExit()
+                continuation.resume(returning: process.terminationStatus == 0)
+            } catch {
+                continuation.resume(returning: false)
+            }
         }
     }
 
