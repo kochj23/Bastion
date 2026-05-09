@@ -76,6 +76,7 @@
 		TEST_BF_008008008008 /* LateralMovementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_008008008008 /* LateralMovementTests.swift */; };
 		TEST_BF_009009009009 /* AIBackendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_009009009009 /* AIBackendTests.swift */; };
 		TEST_BF_010010010010 /* NetworkErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_010010010010 /* NetworkErrorTests.swift */; };
+		TEST_BF_011011011011 /* ComprehensiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_011011011011 /* ComprehensiveTests.swift */; };
 
 /* End PBXBuildFile section */
 
@@ -184,6 +185,7 @@
 		TEST_FR_008008008008 /* LateralMovementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LateralMovementTests.swift; sourceTree = "<group>"; };
 		TEST_FR_009009009009 /* AIBackendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIBackendTests.swift; sourceTree = "<group>"; };
 		TEST_FR_010010010010 /* NetworkErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorTests.swift; sourceTree = "<group>"; };
+		TEST_FR_011011011011 /* ComprehensiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensiveTests.swift; sourceTree = "<group>"; };
 		TEST_PRODUCT_000001 /* BastionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BastionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 
 /* End PBXFileReference section */
@@ -373,6 +375,7 @@
 				TEST_FR_007007007007 /* VulnerabilityChainerTests.swift */,
 				TEST_FR_008008008008 /* LateralMovementTests.swift */,
 				TEST_FR_009009009009 /* AIBackendTests.swift */,
+				TEST_FR_011011011011 /* ComprehensiveTests.swift */,
 				TEST_FR_010010010010 /* NetworkErrorTests.swift */,
 			);
 			path = BastionTests;
@@ -583,6 +586,7 @@
 				TEST_BF_007007007007 /* VulnerabilityChainerTests.swift in Sources */,
 				TEST_BF_008008008008 /* LateralMovementTests.swift in Sources */,
 				TEST_BF_009009009009 /* AIBackendTests.swift in Sources */,
+				TEST_BF_011011011011 /* ComprehensiveTests.swift in Sources */,
 				TEST_BF_010010010010 /* NetworkErrorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
