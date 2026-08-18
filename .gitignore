@@ -55,3 +55,9 @@ config.plist
 *.xcarchive
 .bfg-report/
 fix_paths.rb
+
+# Stale project file backups
+*.pbxproj.bak
+*.pbxproj.backup
+*.pbxproj.corrupted
+*.pbxproj.orig
