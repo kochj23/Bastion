@@ -187,6 +187,14 @@ final class BastionSecurityTests: XCTestCase {
 
     let validator = SafetyValidator.shared
 
+    override func setUp() {
+        super.setUp()
+        // SafetyValidator.shared is a process-wide singleton; its rate-limit
+        // window persists across test methods and classes. Reset it so the
+        // rate-limit test (Test 23) is hermetic regardless of execution order.
+        validator.resetRateLimit()
+    }
+
     // MARK: Test 19 - Local IP Validation Private Ranges
     func testIsLocalIPPrivateRanges() {
         XCTAssertTrue(validator.isLocalIP("192.168.1.1"))

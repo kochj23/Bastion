@@ -119,6 +119,16 @@ class SafetyValidator {
         requestTimestamps.append(now)
     }
 
+    /// Clear the rate-limit sliding window.
+    ///
+    /// `SafetyValidator` is a process-wide singleton, so its rate-limit state
+    /// otherwise persists across callers (and across XCTest methods sharing
+    /// `.shared`). Tests call this in `setUp()` to stay hermetic and order
+    /// independent; production code can call it to reset the window if needed.
+    func resetRateLimit() {
+        requestTimestamps.removeAll()
+    }
+
     // Show legal warning on first launch
     @MainActor
     func showLegalWarningIfNeeded() async -> Bool {
