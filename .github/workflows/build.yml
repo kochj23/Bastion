@@ -13,10 +13,10 @@ jobs:
     steps:
     - uses: actions/checkout@v7
 
-    - name: Select Xcode 16
-      # The runner can default to Xcode 15, whose Swift can't compile the pinned
-      # mlx-swift-lm (MLXLMCommon) and which lacks `-downloadComponent`. Pin to 16.
-      run: sudo xcode-select -s "$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -1 || echo /Applications/Xcode.app)"
+    - name: Select Xcode (latest stable)
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
 
     - name: Install Metal Toolchain
       # The MLX dependency compiles Metal shaders; Xcode 16 no longer bundles the
