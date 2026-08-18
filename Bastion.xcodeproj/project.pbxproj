@@ -31,6 +31,7 @@
 		74A3652A0B75397946557BF9 /* SSHConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983C0E7466AE086F8BBC69DE /* SSHConnection.swift */; };
 		7690CA0ECF1532DECFEB0040 /* PersistenceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */; };
 		78273A25EE3613144D44612E /* UnifiedAICapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F7B82B161552394211BF8 /* UnifiedAICapabilities.swift */; };
+		7C58C564DE3F768E33CCE408 /* DefensiveLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DB0D86521D2C048D65EB27 /* DefensiveLogicTests.swift */; };
 		812B224D4FDA4D6D8283F030 /* AIAttackOrchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C0B65E230945E9B63C7801 /* AIAttackOrchestrator.swift */; };
 		8706D1A6F0B741618D8979BA /* NetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CC3B2138A4630A42702E6 /* NetworkScanner.swift */; };
 		8B3B8383998D467082F8D2FF /* AIExploitGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */; };
@@ -59,13 +60,6 @@
 		E2823F5513BA48B399DBF253 /* DeviceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C2FDBFAA004CB7A932D5DB /* DeviceListView.swift */; };
 		F0BF56B44F708DA0D1845C13 /* NetworkSnifferDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630DCDCED5A717352A9946DA /* NetworkSnifferDetector.swift */; };
 		F969D46198AB4715B09108AE /* ContinuousMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CC8188FCC14202AC852250 /* ContinuousMonitor.swift */; };
-		WIDGET001001001001001 /* WidgetDataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET002002002002002 /* WidgetDataSync.swift */; };
-		WIDGET101101101101101 /* BastionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET102102102102102 /* BastionWidget.swift */; };
-		WIDGET103103103103103 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET104104104104104 /* WidgetData.swift */; };
-		WIDGET105105105105105 /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET106106106106106 /* SharedDataManager.swift */; };
-		WIDGET107107107107107 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET108108108108108 /* WidgetKit.framework */; };
-		WIDGET109109109109109 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET110110110110110 /* SwiftUI.framework */; };
-		WIDGET111111111111111 /* Bastion WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = WIDGET112112112112112 /* Bastion WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		TEST_BF_001001001001 /* DeviceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_001001001001 /* DeviceModelTests.swift */; };
 		TEST_BF_002002002002 /* CVEModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_002002002002 /* CVEModelTests.swift */; };
 		TEST_BF_003003003003 /* AttackResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_003003003003 /* AttackResultTests.swift */; };
@@ -77,23 +71,29 @@
 		TEST_BF_009009009009 /* AIBackendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_009009009009 /* AIBackendTests.swift */; };
 		TEST_BF_010010010010 /* NetworkErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_010010010010 /* NetworkErrorTests.swift */; };
 		TEST_BF_011011011011 /* ComprehensiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = TEST_FR_011011011011 /* ComprehensiveTests.swift */; };
-
+		WIDGET001001001001001 /* WidgetDataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET002002002002002 /* WidgetDataSync.swift */; };
+		WIDGET101101101101101 /* BastionWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET102102102102102 /* BastionWidget.swift */; };
+		WIDGET103103103103103 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET104104104104104 /* WidgetData.swift */; };
+		WIDGET105105105105105 /* SharedDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = WIDGET106106106106106 /* SharedDataManager.swift */; };
+		WIDGET107107107107107 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET108108108108108 /* WidgetKit.framework */; };
+		WIDGET109109109109109 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET110110110110110 /* SwiftUI.framework */; };
+		WIDGET111111111111111 /* Bastion WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = WIDGET112112112112112 /* Bastion WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		WIDGET113113113113113 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74929BDE0FD241A29273AE74 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = WIDGET114114114114114;
-			remoteInfo = "Bastion WidgetExtension";
-		};
 		TEST_PROXY_00000001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 74929BDE0FD241A29273AE74 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 74E3CFFC69B443ECB5CF18B1;
 			remoteInfo = Bastion;
+		};
+		WIDGET113113113113113 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 74929BDE0FD241A29273AE74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = WIDGET114114114114114;
+			remoteInfo = "Bastion WidgetExtension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -162,19 +162,10 @@
 		EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ServiceFingerprinter.swift; sourceTree = "<group>"; };
 		EEB1A878557546F2B72EDD48 /* AttackLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/AttackLogView.swift; sourceTree = "<group>"; };
 		F1FFB81C86AE4E7E80450A6A /* ModernDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities/ModernDesign.swift; sourceTree = "<group>"; };
+		F2DB0D86521D2C048D65EB27 /* DefensiveLogicTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DefensiveLogicTests.swift; sourceTree = "<group>"; };
 		F344127C1A4441A3B2A30402 /* MITREATTACKMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/MITREATTACKMapper.swift; sourceTree = "<group>"; };
 		F82FAD6994274BC51528E5FC /* PersistenceDetector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PersistenceDetector.swift; path = PersistenceDetector.swift; sourceTree = "<group>"; };
 		FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryHashDatabase.swift; path = BinaryHashDatabase.swift; sourceTree = "<group>"; };
-		WIDGET002002002002002 /* WidgetDataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataSync.swift; sourceTree = "<group>"; };
-		WIDGET102102102102102 /* BastionWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BastionWidget.swift; sourceTree = "<group>"; };
-		WIDGET104104104104104 /* WidgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetData.swift; sourceTree = "<group>"; };
-		WIDGET106106106106106 /* SharedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataManager.swift; sourceTree = "<group>"; };
-		WIDGET108108108108108 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		WIDGET110110110110110 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		WIDGET112112112112112 /* Bastion WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bastion WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		WIDGET116116116116116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		WIDGET117117117117117 /* Bastion_Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion_Widget.entitlements; sourceTree = "<group>"; };
-		WIDGET118118118118118 /* Bastion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion.entitlements; sourceTree = "<group>"; };
 		TEST_FR_001001001001 /* DeviceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceModelTests.swift; sourceTree = "<group>"; };
 		TEST_FR_002002002002 /* CVEModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVEModelTests.swift; sourceTree = "<group>"; };
 		TEST_FR_003003003003 /* AttackResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackResultTests.swift; sourceTree = "<group>"; };
@@ -187,11 +178,27 @@
 		TEST_FR_010010010010 /* NetworkErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorTests.swift; sourceTree = "<group>"; };
 		TEST_FR_011011011011 /* ComprehensiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprehensiveTests.swift; sourceTree = "<group>"; };
 		TEST_PRODUCT_000001 /* BastionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BastionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		WIDGET002002002002002 /* WidgetDataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetDataSync.swift; sourceTree = "<group>"; };
+		WIDGET102102102102102 /* BastionWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BastionWidget.swift; sourceTree = "<group>"; };
+		WIDGET104104104104104 /* WidgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetData.swift; sourceTree = "<group>"; };
+		WIDGET106106106106106 /* SharedDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedDataManager.swift; sourceTree = "<group>"; };
+		WIDGET108108108108108 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		WIDGET110110110110110 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		WIDGET112112112112112 /* Bastion WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Bastion WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		WIDGET116116116116116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		WIDGET117117117117117 /* Bastion_Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion_Widget.entitlements; sourceTree = "<group>"; };
+		WIDGET118118118118118 /* Bastion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A3546F9888B8438997FE195C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		TEST_FWORKS_000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,13 +211,6 @@
 			files = (
 				WIDGET107107107107107 /* WidgetKit.framework in Frameworks */,
 				WIDGET109109109109109 /* SwiftUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		TEST_FWORKS_000001 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				WIDGET118118118118118 /* Bastion.entitlements */,
-	
 				8044D99F8FC74FFBBEFF8C4D /* BastionApp.swift */,
 				8DBCBEA58D324434A91E8D47 /* CVEDatabase.swift */,
 				EA89BE3A46314E0FAB285B4A /* ServiceFingerprinter.swift */,
@@ -342,6 +341,25 @@
 			);
 			sourceTree = "<group>";
 		};
+		TEST_GROUP_00000001 /* BastionTests */ = {
+			isa = PBXGroup;
+			children = (
+				TEST_FR_001001001001 /* DeviceModelTests.swift */,
+				TEST_FR_002002002002 /* CVEModelTests.swift */,
+				TEST_FR_003003003003 /* AttackResultTests.swift */,
+				TEST_FR_004004004004 /* SafetyValidatorTests.swift */,
+				TEST_FR_005005005005 /* CompromiseReportTests.swift */,
+				TEST_FR_006006006006 /* MITREATTACKMapperTests.swift */,
+				TEST_FR_007007007007 /* VulnerabilityChainerTests.swift */,
+				TEST_FR_008008008008 /* LateralMovementTests.swift */,
+				TEST_FR_009009009009 /* AIBackendTests.swift */,
+				TEST_FR_011011011011 /* ComprehensiveTests.swift */,
+				TEST_FR_010010010010 /* NetworkErrorTests.swift */,
+				F2DB0D86521D2C048D65EB27 /* DefensiveLogicTests.swift */,
+			);
+			path = BastionTests;
+			sourceTree = "<group>";
+		};
 		WIDGET120120120120120 /* Bastion Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,24 +379,6 @@
 				WIDGET110110110110110 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		TEST_GROUP_00000001 /* BastionTests */ = {
-			isa = PBXGroup;
-			children = (
-				TEST_FR_001001001001 /* DeviceModelTests.swift */,
-				TEST_FR_002002002002 /* CVEModelTests.swift */,
-				TEST_FR_003003003003 /* AttackResultTests.swift */,
-				TEST_FR_004004004004 /* SafetyValidatorTests.swift */,
-				TEST_FR_005005005005 /* CompromiseReportTests.swift */,
-				TEST_FR_006006006006 /* MITREATTACKMapperTests.swift */,
-				TEST_FR_007007007007 /* VulnerabilityChainerTests.swift */,
-				TEST_FR_008008008008 /* LateralMovementTests.swift */,
-				TEST_FR_009009009009 /* AIBackendTests.swift */,
-				TEST_FR_011011011011 /* ComprehensiveTests.swift */,
-				TEST_FR_010010010010 /* NetworkErrorTests.swift */,
-			);
-			path = BastionTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,23 +409,6 @@
 			productReference = 62432CD1B9D14F20A18CFA04 /* Bastion.app */;
 			productType = "com.apple.product-type.application";
 		};
-		WIDGET114114114114114 /* Bastion WidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = WIDGET123123123123123 /* Build configuration list for PBXNativeTarget "Bastion WidgetExtension" */;
-			buildPhases = (
-				WIDGET124124124124124 /* Sources */,
-				WIDGET119119119119119 /* Frameworks */,
-				WIDGET125125125125125 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Bastion WidgetExtension";
-			productName = "Bastion WidgetExtension";
-			productReference = WIDGET112112112112112 /* Bastion WidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		TEST_TARGET_0000001 /* BastionTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = TEST_CFGLST_000001 /* Build configuration list for PBXNativeTarget "BastionTests" */;
@@ -443,6 +426,23 @@
 			productName = BastionTests;
 			productReference = TEST_PRODUCT_000001 /* BastionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		WIDGET114114114114114 /* Bastion WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = WIDGET123123123123123 /* Build configuration list for PBXNativeTarget "Bastion WidgetExtension" */;
+			buildPhases = (
+				WIDGET124124124124124 /* Sources */,
+				WIDGET119119119119119 /* Frameworks */,
+				WIDGET125125125125125 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bastion WidgetExtension";
+			productName = "Bastion WidgetExtension";
+			productReference = WIDGET112112112112112 /* Bastion WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -486,14 +486,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		WIDGET125125125125125 /* Resources */ = {
+		TEST_RESRCS_000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		TEST_RESRCS_000001 /* Resources */ = {
+		WIDGET125125125125125 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,7 +508,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C4CFED6C9494BBF8FD56462 /* BastionApp.swift in Sources */,
-
 				5B2F1FF8BC7D4D559CF7EBDA /* CVEDatabase.swift in Sources */,
 				9051EC73369E4E1ABF5C37F2 /* ServiceFingerprinter.swift in Sources */,
 				8706D1A6F0B741618D8979BA /* NetworkScanner.swift in Sources */,
@@ -563,16 +562,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		WIDGET124124124124124 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				WIDGET101101101101101 /* BastionWidget.swift in Sources */,
-				WIDGET103103103103103 /* WidgetData.swift in Sources */,
-				WIDGET105105105105105 /* SharedDataManager.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		TEST_SOURCES_000001 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -588,21 +577,32 @@
 				TEST_BF_009009009009 /* AIBackendTests.swift in Sources */,
 				TEST_BF_011011011011 /* ComprehensiveTests.swift in Sources */,
 				TEST_BF_010010010010 /* NetworkErrorTests.swift in Sources */,
+				7C58C564DE3F768E33CCE408 /* DefensiveLogicTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		WIDGET124124124124124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				WIDGET101101101101101 /* BastionWidget.swift in Sources */,
+				WIDGET103103103103103 /* WidgetData.swift in Sources */,
+				WIDGET105105105105105 /* SharedDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		WIDGET122122122122122 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = WIDGET114114114114114 /* Bastion WidgetExtension */;
-			targetProxy = WIDGET113113113113113 /* PBXContainerItemProxy */;
-		};
 		TEST_DEPEND_000001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 74E3CFFC69B443ECB5CF18B1 /* Bastion */;
 			targetProxy = TEST_PROXY_00000001 /* PBXContainerItemProxy */;
+		};
+		WIDGET122122122122122 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = WIDGET114114114114114 /* Bastion WidgetExtension */;
+			targetProxy = WIDGET113113113113113 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -621,7 +621,6 @@
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
-
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -648,7 +647,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
-
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -659,6 +657,45 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		TEST_DBGCFG_000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bastion.app/Contents/MacOS/Bastion";
+				TEST_TARGET_NAME = Bastion;
+			};
+			name = Debug;
+		};
+		TEST_RELCFG_000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QRRCB8HB3W;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bastion.app/Contents/MacOS/Bastion";
+				TEST_TARGET_NAME = Bastion;
 			};
 			name = Release;
 		};
@@ -720,45 +757,6 @@
 			};
 			name = Release;
 		};
-		TEST_DBGCFG_000001 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRRCB8HB3W;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bastion.app/Contents/MacOS/Bastion";
-				TEST_TARGET_NAME = Bastion;
-			};
-			name = Debug;
-		};
-		TEST_RELCFG_000001 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QRRCB8HB3W;
-				ENABLE_TESTABILITY = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bastion.app/Contents/MacOS/Bastion";
-				TEST_TARGET_NAME = Bastion;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -771,20 +769,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		WIDGET123123123123123 /* Build configuration list for PBXNativeTarget "Bastion WidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				WIDGET126126126126126 /* Debug */,
-				WIDGET127127127127127 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		TEST_CFGLST_000001 /* Build configuration list for PBXNativeTarget "BastionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				TEST_DBGCFG_000001 /* Debug */,
 				TEST_RELCFG_000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		WIDGET123123123123123 /* Build configuration list for PBXNativeTarget "Bastion WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				WIDGET126126126126126 /* Debug */,
+				WIDGET127127127127127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
