@@ -14,6 +14,14 @@ final class SafetyValidatorTests: XCTestCase {
 
     let validator = SafetyValidator.shared
 
+    override func setUp() {
+        super.setUp()
+        // SafetyValidator is a shared singleton; its rate-limit window leaks
+        // across test methods (and across test classes). Reset it so
+        // rate-limit assertions are hermetic and order independent.
+        validator.resetRateLimit()
+    }
+
     // MARK: - Local IP Validation (RFC 1918)
 
     func testPrivateClass192168() {
