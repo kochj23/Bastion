@@ -78,6 +78,18 @@
 		WIDGET107107107107107 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET108108108108108 /* WidgetKit.framework */; };
 		WIDGET109109109109109 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = WIDGET110110110110110 /* SwiftUI.framework */; };
 		WIDGET111111111111111 /* Bastion WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = WIDGET112112112112112 /* Bastion WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+			BA510AD00000000000B00001 /* LLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00001 /* LLMSupport.swift */; };
+			BA510AD00000000000B00002 /* LLMBackendType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00002 /* LLMBackendType.swift */; };
+			BA510AD00000000000B00003 /* ModelRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00003 /* ModelRegistry.swift */; };
+			BA510AD00000000000B00004 /* OpenRouterProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00004 /* OpenRouterProvider.swift */; };
+			BA510AD00000000000B00005 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00005 /* KeychainStore.swift */; };
+			BA510AD00000000000B00006 /* LLMLoadBalancer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00006 /* LLMLoadBalancer.swift */; };
+			BA510AD00000000000B00007 /* FindingExplainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00007 /* FindingExplainer.swift */; };
+			BA510AD00000000000B00008 /* ExplainFindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00008 /* ExplainFindingView.swift */; };
+			BA510AD00000000000B00009 /* LLMBalancerSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F00009 /* LLMBalancerSettingsView.swift */; };
+			BA510AD00000000000B0000A /* LoadBalancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F0000A /* LoadBalancerTests.swift */; };
+			BA510AD00000000000B0000B /* OpenRouterFailoverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F0000B /* OpenRouterFailoverTests.swift */; };
+			BA510AD00000000000B0000C /* FindingExplainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F0000C /* FindingExplainerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +200,18 @@
 		WIDGET116116116116116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		WIDGET117117117117117 /* Bastion_Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion_Widget.entitlements; sourceTree = "<group>"; };
 		WIDGET118118118118118 /* Bastion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bastion.entitlements; sourceTree = "<group>"; };
+			BA510AD00000000000F00001 /* LLMSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMSupport.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00002 /* LLMBackendType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMBackendType.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00003 /* ModelRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRegistry.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00004 /* OpenRouterProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRouterProvider.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00005 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00006 /* LLMLoadBalancer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMLoadBalancer.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00007 /* FindingExplainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingExplainer.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00008 /* ExplainFindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainFindingView.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F00009 /* LLMBalancerSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMBalancerSettingsView.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F0000A /* LoadBalancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadBalancerTests.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F0000B /* OpenRouterFailoverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenRouterFailoverTests.swift; sourceTree = "<group>"; };
+			BA510AD00000000000F0000C /* FindingExplainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingExplainerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +262,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BA510AD00000000000A00001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BA510AD00000000000F00001 /* LLMSupport.swift */,
+				BA510AD00000000000F00002 /* LLMBackendType.swift */,
+				BA510AD00000000000F00003 /* ModelRegistry.swift */,
+				BA510AD00000000000F00004 /* OpenRouterProvider.swift */,
+				BA510AD00000000000F00005 /* KeychainStore.swift */,
+				BA510AD00000000000F00006 /* LLMLoadBalancer.swift */,
+				BA510AD00000000000F00007 /* FindingExplainer.swift */,
+			);
+			name = Services;
+			path = Services;
+			sourceTree = "<group>";
+		};
 		773C080F7EF04DC2965F5595 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				6B1927C3991BBDCD8D4A50E8 /* DeviceDetailView.swift */,
+				BA510AD00000000000F00008 /* ExplainFindingView.swift */,
+				BA510AD00000000000F00009 /* LLMBalancerSettingsView.swift */,
 			);
 			name = Views;
 			path = Views;
@@ -326,6 +367,7 @@
 				B52A85FC1A4467E8C481D52D /* Security */,
 				87713C8E397AA8A9390365AE /* Views */,
 				1421D96E600FB1A9A2862E07 /* AICapabilities */,
+				BA510AD00000000000A00001 /* Services */,
 			);
 			path = Bastion;
 			sourceTree = "<group>";
@@ -356,6 +398,9 @@
 				TEST_FR_011011011011 /* ComprehensiveTests.swift */,
 				TEST_FR_010010010010 /* NetworkErrorTests.swift */,
 				F2DB0D86521D2C048D65EB27 /* DefensiveLogicTests.swift */,
+				BA510AD00000000000F0000A /* LoadBalancerTests.swift */,
+				BA510AD00000000000F0000B /* OpenRouterFailoverTests.swift */,
+				BA510AD00000000000F0000C /* FindingExplainerTests.swift */,
 			);
 			path = BastionTests;
 			sourceTree = "<group>";
@@ -559,6 +604,15 @@
 				BA47F2E81AF3A11BFFC696C6 /* AnalysisUnified.swift in Sources */,
 				8C9F6AEB566BBD86827CE76E /* SecurityUnified.swift in Sources */,
 				WIDGET001001001001001 /* WidgetDataSync.swift in Sources */,
+				BA510AD00000000000B00001 /* LLMSupport.swift in Sources */,
+				BA510AD00000000000B00002 /* LLMBackendType.swift in Sources */,
+				BA510AD00000000000B00003 /* ModelRegistry.swift in Sources */,
+				BA510AD00000000000B00004 /* OpenRouterProvider.swift in Sources */,
+				BA510AD00000000000B00005 /* KeychainStore.swift in Sources */,
+				BA510AD00000000000B00006 /* LLMLoadBalancer.swift in Sources */,
+				BA510AD00000000000B00007 /* FindingExplainer.swift in Sources */,
+				BA510AD00000000000B00008 /* ExplainFindingView.swift in Sources */,
+				BA510AD00000000000B00009 /* LLMBalancerSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +632,9 @@
 				TEST_BF_011011011011 /* ComprehensiveTests.swift in Sources */,
 				TEST_BF_010010010010 /* NetworkErrorTests.swift in Sources */,
 				7C58C564DE3F768E33CCE408 /* DefensiveLogicTests.swift in Sources */,
+				BA510AD00000000000B0000A /* LoadBalancerTests.swift in Sources */,
+				BA510AD00000000000B0000B /* OpenRouterFailoverTests.swift in Sources */,
+				BA510AD00000000000B0000C /* FindingExplainerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
