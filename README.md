@@ -159,6 +159,52 @@ In addition to the core LLM backends, Bastion includes a `UnifiedAICapabilities`
 | Analysis | Document analysis, vision models, structured extraction |
 | Security | Attack orchestration, CVE analysis, hardening recommendations |
 
+### Multi-model load balancing
+
+Bastion ships with the shared multi-model LLM load balancer used across Jordan Koch's apps. Instead of pinning to a single backend, it discovers every model available on the machine and spreads work across a normalized pool, health-gating unreachable backends and failing over automatically.
+
+Three persisted toggles (in **Settings → AI Load Balancer**) compose the pool:
+
+| Toggle | What it adds to the pool |
+|---|---|
+| **Use all local models** | Every discovered Ollama model + locally-installed MLX models |
+| **Enable all frontier models** | OpenRouter's full frontier model list (bring your own key, stored in Keychain) |
+| **Route through Nova Gateway** *(optional)* | Nova's OpenAI-compatible gateway (`127.0.0.1:18792`), which inherits Nova's own routing |
+
+The balancer supports round-robin and least-busy selection policies, tracks in-flight requests per model, and skips any backend that fails its health check. **Nova is never required** — the balancer works with zero Nova using local (Ollama/MLX) and/or frontier (OpenRouter) models alone; the Nova Gateway is one optional backend, and a failed health check simply drops it from the pool while everything else keeps working.
+
+```mermaid
+graph LR
+    Finding["Security finding"] --> Prompt["explainPrompt(for:)\n(pure + redacts secrets)"]
+    Prompt --> Balancer["LLM Load Balancer"]
+
+    subgraph Toggles["Persisted toggles"]
+        T1["Use all local models"]
+        T2["Enable all frontier models"]
+        T3["Route through Nova Gateway (optional)"]
+    end
+    Toggles --> Pool
+
+    subgraph Pool["Discovered model pool"]
+        Ollama["Ollama models"]
+        MLX["MLX models"]
+        OpenRouter["OpenRouter frontier"]
+        Nova["Nova Gateway (optional)"]
+    end
+
+    Balancer -->|health-gate + round-robin / least-busy| Pool
+    Pool -->|"first healthy, fall through on failure"| Result["Plain-English summary"]
+    Result -.->|no backend reachable| Disabled["Feature disabled with a clear reason\n(core security functions unaffected)"]
+```
+
+### Explain this finding (AI)
+
+Every security finding gets an **Explain** action that routes the finding through the balanced LLM and returns a plain-English summary: **what it means**, **why it matters**, and **suggested remediation**, shown in a sheet.
+
+- The prompt is built by a pure, network-free `FindingExplainer.explainPrompt(for:)` so it is fully unit-tested.
+- **Secrets are never sent off-box.** The prompt builder redacts obvious secret-like content (passwords, API keys, tokens, bearer/basic auth, HTTP basic-auth in URLs, AWS access-key ids, PEM private-key blocks) before anything reaches the LLM.
+- The feature degrades gracefully: when no LLM backend is reachable it is disabled with a clear reason and **never crashes**, and it **never blocks Bastion's core security functions** on LLM availability.
+
 ### WidgetKit Extension
 
 Small, medium, and large widgets displaying security score, vulnerability breakdown, devices at risk, last scan time. Auto-syncs via App Group `group.com.jkoch.bastion`.

@@ -13,6 +13,19 @@ struct VulnerabilitiesView: View {
     @EnvironmentObject var cveDatabase: CVEDatabase
     @State private var searchText = ""
     @State private var selectedSeverity: CVESeverity? = nil
+    @State private var explainFinding: Vulnerability?
+
+    /// Sample findings shown until the live CVE list is wired up. Each is a real
+    /// `Vulnerability` so the "Explain this finding" action has data to summarize.
+    private let sampleFindings: [Vulnerability] = {
+        var openssh = Vulnerability(title: "OpenSSH Remote Code Execution", description: "The scanned host exposes an OpenSSH service vulnerable to a pre-authentication remote code execution flaw. A remote attacker can execute arbitrary code without valid credentials.", severity: .critical, cveId: "CVE-2021-41617")
+        openssh.cvssScore = 9.8
+        openssh.exploitAvailable = true
+        openssh.affectedService = "OpenSSH"
+        openssh.affectedVersion = "8.4"
+        openssh.proofOfConcept = "ssh -o StrictHostKeyChecking=no admin@target  # tested with password=Hunter2 and api_key=sk-live-abcdef123456"
+        return [openssh]
+    }()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -51,53 +64,80 @@ struct VulnerabilitiesView: View {
             // CVE list
             ScrollView {
                 LazyVStack(spacing: 12) {
-                    // Placeholder for CVE list
-                    ForEach(0..<10, id: \.self) { index in
-                        cvePlaceholderCard()
+                    ForEach(sampleFindings) { finding in
+                        findingCard(finding)
                     }
                 }
                 .padding()
             }
         }
+        .sheet(item: $explainFinding) { finding in
+            ExplainFindingView(finding: finding)
+        }
     }
 
-    private func cvePlaceholderCard() -> some View {
+    private func findingCard(_ finding: Vulnerability) -> some View {
         HStack(alignment: .top, spacing: 12) {
             // Severity badge
             Circle()
-                .fill(Color.red)
+                .fill(Color(hex: finding.severity.color))
                 .frame(width: 12, height: 12)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("CVE-2021-41617")
+                Text(finding.cveId ?? "Finding")
                     .font(.system(.headline, design: .monospaced))
                     .foregroundColor(.white)
 
-                Text("OpenSSH Remote Code Execution")
+                Text(finding.title)
                     .font(.caption)
                     .foregroundColor(.secondary)
 
                 HStack {
-                    Text("CVSS: 9.8")
-                        .font(.caption)
-                        .foregroundColor(.red)
-
-                    Text("•")
-                        .foregroundColor(.secondary)
-
-                    Text("Exploit Available")
-                        .font(.caption)
-                        .foregroundColor(.orange)
+                    if let score = finding.cvssScore {
+                        Text("CVSS: \(score, specifier: "%.1f")")
+                            .font(.caption)
+                            .foregroundColor(.red)
+                        Text("•").foregroundColor(.secondary)
+                    }
+                    if finding.exploitAvailable {
+                        Text("Exploit Available")
+                            .font(.caption)
+                            .foregroundColor(.orange)
+                    }
                 }
             }
 
             Spacer()
+
+            // "Explain this finding" — routes through the balanced LLM. Never
+            // blocks core security functions; disabled gracefully when offline.
+            Button {
+                explainFinding = finding
+            } label: {
+                Label("Explain", systemImage: "sparkles")
+                    .font(.caption)
+            }
+            .buttonStyle(.borderedProminent)
+            .help("Explain this finding with AI (what it means, why it matters, remediation)")
         }
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 8)
                 .fill(Color.white.opacity(0.1))
         )
+    }
+}
+
+/// Small hex-string → Color helper for severity badges.
+private extension Color {
+    init(hex: String) {
+        let s = hex.hasPrefix("#") ? String(hex.dropFirst()) : hex
+        var value: UInt64 = 0
+        Scanner(string: s).scanHexInt64(&value)
+        let r = Double((value & 0xFF0000) >> 16) / 255.0
+        let g = Double((value & 0x00FF00) >> 8) / 255.0
+        let b = Double(value & 0x0000FF) / 255.0
+        self.init(.sRGB, red: r, green: g, blue: b, opacity: 1)
     }
 }
 
