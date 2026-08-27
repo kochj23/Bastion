@@ -28,12 +28,40 @@ class SSHConnection {
     /// - Returns: Command output as string, or nil if execution failed
     func execute(_ command: String) async -> String? {
         return await withCheckedContinuation { continuation in
-            // Use expect to handle SSH password authentication
-            let expectScript = self.generateExpectScript(command: command)
+            // Validate host/username against a strict allowlist so shell/argv
+            // metacharacters cannot reach a command boundary. Port is an Int.
+            guard self.isValidHostOrUser(self.host),
+                  self.isValidHostOrUser(self.username) else {
+                print("[SSHConnection] Invalid host or username")
+                continuation.resume(returning: nil)
+                return
+            }
 
+            guard let sshpass = self.sshpassPath() else {
+                print("[SSHConnection] sshpass not found; cannot authenticate with password")
+                continuation.resume(returning: nil)
+                return
+            }
+
+            // Drive ssh via sshpass, passing every value as a literal argv element.
+            // The password is delivered through the SSHPASS environment variable,
+            // never concatenated into a shell/Tcl string.
             let task = Process()
-            task.executableURL = URL(fileURLWithPath: "/usr/bin/expect")
-            task.arguments = ["-c", expectScript]
+            task.executableURL = URL(fileURLWithPath: sshpass)
+            task.arguments = [
+                "-e",
+                "ssh",
+                "-o", "StrictHostKeyChecking=no",
+                "-o", "UserKnownHostsFile=/dev/null",
+                "-o", "ConnectTimeout=10",
+                "-p", "\(self.port)",
+                "\(self.username)@\(self.host)",
+                command
+            ]
+
+            var environment = ProcessInfo.processInfo.environment
+            environment["SSHPASS"] = self.password
+            task.environment = environment
 
             let outputPipe = Pipe()
             let errorPipe = Pipe()
@@ -72,38 +100,17 @@ class SSHConnection {
         }
     }
 
-    /// Generate expect script for SSH with password authentication
-    private func generateExpectScript(command: String) -> String {
-        // Escape special characters in password and command
-        let escapedPassword = password.replacingOccurrences(of: "\"", with: "\\\"")
-        let escapedCommand = command.replacingOccurrences(of: "\"", with: "\\\"")
+    /// Strict allowlist for host / username so metacharacters cannot reach the
+    /// argv or the remote shell boundary.
+    private func isValidHostOrUser(_ value: String) -> Bool {
+        return !value.isEmpty
+            && value.range(of: "^[A-Za-z0-9._-]+$", options: .regularExpression) != nil
+    }
 
-        return """
-        set timeout 30
-        spawn ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=10 -p \(port) \(username)@\(host) "\(escapedCommand)"
-        expect {
-            "password:" {
-                send "\(escapedPassword)\\r"
-                expect {
-                    eof
-                }
-            }
-            "Password:" {
-                send "\(escapedPassword)\\r"
-                expect {
-                    eof
-                }
-            }
-            "(yes/no" {
-                send "yes\\r"
-                expect "password:" { send "\(escapedPassword)\\r" }
-                expect eof
-            }
-            eof
-        }
-        catch wait result
-        exit [lindex $result 3]
-        """
+    /// Locate an installed sshpass binary, if any.
+    private func sshpassPath() -> String? {
+        let candidates = ["/opt/homebrew/bin/sshpass", "/usr/local/bin/sshpass"]
+        return candidates.first { FileManager.default.fileExists(atPath: $0) }
     }
 
     /// Clean expect output (remove expect control sequences and SSH warnings)
@@ -173,53 +180,53 @@ class SSHConnection {
     /// Execute command with sudo using password
     private func executeSudoWithPassword(_ command: String) async -> String? {
         return await withCheckedContinuation { continuation in
-            let escapedPassword = password.replacingOccurrences(of: "\"", with: "\\\"")
-            let escapedCommand = command.replacingOccurrences(of: "\"", with: "\\\"")
-
-            let expectScript = """
-            set timeout 30
-            spawn ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p \(port) \(username)@\(host) "sudo -S \(escapedCommand)"
-            expect {
-                "password:" {
-                    send "\(escapedPassword)\\r"
-                    expect {
-                        "password for" {
-                            send "\(escapedPassword)\\r"
-                            expect eof
-                        }
-                        eof
-                    }
-                }
-                "Password:" {
-                    send "\(escapedPassword)\\r"
-                    expect {
-                        "password for" {
-                            send "\(escapedPassword)\\r"
-                            expect eof
-                        }
-                        eof
-                    }
-                }
-                "(yes/no" {
-                    send "yes\\r"
-                    expect "password:" { send "\(escapedPassword)\\r" }
-                    expect "password for" { send "\(escapedPassword)\\r" }
-                    expect eof
-                }
-                eof
+            guard self.isValidHostOrUser(self.host),
+                  self.isValidHostOrUser(self.username) else {
+                print("[SSHConnection] Invalid host or username")
+                continuation.resume(returning: nil)
+                return
             }
-            """
 
+            guard let sshpass = self.sshpassPath() else {
+                print("[SSHConnection] sshpass not found; cannot authenticate with password")
+                continuation.resume(returning: nil)
+                return
+            }
+
+            // sshpass -e authenticates the ssh session via the SSHPASS environment
+            // variable. The remote `sudo -S` reads its password from stdin, which we
+            // feed below over ssh — never on argv and never in a Tcl/shell string.
             let task = Process()
-            task.executableURL = URL(fileURLWithPath: "/usr/bin/expect")
-            task.arguments = ["-c", expectScript]
+            task.executableURL = URL(fileURLWithPath: sshpass)
+            task.arguments = [
+                "-e",
+                "ssh",
+                "-o", "StrictHostKeyChecking=no",
+                "-o", "UserKnownHostsFile=/dev/null",
+                "-o", "ConnectTimeout=10",
+                "-p", "\(self.port)",
+                "\(self.username)@\(self.host)",
+                "sudo -S -p '' \(command)"
+            ]
 
+            var environment = ProcessInfo.processInfo.environment
+            environment["SSHPASS"] = self.password
+            task.environment = environment
+
+            let inputPipe = Pipe()
             let outputPipe = Pipe()
+            task.standardInput = inputPipe
             task.standardOutput = outputPipe
             task.standardError = outputPipe
 
             do {
                 try task.run()
+
+                // Deliver the sudo password over ssh's stdin.
+                if let data = (self.password + "\n").data(using: .utf8) {
+                    inputPipe.fileHandleForWriting.write(data)
+                }
+                try? inputPipe.fileHandleForWriting.close()
 
                 DispatchQueue.global().asyncAfter(deadline: .now() + 30) {
                     if task.isRunning {
