@@ -182,7 +182,7 @@ class SuspiciousUserDetector {
 
     /// Check for users with sudo access
     private func checkSudoAccess() async -> [SuspiciousUserFinding] {
-        var findings: [SuspiciousUserFinding] = []
+        let findings: [SuspiciousUserFinding] = []
 
         // Check /etc/sudoers.d/ for individual user sudo configs
         if let sudoersFiles = await ssh.executeSudo("ls /etc/sudoers.d/ 2>/dev/null") {

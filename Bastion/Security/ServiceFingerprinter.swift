@@ -38,15 +38,14 @@ class ServiceFingerprinter: ObservableObject {
             let portEndpoint = NWEndpoint.Port(integerLiteral: UInt16(port))
             let connection = NWConnection(host: host, port: portEndpoint, using: .tcp)
 
-            var completed = false
+            let completed = AtomicFlag()
 
             connection.stateUpdateHandler = { state in
                 switch state {
                 case .ready:
                     // Send probe and wait for response
                     connection.receive(minimumIncompleteLength: 1, maximumLength: 4096) { data, _, _, error in
-                        guard !completed else { return }
-                        completed = true
+                        guard completed.takeFirst() else { return }
                         connection.cancel()
 
                         if let data = data, let banner = String(data: data, encoding: .utf8) {
@@ -63,8 +62,7 @@ class ServiceFingerprinter: ObservableObject {
                     }
 
                 case .failed, .cancelled:
-                    if !completed {
-                        completed = true
+                    if completed.takeFirst() {
                         continuation.resume(returning: nil)
                     }
                 default:
@@ -77,8 +75,7 @@ class ServiceFingerprinter: ObservableObject {
             // Timeout after 3 seconds
             Task {
                 try? await Task.sleep(nanoseconds: 3_000_000_000)
-                if !completed {
-                    completed = true
+                if completed.takeFirst() {
                     connection.cancel()
                     continuation.resume(returning: nil)
                 }

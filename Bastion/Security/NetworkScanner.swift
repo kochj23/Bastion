@@ -207,19 +207,19 @@ class NetworkScanner: ObservableObject {
             let port = NWEndpoint.Port(integerLiteral: UInt16(port))
             let connection = NWConnection(host: host, port: port, using: .tcp)
 
-            var completed = false
+            let completed = AtomicFlag()
 
             connection.stateUpdateHandler = { state in
-                guard !completed else { return }
-
                 switch state {
                 case .ready:
-                    completed = true
-                    connection.cancel()
-                    continuation.resume(returning: true)
+                    if completed.takeFirst() {
+                        connection.cancel()
+                        continuation.resume(returning: true)
+                    }
                 case .failed, .cancelled:
-                    completed = true
-                    continuation.resume(returning: false)
+                    if completed.takeFirst() {
+                        continuation.resume(returning: false)
+                    }
                 default:
                     break
                 }
@@ -230,8 +230,7 @@ class NetworkScanner: ObservableObject {
             // Timeout after 2 seconds
             Task {
                 try? await Task.sleep(nanoseconds: 2_000_000_000)
-                if !completed {
-                    completed = true
+                if completed.takeFirst() {
                     connection.cancel()
                     continuation.resume(returning: false)
                 }

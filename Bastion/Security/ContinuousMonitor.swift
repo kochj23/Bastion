@@ -332,7 +332,7 @@ class ContinuousMonitor: ObservableObject {
 // MARK: - Data Models
 
 struct NetworkSnapshot: Codable, Identifiable {
-    let id = UUID()
+    var id = UUID()
     let scanDate: Date
     let networkCIDR: String
     let devices: [Device]

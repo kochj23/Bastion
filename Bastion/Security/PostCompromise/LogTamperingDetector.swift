@@ -91,7 +91,7 @@ class LogTamperingDetector {
     /// Check if log file was recently cleared
     private func checkIfCleared(_ logFile: String) async -> Bool? {
         // Get system uptime
-        guard let uptimeOutput = await ssh.execute("uptime -s 2>/dev/null || cat /proc/uptime 2>/dev/null") else {
+        guard await ssh.execute("uptime -s 2>/dev/null || cat /proc/uptime 2>/dev/null") != nil else {
             return nil
         }
 
@@ -121,10 +121,10 @@ class LogTamperingDetector {
     /// Check for gaps in log timestamps
     private func checkForGaps(_ logFile: String) async -> String? {
         // Get first and last 10 lines with timestamps
-        guard let headLines = await ssh.execute("head -10 \(logFile) 2>/dev/null") else {
+        guard await ssh.execute("head -10 \(logFile) 2>/dev/null") != nil else {
             return nil
         }
-        guard let tailLines = await ssh.execute("tail -10 \(logFile) 2>/dev/null") else {
+        guard await ssh.execute("tail -10 \(logFile) 2>/dev/null") != nil else {
             return nil
         }
 

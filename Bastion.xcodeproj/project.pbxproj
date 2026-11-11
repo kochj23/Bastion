@@ -11,6 +11,7 @@
 		06896A127B8048ADA4A93D56 /* CVE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D24F18E26E42348C1C1E09 /* CVE.swift */; };
 		0922305856604805995B43AE /* RemediationScriptGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF814C4342946E6BB135A1A /* RemediationScriptGenerator.swift */; };
 		0A01007AFAA4486AAF1BF45E /* TimelineReconstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD8E73849B84C6FB6B61E56 /* TimelineReconstructor.swift */; };
+		1051A6261530F6199E928767 /* AtomicFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2E046416287CBE34A8EDD8 /* AtomicFlag.swift */; };
 		10A7160E746445BCA2AD2ACC /* VulnerabilityChainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79CD99DA674A76A7BA9C7C /* VulnerabilityChainer.swift */; };
 		10BCF210E337F1693478897C /* KernelModuleAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE771431044507E3FB7BFD9 /* KernelModuleAnalyzer.swift */; };
 		12ACD81E85774F6097AA50AF /* AIInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C579A1FDEC454DA6B12BB4B4 /* AIInsightsView.swift */; };
@@ -50,6 +51,7 @@
 		BA510AD00000000000B0000C /* FindingExplainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA510AD00000000000F0000C /* FindingExplainerTests.swift */; };
 		BAF67EE7CFA84EAEBB55C8B5 /* DNSModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B2A0D006BC4F9281EBA302 /* DNSModule.swift */; };
 		C256426EF01D028909125D0D /* BinaryIntegrityChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */; };
+		C61946C3025A8624515D282D /* AIKitRestoredCoverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479AA6FDBD8044CA288E2546 /* AIKitRestoredCoverageTests.swift */; };
 		CBD2AA1FD0324ADF9214842E /* LDAPModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B211A969A045B5B4814199 /* LDAPModule.swift */; };
 		CC73A3C6B7B6397336931195 /* BinaryHashDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4FE9A31E114FFA410CD1F2 /* BinaryHashDatabase.swift */; };
 		D025FB6FA5C14CEDB24EF0DE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9B725C71AD40B5B4860268 /* SettingsView.swift */; };
@@ -120,6 +122,7 @@
 		36FA5EC0DE4DEDCF8A4C2B5B /* AppAI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppAI.swift; path = AI/AppAI.swift; sourceTree = "<group>"; };
 		378BF9D3DCAE424184CE80D6 /* LateralMovementMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/LateralMovementMapper.swift; sourceTree = "<group>"; };
 		3DA481E527B747ABAE6D0E6A /* AIExploitGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI/AIExploitGenerator.swift; sourceTree = "<group>"; };
+		479AA6FDBD8044CA288E2546 /* AIKitRestoredCoverageTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIKitRestoredCoverageTests.swift; sourceTree = "<group>"; };
 		5D8C26F007C044729F8289FD /* AttackResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models/AttackResult.swift; sourceTree = "<group>"; };
 		5F05A5E936A3477BB99A1DF7 /* WebModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security/ExploitModules/WebModule.swift; sourceTree = "<group>"; };
 		62432CD1B9D14F20A18CFA04 /* Bastion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bastion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +131,7 @@
 		6AD8E73849B84C6FB6B61E56 /* TimelineReconstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/TimelineReconstructor.swift; sourceTree = "<group>"; };
 		6B1927C3991BBDCD8D4A50E8 /* DeviceDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceDetailView.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
 		6C9B725C71AD40B5B4860268 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/SettingsView.swift; sourceTree = "<group>"; };
+		6D2E046416287CBE34A8EDD8 /* AtomicFlag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AtomicFlag.swift; path = AtomicFlag.swift; sourceTree = "<group>"; };
 		719B663E910B45DCBE8151FF /* VulnerabilitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views/VulnerabilitiesView.swift; sourceTree = "<group>"; };
 		73CC8188FCC14202AC852250 /* ContinuousMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bastion/Security/ContinuousMonitor.swift; sourceTree = "<group>"; };
 		7D65793F15F2BE882B092DAD /* BinaryIntegrityChecker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinaryIntegrityChecker.swift; path = BinaryIntegrityChecker.swift; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 			children = (
 				983C0E7466AE086F8BBC69DE /* SSHConnection.swift */,
 				WIDGET002002002002002 /* WidgetDataSync.swift */,
+				6D2E046416287CBE34A8EDD8 /* AtomicFlag.swift */,
 			);
 			name = Utilities;
 			path = Utilities;
@@ -369,6 +374,7 @@
 				F2DB0D86521D2C048D65EB27 /* DefensiveLogicTests.swift */,
 				BA510AD00000000000F0000C /* FindingExplainerTests.swift */,
 				CFF3C188CA2ED525D1F3A356 /* AIKitAdoptionTests.swift */,
+				479AA6FDBD8044CA288E2546 /* AIKitRestoredCoverageTests.swift */,
 			);
 			path = BastionTests;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				BA510AD00000000000B00007 /* FindingExplainer.swift in Sources */,
 				BA510AD00000000000B00008 /* ExplainFindingView.swift in Sources */,
 				D75135FEE0D51021B1B81E67 /* AppAI.swift in Sources */,
+				1051A6261530F6199E928767 /* AtomicFlag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +598,7 @@
 				7C58C564DE3F768E33CCE408 /* DefensiveLogicTests.swift in Sources */,
 				BA510AD00000000000B0000C /* FindingExplainerTests.swift in Sources */,
 				4B987C29E08AAE62F7A3F8C8 /* AIKitAdoptionTests.swift in Sources */,
+				C61946C3025A8624515D282D /* AIKitRestoredCoverageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,23 +631,25 @@
 		F07FC1F751C74AF18A41C307 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Bastion/Bastion.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -650,22 +660,24 @@
 		F6FDBF633FDF4C1AA88DC3A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Bastion/Bastion.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Jordan Koch";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -676,13 +688,14 @@
 		TEST_DBGCFG_000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -695,14 +708,15 @@
 		TEST_RELCFG_000001 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -715,12 +729,13 @@
 		WIDGET126126126126126 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Bastion Widget/Bastion_Widget.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bastion Widget/Info.plist";
@@ -732,7 +747,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -744,12 +759,13 @@
 		WIDGET127127127127127 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = "Bastion Widget/Bastion_Widget.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = QRRCB8HB3W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Bastion Widget/Info.plist";
@@ -761,7 +777,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kochj.bastion.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -58,7 +58,7 @@ struct AttackLogView: View {
                             .id("bottom")
                     }
                     .padding()
-                    .onChange(of: logEntries.count) { _ in
+                    .onChange(of: logEntries.count) {
                         if autoScroll {
                             withAnimation {
                                 proxy.scrollTo("bottom")

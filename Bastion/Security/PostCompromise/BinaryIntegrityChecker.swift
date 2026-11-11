@@ -124,7 +124,7 @@ class BinaryIntegrityChecker {
             if let size = Int(statOutput.trimmingCharacters(in: .whitespacesAndNewlines)) {
                 // Very small binaries (< 1KB) are suspicious for system utilities
                 if size < 1024 {
-                    var finding = BinaryIntegrityFinding(
+                    let finding = BinaryIntegrityFinding(
                         binaryPath: binary,
                         issue: .trojanized
                     )
@@ -138,11 +138,11 @@ class BinaryIntegrityChecker {
 
     /// Check for suspicious strings in binary
     private func checkSuspiciousStrings(_ binary: String) async -> BinaryIntegrityFinding? {
-        let suspiciousKeywords = ["backdoor", "rootkit", "hide", "sniff", "keylog", "password_capture"]
+        _ = ["backdoor", "rootkit", "hide", "sniff", "keylog", "password_capture"]
 
         if let stringsOutput = await ssh.execute("strings \(binary) 2>/dev/null | grep -iE '(backdoor|rootkit|hide|sniff|keylog)' | head -5") {
             if !stringsOutput.isEmpty {
-                var finding = BinaryIntegrityFinding(
+                let finding = BinaryIntegrityFinding(
                     binaryPath: binary,
                     issue: .trojanized
                 )
@@ -167,7 +167,7 @@ class BinaryIntegrityChecker {
                     // Check if there was a recent system update
                     let wasRecentUpdate = await checkRecentSystemUpdate()
                     if !wasRecentUpdate {
-                        var finding = BinaryIntegrityFinding(
+                        let finding = BinaryIntegrityFinding(
                             binaryPath: binary,
                             issue: .modifiedTimestamp
                         )
@@ -187,7 +187,7 @@ class BinaryIntegrityChecker {
 
             // Check for world-writable binaries (suspicious)
             if perms.hasSuffix("6") || perms.hasSuffix("7") {
-                var finding = BinaryIntegrityFinding(
+                let finding = BinaryIntegrityFinding(
                     binaryPath: binary,
                     issue: .suspiciousPermissions
                 )
@@ -200,7 +200,7 @@ class BinaryIntegrityChecker {
                 // SUID/SGID is normal for some binaries but suspicious for others
                 let normalSuidBinaries = ["/bin/su", "/usr/bin/sudo", "/usr/bin/passwd", "/bin/login"]
                 if !normalSuidBinaries.contains(binary) {
-                    var finding = BinaryIntegrityFinding(
+                    let finding = BinaryIntegrityFinding(
                         binaryPath: binary,
                         issue: .suspiciousPermissions
                     )

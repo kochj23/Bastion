@@ -1,7 +1,7 @@
 # Bastion
 
 ![Build](https://github.com/kochj23/Bastion/actions/workflows/build.yml/badge.svg)
-![Tests](https://img.shields.io/badge/tests-232%20passed-brightgreen)
+![Tests](https://img.shields.io/badge/tests-252%20passed-brightgreen)
 ![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -9,7 +9,7 @@
 
 **AI-powered network penetration testing for macOS.** Bastion combines pure-Swift network scanning with a single, consistent AI layer to discover devices, identify vulnerabilities, chain exploits, map lateral movement paths, and generate professional security reports — all from a native SwiftUI application on Apple Silicon.
 
-As of **v1.1.0**, all AI in Bastion runs through **[NovaAIKit](https://github.com/kochj23/NovaAIKit) 1.0.0** — the shared AI layer used across Jordan Koch's macOS apps. One settings panel, one status indicator, one Keychain convention, eight selectable backends, automatic failover, and a built-in fallback for every feature. **AI is always optional:** with it turned off, every feature still produces a deterministic, rule-based result and nothing leaves the Mac.
+As of **v1.1.1**, all AI in Bastion runs through **[NovaAIKit](https://github.com/kochj23/NovaAIKit) 1.0.0** — the shared AI layer used across Jordan Koch's macOS apps. One settings panel, one status indicator, one Keychain convention, eight selectable backends, automatic failover, and a built-in fallback for every feature. **AI is always optional:** with it turned off, every feature still produces a deterministic, rule-based result and nothing leaves the Mac.
 
 Written by Jordan Koch ([@kochj23](https://github.com/kochj23)).
 
@@ -242,15 +242,15 @@ brew install ollama && ollama serve && ollama pull mistral:latest
 
 ## Testing
 
-232 tests across 12 test classes, all passing. The NovaAIKit adoption contract is covered by **`AIKitAdoptionTests`** (15 tests) spanning all seven categories:
+252 tests across 13 test classes, all passing. The NovaAIKit adoption contract is covered by **`AIKitAdoptionTests`** (14 tests) and **`AIKitRestoredCoverageTests`** (20 tests, restoring the pre-migration backend/load-balancer/OpenRouter coverage against NovaAIKit) spanning all seven categories:
 
 | Category | What it checks |
 |---|---|
 | Security | Keychain service names `com.jkoch.bastion.*`, https-only keys, finding redaction |
 | Performance | Offline fallback returns without hanging |
 | Retry | Validator rejection falls back cleanly |
-| Unit | Backend roster (9 cases), `nonEmpty` validator |
-| Integration | Legacy `AIBackendManager_*` settings migrate; `AppAI.migrateLegacy` is safe |
+| Unit | Backend roster (9), display names, legacy-name mapping, error descriptions, Auto failover order, OpenRouter endpoints, `nonEmpty` validator |
+| Integration | Legacy `AIBackendManager_*` settings migrate; model listing parsed via a stub session; first reachable backend selected |
 | Functional | AI off → built-in result; Explain disabled when unreachable |
 | Frame / UI-state | Status is `.off` when disabled; status-indicator colour mapping |
 
@@ -276,7 +276,7 @@ xcodebuild test -project Bastion.xcodeproj -scheme Bastion \
 
 ## Changelog
 
-See [CHANGELOG.md](./CHANGELOG.md). Latest: **v1.1.0 — migrated all AI to NovaAIKit 1.0.0**; removed the in-app AI client stack and the Google/Azure/AWS/IBM backends; one settings panel, status indicator, and Keychain convention across the app.
+See [CHANGELOG.md](./CHANGELOG.md). Latest: **v1.1.1** — zero-warning Release build and restored test coverage (252 tests) on top of the v1.1.0 NovaAIKit 1.0.0 migration (one settings panel, status indicator, and Keychain convention across the app; Google/Azure/AWS/IBM backends removed).
 
 ---
 

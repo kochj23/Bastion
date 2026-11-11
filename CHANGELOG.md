@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-11-11
+
+### Fixed
+- **Zero-warning Release build.** Resolved all remaining compiler warnings across the
+  codebase (unused values, `var`→`let`, Swift 6 captured-var data races in the
+  `NWConnection` scan/fingerprint continuations via a new `AtomicFlag` latch, deprecated
+  `onChange(of:perform:)`, and an undecodable `let id` in a `Codable` model). No warnings
+  were suppressed — each was fixed at the source.
+
+### Added
+- Restored test coverage removed during the 1.1.0 migration: the former
+  `AIBackendTests`, `LoadBalancerTests`, and `OpenRouterFailoverTests` behaviors are
+  re-expressed against NovaAIKit/AppAI in `AIKitRestoredCoverageTests` (backend roster,
+  legacy display-name mapping, error descriptions, model-list parsing via a stub session,
+  Auto failover order, health-gated backend selection, OpenRouter keyed/https-only/
+  missing-key behavior, Keychain service names, and the app planning models). 252 tests
+  pass.
+
 ## [1.1.0] - 2026-11-11
 
 ### Changed

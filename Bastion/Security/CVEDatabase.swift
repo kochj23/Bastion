@@ -250,7 +250,7 @@ class CVEDatabase: ObservableObject {
         var request = URLRequest(url: url, timeoutInterval: 30)
         request.httpMethod = "GET"
 
-        let (data, _) = try await URLSession.shared.data(for: request)
+        _ = try await URLSession.shared.data(for: request)
 
         addLog("✅ Downloaded sample CVE data from CVE.org")
         addLog("Full database download requires NVD API 2.0 key")
@@ -462,7 +462,7 @@ enum CVEDatabaseError: LocalizedError {
         switch self {
         case .invalidURL:
             return "Invalid CVE database URL"
-        case .downloadFailed(let message):
+        case .downloadFailed:
             return "Failed to download CVE database"
         case .parseError:
             return "Failed to parse CVE data"

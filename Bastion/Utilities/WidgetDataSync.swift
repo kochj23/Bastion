@@ -93,7 +93,7 @@ final class WidgetDataSync {
     /// Updates the scanning status without changing other data
     /// - Parameter isScanning: Whether scanning is in progress
     func updateScanningStatus(_ isScanning: Bool) {
-        guard let defaults = sharedDefaults,
+        guard sharedDefaults != nil,
               var scanData = loadCurrentData() else {
             return
         }
