@@ -2,6 +2,7 @@
 
 ![Build](https://github.com/kochj23/Bastion/actions/workflows/build.yml/badge.svg)
 ![Tests](https://img.shields.io/badge/tests-252%20passed-brightgreen)
+![Version](https://img.shields.io/badge/version-1.3.0-blue)
 ![Platform](https://img.shields.io/badge/platform-macOS%2013.0%2B-blue)
 ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
@@ -9,7 +10,7 @@
 
 **AI-powered network penetration testing for macOS.** Bastion combines pure-Swift network scanning with a single, consistent AI layer to discover devices, identify vulnerabilities, chain exploits, map lateral movement paths, and generate professional security reports — all from a native SwiftUI application on Apple Silicon.
 
-As of **v1.1.1**, all AI in Bastion runs through **[NovaAIKit](https://github.com/kochj23/NovaAIKit) 1.0.0** — the shared AI layer used across Jordan Koch's macOS apps. One settings panel, one status indicator, one Keychain convention, eight selectable backends, automatic failover, and a built-in fallback for every feature. **AI is always optional:** with it turned off, every feature still produces a deterministic, rule-based result and nothing leaves the Mac.
+As of **v1.3.0**, all AI in Bastion runs through **[NovaAIKit](https://github.com/kochj23/NovaAIKit) 1.0.0** — the shared AI layer used across Jordan Koch's macOS apps. One settings panel, one status indicator, one Keychain convention, eight selectable backends, automatic failover, and a built-in fallback for every feature. **AI is always optional:** with it turned off, every feature still produces a deterministic, rule-based result and nothing leaves the Mac.
 
 Written by Jordan Koch ([@kochj23](https://github.com/kochj23)).
 
@@ -210,7 +211,7 @@ Unauthorized access to computer systems is illegal under the Computer Fraud and 
 
 Bastion is distributed as a DMG installer; it is not on the Mac App Store.
 
-1. Download the latest `.dmg` from [Releases](https://github.com/kochj23/Bastion/releases).
+1. Download the latest DMG (currently `Bastion-v1.3.0-build4.dmg`) from [Releases](https://github.com/kochj23/Bastion/releases).
 2. Open it and drag **Bastion** into **Applications**.
 3. Launch it from Applications.
 
@@ -276,7 +277,7 @@ xcodebuild test -project Bastion.xcodeproj -scheme Bastion \
 
 ## Changelog
 
-See [CHANGELOG.md](./CHANGELOG.md). Latest: **v1.1.1** — zero-warning Release build and restored test coverage (252 tests) on top of the v1.1.0 NovaAIKit 1.0.0 migration (one settings panel, status indicator, and Keychain convention across the app; Google/Azure/AWS/IBM backends removed).
+See [CHANGELOG.md](./CHANGELOG.md). Latest: **v1.3.0** — zero-warning Release build and restored test coverage (252 tests) on top of the v1.1.0 NovaAIKit 1.0.0 migration (one settings panel, status indicator, and Keychain convention across the app; Google/Azure/AWS/IBM backends removed).
 
 ---
 
