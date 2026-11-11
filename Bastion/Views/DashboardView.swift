@@ -8,6 +8,7 @@
 //
 
 import SwiftUI
+import NovaAIKit
 
 struct DashboardView: View {
     @EnvironmentObject var networkScanner: NetworkScanner
@@ -322,7 +323,7 @@ struct DashboardView: View {
                 if let service = await fingerprinter.fingerprint(ip: device.ipAddress, port: port.port) {
                     // Check CVEs for this service
                     if let version = service.version {
-                        let cves = cveDatabase.findCVEs(service: service.name, version: version)
+                        _ = cveDatabase.findCVEs(service: service.name, version: version)
                         // Would add CVEs to device here
                     }
                 }
@@ -474,7 +475,7 @@ struct DashboardView: View {
     }
 
     private func generateAISummary() async -> String {
-        guard aiOrchestrator != nil else {
+        guard AppAI.shared.isEnabled else {
             return "Network scan completed. \(networkScanner.discoveredDevices.count) devices discovered."
         }
 
@@ -493,7 +494,7 @@ struct DashboardView: View {
         """
 
         do {
-            return try await AIBackendManager.shared.generate(
+            return try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are a CISO writing an executive summary.",
                 temperature: 0.5,

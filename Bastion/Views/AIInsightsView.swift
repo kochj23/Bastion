@@ -9,6 +9,7 @@
 //
 
 import SwiftUI
+import NovaAIKit
 
 struct AIInsightsView: View {
     @EnvironmentObject var aiOrchestrator: AIAttackOrchestrator
@@ -28,16 +29,7 @@ struct AIInsightsView: View {
 
                     Spacer()
 
-                    if let backend = AIBackendManager.shared.activeBackend {
-                        HStack {
-                            Circle()
-                                .fill(Color.green)
-                                .frame(width: 8, height: 8)
-                            Text("AI: \(backend.rawValue)")
-                                .font(.caption)
-                                .foregroundColor(.green)
-                        }
-                    }
+                    NovaAIStatusIndicator(ai: AppAI.shared)
                 }
 
                 // Attack Plan Summary
@@ -219,7 +211,7 @@ struct AIInsightsView: View {
     }
 
     private func askAI() {
-        guard AIBackendManager.shared.activeBackend != nil else {
+        guard AppAI.shared.isEnabled else {
             answer = "❌ AI backend not available. Please configure Ollama, MLX, or TinyLLM in Settings."
             return
         }
@@ -230,7 +222,7 @@ struct AIInsightsView: View {
 
         Task {
             do {
-                let response = try await AIBackendManager.shared.generate(
+                let response = try await AppAI.shared.generate(
                     prompt: currentQuestion,
                     systemPrompt: "You are a cybersecurity expert helping analyze network security. Provide clear, actionable advice.",
                     temperature: 0.7,

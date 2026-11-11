@@ -15,8 +15,6 @@ class RemediationScriptGenerator: ObservableObject {
     @Published var generatedScripts: [RemediationScript] = []
     @Published var isGenerating = false
 
-    private let aiBackend = AIBackendManager.shared
-
     // MARK: - Script Generation
 
     /// Generate remediation script for a device
@@ -55,7 +53,7 @@ class RemediationScriptGenerator: ObservableObject {
         scriptContent += generateCVEPatches(device: device)
 
         // AI-enhanced recommendations
-        if aiBackend.activeBackend != nil {
+        if AppAI.shared.isEnabled {
             scriptContent += await generateAIRecommendations(device: device)
         }
 
@@ -498,7 +496,7 @@ class RemediationScriptGenerator: ObservableObject {
         """
 
         do {
-            let recommendations = try await aiBackend.generate(
+            let recommendations = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are a Linux security expert. Generate practical bash commands for system hardening.",
                 temperature: 0.4,

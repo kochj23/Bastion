@@ -126,11 +126,15 @@ final class FindingExplainerModel: ObservableObject {
     /// Injectable for testing so the graceful paths are deterministic.
     private let runGenerate: (_ prompt: String, _ systemPrompt: String) async throws -> String
 
-    /// Production initializer — wires to the shared load balancer.
-    init(balancer: LLMLoadBalancer = .shared) {
-        self.backendAvailable = { await balancer.anyBackendAvailable() }
+    /// Production initializer — wires to the app's NovaAIKit object.
+    init() {
+        self.backendAvailable = {
+            guard AppAI.shared.isEnabled else { return false }
+            await AppAI.shared.refreshStatus()
+            return AppAI.shared.status.isReachable
+        }
         self.runGenerate = { prompt, system in
-            try await balancer.generate(prompt: prompt, systemPrompt: system, temperature: 0.3, maxTokens: 700)
+            try await AppAI.shared.generate(prompt: prompt, systemPrompt: system, temperature: 0.3, maxTokens: 700)
         }
     }
 

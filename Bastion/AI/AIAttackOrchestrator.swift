@@ -21,14 +21,12 @@ class AIAttackOrchestrator: ObservableObject {
     @Published var confidenceScores: [String: Double] = [:] // IP -> success probability
     @Published var attackRecommendations: [AttackRecommendation] = []
 
-    private let aiBackend = AIBackendManager.shared
-
     // MARK: - THE KILLER FEATURE: AI Attack Strategy
 
     /// Analyze entire network and create intelligent attack plan
     /// This is what makes Bastion enterprise-grade
     func orchestrateAttacks(devices: [Device], cveDatabase: CVEDatabase) async -> AttackPlan {
-        guard aiBackend.activeBackend != nil else {
+        guard AppAI.shared.isEnabled else {
             return generateBasicAttackPlan(devices: devices)
         }
 
@@ -79,7 +77,7 @@ class AIAttackOrchestrator: ObservableObject {
         """
 
         do {
-            let response = try await aiBackend.generate(
+            let response = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are an expert penetration tester and exploit developer. Be aggressive and thorough in finding vulnerabilities.",
                 temperature: 0.6,
@@ -105,7 +103,7 @@ class AIAttackOrchestrator: ObservableObject {
 
     /// AI selects best exploits for a specific device
     func selectExploits(for device: Device, cves: [CVE]) async -> [AttackRecommendation] {
-        guard aiBackend.activeBackend != nil else {
+        guard AppAI.shared.isEnabled else {
             return generateBasicRecommendations(device: device, cves: cves)
         }
 
@@ -152,7 +150,7 @@ class AIAttackOrchestrator: ObservableObject {
         """
 
         do {
-            let response = try await aiBackend.generate(
+            let response = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are a professional penetration tester selecting optimal exploits.",
                 temperature: 0.4,
@@ -176,7 +174,7 @@ class AIAttackOrchestrator: ObservableObject {
 
     /// Generate custom exploit payload for specific vulnerability
     func generatePayload(for vuln: Vulnerability, target: Device) async -> String? {
-        guard aiBackend.activeBackend != nil else { return nil }
+        guard AppAI.shared.isEnabled else { return nil }
 
         let prompt = """
         Generate a proof-of-concept exploit payload for this vulnerability.
@@ -196,7 +194,7 @@ class AIAttackOrchestrator: ObservableObject {
         """
 
         do {
-            let payload = try await aiBackend.generate(
+            let payload = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are a security researcher creating proof-of-concept exploits. Code must work but be safe.",
                 temperature: 0.3,
@@ -212,7 +210,7 @@ class AIAttackOrchestrator: ObservableObject {
 
     /// After successful compromise, AI suggests next steps
     func analyzePostExploitation(compromisedDevice: Device, accessLevel: String) async -> PostExploitationPlan {
-        guard aiBackend.activeBackend != nil else {
+        guard AppAI.shared.isEnabled else {
             return PostExploitationPlan(
                 recommendations: ["Manually investigate further"],
                 lateralMovementTargets: [],
@@ -245,7 +243,7 @@ class AIAttackOrchestrator: ObservableObject {
         """
 
         do {
-            let response = try await aiBackend.generate(
+            let response = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are an advanced penetration tester planning post-exploitation. Be thorough and aggressive.",
                 temperature: 0.5,
@@ -450,7 +448,7 @@ class AIAttackOrchestrator: ObservableObject {
     /// Analyze post-compromise assessment report with AI
     /// Generates natural language insights about detected compromises
     func analyzeCompromiseReport(_ report: CompromiseReport) async -> String {
-        guard aiBackend.activeBackend != nil else {
+        guard AppAI.shared.isEnabled else {
             return generateBasicCompromiseAnalysis(report)
         }
 
@@ -506,7 +504,7 @@ class AIAttackOrchestrator: ObservableObject {
         """
 
         do {
-            let analysis = try await aiBackend.generate(prompt: prompt, systemPrompt: nil, temperature: 0.7)
+            let analysis = try await AppAI.shared.generate(prompt: prompt, systemPrompt: nil, temperature: 0.7)
             return analysis
         } catch {
             print("❌ AI analysis failed: \(error)")

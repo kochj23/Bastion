@@ -19,7 +19,6 @@ class AnomalyDetector: ObservableObject {
     @Published var modelTrained = false
 
     private var behaviorProfiles: [String: DeviceBehaviorProfile] = [:]
-    private let aiBackend = AIBackendManager.shared
 
     // MARK: - Behavior Learning
 
@@ -137,7 +136,7 @@ class AnomalyDetector: ObservableObject {
         }
 
         // AI-enhanced anomaly analysis
-        if aiBackend.activeBackend != nil && !detectedAnomalies.isEmpty {
+        if AppAI.shared.isEnabled && !detectedAnomalies.isEmpty {
             detectedAnomalies = await enhanceWithAI(anomalies: detectedAnomalies)
         }
 
@@ -168,7 +167,7 @@ class AnomalyDetector: ObservableObject {
         """
 
         do {
-            let analysis = try await aiBackend.generate(
+            _ = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are a security analyst assessing network anomalies. Distinguish between benign changes and security incidents.",
                 temperature: 0.5,

@@ -9,6 +9,7 @@
 //
 
 import XCTest
+import NovaAIKit
 @testable import Bastion
 
 final class FindingExplainerTests: XCTestCase {
@@ -135,7 +136,7 @@ final class FindingExplainerTests: XCTestCase {
     func testRunnerThrownErrorIsSurfacedNotCrashed() async {
         let model = FindingExplainerModel(
             backendAvailable: { true },
-            runGenerate: { _, _ in throw LLMError.noBackendAvailable }
+            runGenerate: { _, _ in throw NovaAIError.noBackendAvailable }
         )
         await model.explain(sampleFinding())
         guard case .failed = model.state else {

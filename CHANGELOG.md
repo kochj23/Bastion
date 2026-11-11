@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-11-11
+
+### Changed
+- **AI: migrated to NovaAIKit 1.0.0.** All AI now runs through the shared `NovaAIKit`
+  package via a single `AppAI.shared` object (appID `bastion`). One settings panel
+  (`NovaAISettingsView`), one status indicator (`NovaAIStatusIndicator`), eight selectable
+  backends (Ollama, MLX, TinyLLM, TinyChat, OpenWebUI, Nova Gateway, OpenRouter, OpenAI)
+  plus Auto failover, per-backend model pickers, editable/validated URLs, retries, and
+  output validation. Every AI feature keeps a built-in, rule-based fallback for when AI is
+  off or no backend is reachable.
+
+### Removed
+- The in-app AI client stack: `AIBackendManager` (+extensions), `LLMLoadBalancer`,
+  `ModelRegistry`, `OpenRouterProvider`, `KeychainStore`, `LLMSupport`/`LLMBackendType`,
+  `EthicalAIGuardian`, `AIBackendStatusMenu`, and the `UnifiedAICapabilities` modules.
+- The Google Cloud, Azure, AWS Bedrock, and IBM Watson backends (not part of NovaAIKit).
+
+### Security
+- API keys now live only in the macOS Keychain under `com.jkoch.bastion.<backend>`,
+  https only, and are never surfaced as plaintext. Obsolete Google/Azure/AWS/IBM secrets
+  from previous builds are scrubbed from the Keychain on first launch, and legacy
+  `AIBackendManager_*` UserDefaults settings are migrated once.
+
 ## [Unreleased]
 
 ### Added

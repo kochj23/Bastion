@@ -9,6 +9,7 @@
 //
 
 import SwiftUI
+import NovaAIKit
 
 struct DeviceDetailView: View {
     let device: Device
@@ -856,7 +857,7 @@ struct DeviceDetailView: View {
     // MARK: - AI Attack Functions
 
     private func runAIAttack() {
-        guard AIBackendManager.shared.activeBackend != nil else {
+        guard AppAI.shared.isEnabled else {
             aiAttackResult = "❌ AI backend not available. Configure Ollama, MLX, or TinyLLM in Settings."
             return
         }
@@ -1098,7 +1099,7 @@ struct DeviceDetailView: View {
             result += "⚠️ Rate-limited brute force (5 attempts)\n\n"
 
             let passwords = ["password", "admin", "123456", "root", "raspberry"]
-            let sshModule = SSHModule()
+            _ = SSHModule()
 
             for (index, pwd) in passwords.enumerated() {
                 result += "[\(index + 1)/5] Testing '\(pwd)'...\n"

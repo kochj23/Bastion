@@ -8,6 +8,7 @@
 //
 
 import SwiftUI
+import NovaAIKit
 
 @main
 struct BastionApp: App {
@@ -83,8 +84,7 @@ struct BastionApp: App {
 
                 Divider()
 
-                Text("Backend: \(AIBackendManager.shared.activeBackend?.rawValue ?? "None")")
-                    .disabled(true)
+                NovaAIStatusIndicator(ai: AppAI.shared)
             }
 
             CommandMenu("Windows") {

@@ -8,6 +8,7 @@
 //
 
 import SwiftUI
+import NovaAIKit
 
 struct SettingsView: View {
     @EnvironmentObject var networkScanner: NetworkScanner
@@ -20,9 +21,9 @@ struct SettingsView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            AIBackendSettingsView()
+            NovaAISettingsView(ai: AppAI.shared, footer: "When AI is off, Bastion uses its built-in rule-based scanning, scoring, and remediation. No data leaves this Mac.")
                 .tabItem {
-                    Label("AI Backends", systemImage: "brain")
+                    Label("AI", systemImage: "brain")
                 }
                 .tag(0)
 
@@ -38,11 +39,6 @@ struct SettingsView: View {
                 }
                 .tag(2)
 
-            LLMBalancerSettingsView()
-                .tabItem {
-                    Label("AI Load Balancer", systemImage: "square.stack.3d.up")
-                }
-                .tag(3)
         }
         .frame(width: 800, height: 900)
     }

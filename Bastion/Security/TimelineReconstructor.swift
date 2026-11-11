@@ -16,8 +16,6 @@ class TimelineReconstructor: ObservableObject {
     @Published var attackNarrative: String = ""
     @Published var isAnalyzing = false
 
-    private let aiBackend = AIBackendManager.shared
-
     // MARK: - Timeline Reconstruction
 
     /// Reconstruct attack timeline from compromise report
@@ -223,7 +221,7 @@ class TimelineReconstructor: ObservableObject {
     // MARK: - Narrative Generation
 
     private func generateNarrative(events: [TimelineEvent], report: CompromiseReport) async -> String {
-        guard aiBackend.activeBackend != nil else {
+        guard AppAI.shared.isEnabled else {
             return generateBasicNarrative(events: events, report: report)
         }
 
@@ -248,7 +246,7 @@ class TimelineReconstructor: ObservableObject {
         """
 
         do {
-            let narrative = try await aiBackend.generate(
+            let narrative = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are a forensic analyst reconstructing a cybersecurity incident. Write clear, executive-level briefings.",
                 temperature: 0.6,

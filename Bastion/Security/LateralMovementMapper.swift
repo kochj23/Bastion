@@ -16,8 +16,6 @@ class LateralMovementMapper: ObservableObject {
     @Published var trustRelationships: [TrustRelationship] = []
     @Published var isAnalyzing = false
 
-    private let aiBackend = AIBackendManager.shared
-
     // MARK: - Lateral Movement Analysis
 
     /// Analyze entire network for lateral movement opportunities
@@ -39,7 +37,7 @@ class LateralMovementMapper: ObservableObject {
         paths.append(contentsOf: buildMovementPaths(devices: devices, trusts: trusts))
 
         // AI-enhanced path analysis
-        if aiBackend.activeBackend != nil {
+        if AppAI.shared.isEnabled {
             paths = await enhancePathsWithAI(paths: paths, devices: devices)
         }
 
@@ -215,7 +213,7 @@ class LateralMovementMapper: ObservableObject {
         """
 
         do {
-            let aiAnalysis = try await aiBackend.generate(
+            _ = try await AppAI.shared.generate(
                 prompt: prompt,
                 systemPrompt: "You are an expert in lateral movement and network penetration. Provide detailed exploitation techniques.",
                 temperature: 0.6,
